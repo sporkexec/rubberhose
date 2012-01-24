@@ -1,0 +1,136 @@
+
+Here's a copy of some correspondence in relation to my implementation
+of a `rubber hose proof' (cryptographically deniable) file system
+(actually implimented as a block device on which you can mount any
+file system). I'm happy with the cryptographic strength of the system
+(but feel free to comment anyway). That said, I'm not convinced that
+my avoidance of media (i.e disk surface) analysis attacks (which could
+potentially show the pre-sense or otherwise of cryptographic file
+systems other than the "duress" ones) is entirely effective. I'd like
+some comment from gauss-ridden declassification guru's here :)
+
+[...]
+
+Here's how I'm implementing `aspects' in Rubberhose/marutukku;
+`aspect' is the term I'm using to refer to the
+cryptographically-deniable (i.e rubber-hose-proofed) "portion", of a
+maru extent i.e it's a different _aspect_ (view) of the same
+underlying physical block extent.
+
+I decided that random split lengths don't add to the security of the
+scheme - only 2x from my calculations - which isn't enough to warrant
+the increase in memory use and complexity involved.  The extent is
+simply divided up into n splits (say 1024 or one every 256k, whichever
+is smaller). Each aspect has an encrypted 32bit block remap list
+(which is simply a linear array because of the fixed split size).  A
+split avoidance bit-map is created from these per-aspect remap lists
+on instantiation of the aspects. An individual aspect looks like so
+(when saved):
+
+typedef struct
+{
+    m_u32 keySum; /* key checksum */
+    u_char masterKey[MAX_KEY];
+    u_char latticeCipherType, blockCipherType;
+    u_char pad[MAX_BLOCK - (4 + MAX_KEY + 1 + 1) % MAX_BLOCK]; /* block align */
+} maruCycle;
+
+typedef struct
+{
+    maruCycle cycle;
+    u_char keySalt[MAX_PASSPHRASE];
+    maruLatticeKey latticeKeySalt[2];
+    u_char blockIV[MAX_FS_BLOCK_SIZE];
+    u_char latticeSalt[2*MAX_LATTICE_DEPTH*MAX_BLOCK_KEY]; /* must be 64 aligned */
+    m_u32 remap[MAX_SPLITS];
+    m_u32 iterations;
+    maruCipher keyCipherType;
+} maruHeaderAspect;    
+
+There are an array of (8 by default) of these constructs in a maruHeader.
+
+The smap accessor macros are simple:
+
+#define	SMAP_SET(p, n) (((p))[(n)/(sizeof(maruSmap)*8)] |= (1 << ((n) % (sizeof(maruSmap)*8))))
+#define	SMAP_CLR(p, n) (((p))[(n)/(sizeof(maruSmap)*8)] &= ~ (1 << ((n) % (sizeof(maruSmap)*8))))
+#define	SMAP_ISSET(p, n) (((p))[(n)/(sizeof(maruSmap)*8)] & (1 << ((n) % (sizeof(maruSmap)*8))))
+
+By default, each unused maruHeaderAspect struct contains random noise
+(except for keyCipherType, which defaults to being the same for all
+aspects) and is of course indistinguishable from a valid maruAspect
+without the associated key.
+
+Instantiation example:
+
+Say you have three valid aspects, a1, a2 and a3. Arbitrarily, you have
+chosen a1 to be the simple duress aspect (i.e ``you expect us to
+believe you have solitary letter of donation to the Polit Bureau Ball
+in your entire encrypted file system?! Do you know what this is Nikov?
+<opens trench coat>. THIS is the finest cryptanalytic device known to
+man. THIS is a RUBBERHOSE! *thwap* *thwunk* *boink*. Now... what's the
+*real* key Nikov... or should we call you... Nikolay Bukharin?''), a2 to
+be the limited disclosure aspect ("Dear diary. Nikita, Ivan, Boris and
+<some more guys I feel like selling down the Lenningrad sewage system>
+came over today and smoked a *shit load* of hash. Not wanting to
+offend, I had a toke, but like that capitalist dog
+^H^H^H^H^H^H^H^H^H^H^H^H^H illustious leader of the freeworld, was
+careful not to inhale.") and a3 has your ice-9 formula nicely tucked
+away.
+
+You decide one fine morning that you want to add an ATP pre-cursor as
+a catalyst to your ice-9 recipe of destruction (ostensibly, you plan
+to generate this stuff from cultures of genetically modified mouse
+liver cell mitochondria), and provide the a1, a2 and a3 pass-phrases.
+
+a1, a2 and a3 are decrypted. the aspect remap is parsed and used to
+create the physical block "avoidance" map (checking for conflicts
+along the way).
+
+Joyous about the frozen seas to come, you copy the ATP pre-cursor
+catalyst into a3 and the file system tries to write a new block - e.g
+b28 - to a3.  b28 is translated through the a3 remap table to b-1
+(unallocated). A random block remap number is generated e.g b595 and
+tested against the avoidance smap. If free, it is marked and chosen to
+be the new a3 mapping, otherwise the algorithm simply does a circular
+hunt for the next free entry in the avoidance smap.
+
+Naturally, reading only requires the key of the aspect you are
+interested in (divulging). Writing to one aspect without the keys to
+the other aspects will randomly trash them as new splits are assigned.
+
+Timer remaps, reads and re-writes:
+
+This would be the simple end of it, were it not but for magnetic
+domain leakage/disk surface wear analysis attacks. Theoretically, this
+sort of attack could used to demonstrate access patterns by the drive
+head in regions outside those used by the duress aspect blocks. What
+we want to do here is to make sure the non-data carrying
+magnetic/other properties of the disk substrate are as close to a
+Jackson Pollock painting as is possible. Three
+methods are used:
+
+	1) every few seconds, we read a random number of blocks within
+	   a split in a random location and write it back to that same
+	   location with a m-1/m (e.g 9/10) (recursive) chance of an
+	   additional write.
+
+	2) every-time there is a conventional write, there is a m-1/m
+	   chance of a full remap of the split concerned.
+
+	3) every n seconds a random full split remap.
+	   (maybe not needed given the statistical properties of the
+	    above - I need to think about this a lot more. its not simple)
+
+All aspects are defined to take up 100% of the marutukku extent from
+the file-system perspective - this is essential to our deniability
+scheme. This works fine with most file-systems - e.g UFS, because they
+only write to a small fraction of their addressable blocks when
+formatted - i.a few super-blocks and inode, rather than zeroing every
+block, and so split usage for a given aspect reflects population of
+the file system that pertains to it.
+
+-- 
+Prof. Julian Assange  |If you want to build a ship, don't drum up people
+                      |together to collect wood and don't assign them tasks
+proff@iq.org          |and work, but rather teach them to long for the endless
+proff@gnu.ai.mit.edu  |immensity of the sea. -- Antoine de Saint Exupery

@@ -1,0 +1,64 @@
+[rubberhose also acts as strong conventional crypto file-system]
+
+RUBBERHOSE review by Steven Baum
+
+   Rubberhose is a deniable cryptography package that lets someone not
+   wanting to disclose plaintext data corresponding to their encrypted data
+   show that there is more than one interpretation of the latter.
+
+   Rubberhose works by initially writing random characters to an entire hard
+   drive or other dynamic storage device. This random noise is
+   indistinguishable from the encrypted data to be stored on that disk. If
+   you have a 1 GB drive and want to have two Rubberhose encrypted portions
+   of 400 MB and 200 MB, it assumes that each aspect (as the encrypted
+   partitions are called) will be 1 GB and fill the entire drive. It will
+   keep doing this until the drive is really filled to capacity with
+   encrypted material. It breaks up the pieces of each aspect into small
+   pieces and scatters them across the entire 1 GB drive in a random manner,
+   with each aspect looking as if it is actually 1 GB in size upon
+   decryption.
+
+   Each aspect has its own passphrase that must be separately decrypted, and
+   if a hard drive is seized neither mathematical analysis nor physical disk
+   testing can reveal how many aspects actually exist. Internal maps are used
+   to locate where the data is stored amongst the random characters, with
+   each aspect having its own map which can only be decrypted via its
+   specific passphrase. As such, a Rubberhose disk only be written to after
+   all the passphrases have been entered. Everything is works on a "need to
+   know" basis, i.e. each aspect knows nothing about the others other than
+   when to avoid writing over the top of another.
+
+   Other features of Rubberhose include:
+     * a choice of cryptographic algorithms including DES, 3DES, IDEA, RC5,
+       Blowfish, Twofish and CAST;
+     * compatibility with several filesystems including UFS, ext2fs, FAT and
+       FAT32;
+     * time-based passphrases, e.g. configuring it to demand re-entry of a
+       passphrase after a given amount of time or to lock out users after a
+       specified amount of idle time;
+     * anti-passphrase-cracking features, e.g. an internally generated
+       passphrase is generated upon the creation of each new aspect that is
+       encrypted with the user passphrase for that aspect;
+     * a design ensuring that if one block of data in an aspect is decrypted,
+       then it cannot be used to decrypt the remaining blocks;
+     * frequent block-swapping to confound disk surface analysis based on the
+       intensity of block use and contiguous block prediction; and
+     * "whitening code," i.e. code for the prevention of plaintext attacks
+       that perturbs the encryption process in a non-predictable way such
+       that some bits in an encrypted block are flipped and some aren't.
+   One can't help but admire the motives as well as the skill of those who
+   designed and built this package:
+
+     Rubberhose was originally conceived by crypto-programmer Julian Assange
+     as a tool for human rights workers who needed to protect sensitive data
+     in the field, particularly lists of activists and details of incidents
+     of abuse. Repressive regimes in places like East Timor, Russia, Kosovo,
+     Guatemala, Iraq, Sudan and The Congo conduct human rights abuses
+     regularly. Our team has met with human rights groups and heard
+     first-hand accounts of such abuses. Human rights workers carry vital
+     data on laptops through the most dangerous situations, sometimes being
+     stopped by military patrols who would have no hesitation in torturing a
+     suspect until he or she revealed a passphrase to unlock the data. We
+     want to help these sorts of campaigners, particularly the brave people
+     in the field who risk so much to smuggle data about the abuses out to
+     the rest of the world.

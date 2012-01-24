@@ -1,0 +1,16 @@
+#!/bin/sh
+
+KUE_MAJOR=60
+MARU_MAJOR=7
+
+umask 022
+
+for i in 0 1 2 3 4 5 6 7
+do
+    rm -f /dev/kue$i
+    echo creating /dev/kue$i
+    mknod /dev/kue$i c $KUE_MAJOR $i
+    rm -f /dev/maru$i
+    echo creating /dev/maru$i
+    mknod /dev/maru$i b $MARU_MAJOR $i
+done

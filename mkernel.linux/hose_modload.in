@@ -1,0 +1,10 @@
+#!/bin/sh
+
+rmmod maru 2>/dev/null
+rmmod kue 2>/dev/null
+
+prefix=@prefix@
+exec_prefix=$prefix
+
+insmod @sbindir@/kue.o
+insmod @sbindir@/maru.o

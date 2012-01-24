@@ -1,0 +1,357 @@
+# Makefile.in generated automatically by automake 1.4 from Makefile.am
+
+# Copyright (C) 1994, 1995-8, 1999 Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# $Id: Makefile.am,v 1.21 2001/03/28 13:25:13 proff Exp $
+# $Smallcopyright:%
+
+
+
+SHELL = @SHELL@
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
+oldincludedir = /usr/include
+
+DESTDIR =
+
+pkgdatadir = $(datadir)/@PACKAGE@
+pkglibdir = $(libdir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@
+
+top_builddir = ..
+
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_SCRIPT = @INSTALL_SCRIPT@
+transform = @program_transform_name@
+
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+build_alias = @build_alias@
+build_triplet = @build@
+host_alias = @host_alias@
+host_triplet = @host@
+target_alias = @target_alias@
+target_triplet = @target@
+AWK = @AWK@
+CC = @CC@
+EFENCE = @EFENCE@
+MAKEINFO = @MAKEINFO@
+MKDEP = @MKDEP@
+PACKAGE = @PACKAGE@
+RANLIB = @RANLIB@
+VERSION = @VERSION@
+target_arch = @target_arch@
+target_cpu = @target_cpu@
+target_os = @target_os@
+hose = ../hose/hose
+h = $(hose) -Q -f < /dev/null
+commands = $(shell $h list -m commands)
+commands_sgmlh = $(addsuffix .sgmlh,$(commands)) inc.sgmlh
+commands_sgmlhh = $(addsuffix .sgmlhh,$(commands)) commands.sgmlhh options.sgmlhh
+# we explicitly mention the following first for dependency reasons
+preexamples = newkeymap newaspect newextent encryptaspect encryptfile
+examples = $(addsuffix .example,$(preexamples)) $(addsuffix .example,$(commands))
+examples_cmd = $(addsuffix .example_cmd,$(commands))
+
+BUILT_SOURCES = $(commands_sgmlhh) $(examples) $(examples_cmd)
+CLEANFILES = $(BUILT_SOURCES) $(docs)
+
+docs = hose.sgml hose.1 hose.man hose.html hose.dvi hose.pdf maruguide.html maruguide.dvi maruguide.pdf
+
+EXTRA_DIST =  	ALGORITHM 	ARCHITECTURE 	HACKING 	README-manpages 	authors.sgml 	beatings.txt 	copyright.sgml 	docbook-intro.html 	hose 	hose.1 	hose.dvi 	hose.man 	hose.pdf 	hose.sgml 	hose.sgmlp 	inc.sgmlh 	maruguide 	maruguide.dvi 	maruguide.pdf 	maruguide.sgml 	proff.style 	review.html 	rfc2040.txt 	rfc2144.txt 	sergienko.html
+
+
+man_MANS =  	hose.1
+
+
+SUFFIXES = .example_cmd .example .sgmlhh .sgmlh .sgmlp .sgml .1 .page
+
+CPP = gcc -E
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_HEADER = ../config.h
+CONFIG_CLEAN_FILES = 
+man1dir = $(mandir)/man1
+MANS = $(man_MANS)
+
+NROFF = nroff
+DIST_COMMON =  Makefile.am Makefile.in
+
+
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
+
+TAR = tar
+GZIP_ENV = --best
+all: all-redirect
+.SUFFIXES:
+.SUFFIXES: .1 .example .example_cmd .page .sgml .sgmlh .sgmlhh .sgmlp
+$(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) $(srcdir)/../mk/rules.mk
+	cd $(top_srcdir) && $(AUTOMAKE) --gnu --include-deps doc/Makefile
+
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
+	cd $(top_builddir) \
+	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+
+install-man1:
+	$(mkinstalldirs) $(DESTDIR)$(man1dir)
+	@list='$(man1_MANS)'; \
+	l2='$(man_MANS)'; for i in $$l2; do \
+	  case "$$i" in \
+	    *.1*) list="$$list $$i" ;; \
+	  esac; \
+	done; \
+	for i in $$list; do \
+	  if test -f $(srcdir)/$$i; then file=$(srcdir)/$$i; \
+	  else file=$$i; fi; \
+	  ext=`echo $$i | sed -e 's/^.*\\.//'`; \
+	  inst=`echo $$i | sed -e 's/\\.[0-9a-z]*$$//'`; \
+	  inst=`echo $$inst | sed '$(transform)'`.$$ext; \
+	  echo " $(INSTALL_DATA) $$file $(DESTDIR)$(man1dir)/$$inst"; \
+	  $(INSTALL_DATA) $$file $(DESTDIR)$(man1dir)/$$inst; \
+	done
+
+uninstall-man1:
+	@list='$(man1_MANS)'; \
+	l2='$(man_MANS)'; for i in $$l2; do \
+	  case "$$i" in \
+	    *.1*) list="$$list $$i" ;; \
+	  esac; \
+	done; \
+	for i in $$list; do \
+	  ext=`echo $$i | sed -e 's/^.*\\.//'`; \
+	  inst=`echo $$i | sed -e 's/\\.[0-9a-z]*$$//'`; \
+	  inst=`echo $$inst | sed '$(transform)'`.$$ext; \
+	  echo " rm -f $(DESTDIR)$(man1dir)/$$inst"; \
+	  rm -f $(DESTDIR)$(man1dir)/$$inst; \
+	done
+install-man: $(MANS)
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) install-man1
+uninstall-man:
+	@$(NORMAL_UNINSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) uninstall-man1
+tags: TAGS
+TAGS:
+
+
+distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
+
+subdir = doc
+
+distdir: $(DISTFILES)
+	@for file in $(DISTFILES); do \
+	  d=$(srcdir); \
+	  if test -d $$d/$$file; then \
+	    cp -pr $$d/$$file $(distdir)/$$file; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
+	    || cp -p $$d/$$file $(distdir)/$$file || :; \
+	  fi; \
+	done
+info-am:
+info: info-am
+dvi-am:
+dvi: dvi-am
+check-am: all-am
+check: check-am
+installcheck-am:
+installcheck: installcheck-am
+install-exec-am:
+install-exec: install-exec-am
+
+install-data-am: install-man
+install-data: install-data-am
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+install: install-am
+uninstall-am: uninstall-man
+uninstall: uninstall-am
+all-am: Makefile $(MANS)
+all-redirect: all-am
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+installdirs:
+	$(mkinstalldirs)  $(DESTDIR)$(mandir)/man1
+
+
+mostlyclean-generic:
+
+clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES)
+	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
+mostlyclean-am:  mostlyclean-generic
+
+mostlyclean: mostlyclean-am
+
+clean-am:  clean-generic mostlyclean-am
+
+clean: clean-am
+
+distclean-am:  distclean-generic clean-am
+
+distclean: distclean-am
+
+maintainer-clean-am:  maintainer-clean-generic distclean-am \
+		maintainer-clean-local
+	@echo "This command is intended for maintainers to use;"
+	@echo "it deletes files that may require special tools to rebuild."
+
+maintainer-clean: maintainer-clean-am
+
+.PHONY: install-man1 uninstall-man1 install-man uninstall-man tags \
+distdir info-am info dvi-am dvi check check-am installcheck-am \
+installcheck install-exec-am install-exec install-data-am install-data \
+install-am install uninstall-am uninstall all-redirect all-am all \
+installdirs mostlyclean-generic distclean-generic clean-generic \
+maintainer-clean-generic clean mostlyclean distclean maintainer-clean
+
+
+export MARU_PASSPHRASE_0=Thelawwillnevermakemenfreeitismenwhohavegottomakethelawfree
+
+doc: $(docs)
+
+maintainer-clean-local:
+	rm -rf hose maruguide
+
+hose.sgml: hose.sgmlp $(commands_sgmlh) $(commands_sgmlhh) copyright.sgml authors.sgml
+
+inc.sgmlh:
+	rm -f inc.sgmlh
+	for n in $(commands); do \
+		echo "#include \"$$n.sgmlh\"" >> $@ ; \
+	done
+
+speeds.sgml:
+	$(h) speeds -S | tee $@
+
+maru.plaintext:
+	dd if=/dev/zero of=$@ bs=8192 count=32
+
+encryptaspect.example: encryptaspect.example_cmd maru.plaintext
+
+%.example_cmd:
+	$(h) example -m $(basename $@) > $@
+
+psycho.example:
+	@echo "<refsect2> \
+                <title>EXAMPLE</title> \
+                <example> \
+	          <title>Example $(basename $@)</title> \
+                  <screen> \
+                    <prompt>$$ </prompt> \
+		    <userinput>" >$@
+	@echo -n "hose " >> $@
+	@echo "-d 9 -P 9 psycho" >> $@
+	@echo "</userinput>" >> $@
+	@echo >> $@
+	$(h) -d 9 -P 9 psycho 2>&1 | expand >>$@
+	@echo "    </screen> \
+                </example> \
+              </refsect2>" >> $@
+
+%.example: %.example_cmd
+	@echo "<refsect2> \
+                <title>EXAMPLE</title> \
+                <example> \
+	          <title>Example $(basename $@)</title> \
+                  <screen> \
+                    <prompt>$$ </prompt> \
+		    <userinput>" >$@
+	@echo -n "hose " >> $@
+	@cat $< >> $@
+	@echo "</userinput>" >> $@
+	@echo >> $@
+	if ! fgrep -- -R $< ; then $(h) -d 1 `cat $<` < /dev/null 2>&1 |expand >>$@; fi
+	@echo "    </screen> \
+                </example> \
+              </refsect2>" >> $@
+%.sgmlhh:
+	$(h) help -S $(basename $@) > $@
+
+%.sgmlh: %.sgmlhh %.example
+	echo "#include \""$(basename $@)".sgmlhh\"" > $@
+	echo "#include \""$(basename $@)".example\"" >> $@
+
+%.sgml: %.sgmlp
+	cpp -P <$< >$@
+
+%.html: %.sgml
+	db2html $<
+
+%.ps:	%.sgml
+	db2ps $<
+
+%.dvi:	%.sgml
+	db2dvi $<
+
+%.pdf:	%.sgml
+	db2pdf $<
+
+%.rtf:	%.sgml
+	db2rtf $<
+
+%.1: %.sgml
+	docbook-to-man $< >$@
+
+%.man: %.1
+	groff -Tascii -man $< >$@
+
+%.page: %.1
+	groff -Tascii -man $< | $${PAGER:-less}
+
+%.ext : %.c %.h $(top_srcdir)/config.h $(top_srcdir)/genextern.sh
+	CPP="$(CPP)";export CPP; sh $(top_srcdir)/genextern.sh > $@.tmp $(COMPILE) $< && mv -f $@.tmp $@ || rm -f $@.tmp
+
+%.c %.h : %.cf
+	$(top_srcdir)/confused/confused $<
+
+spotless: distclean
+	find . -name '*.[oisa]' -o -name '*~' -o -name maru.extent -o -name maru.iv -o -name .depend -o -name '*TAGS'|xargs rm -f
+	find . -name .deps |xargs rm -rf
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

@@ -1,0 +1,41 @@
+I recently spoke to a friend who's a higher-up in the Australian
+Federal Police. She has an interesting time-lock/remote-controlled
+safe at home, which holds her assorted firearms. The safe has several
+of modes of operation:
+
+	1) Fixed delay before activation. The safe unlocks n hours
+	   after you request it to open.
+
+	2) Fixed time of day. The safe unlocks for a brief window of
+	   time each day (i.e when she's about to goto work).
+
+	3) On remote command. If there is an urgent special operation,
+	   the safe maybe unlocked by remote (telephone) control.
+
+We can apply all these ideas to marutukku. All of these can of course
+be subverted by the legitimate user (after the first instance). Short
+of tamper proof hardware there is no way to avoid this. However it
+should be remembered what the nature of the problem is, and that it is
+the legitimate user we are attempting to protect, by constraining that
+actions they can take under duress.
+
+1) Can be implemented by simply abusing our initial iteration counter.
+   The time limit can be abridged by an attacker in proportion to
+   their relative cpu speed vis a vis the victim.
+
+2) It hard to see how this can be implemented both securly and
+   efficiently. We could keep a continual crypto-clock going as per
+   point 1, but many users would find the cpu usage intolerable.
+   On the other hand, if the attacker is lower-echelon (pun intended),
+   this could be vaulable to the user. A compromise position could be
+   taken whereby the crypto-clock runs at 1/4 speed, enabling it to
+   detect simple clock adjustment attacks. However this doesn't work
+   very well with suspended or slowed cpu devices such as laptops.
+
+3) This idea is the most interesting. There are a number of possible
+   implementations, but here is the one I think those out in the field
+   would find most useful:
+
+	
+
+	

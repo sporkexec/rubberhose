@@ -1,0 +1,158 @@
+# $Id: TODO,v 1.28 2000/10/31 08:40:31 proff Exp $
+# $Smallcopyright:$
+
+modularity:
+	split maru.h into public/private includes
+
+reliability:
+	merge make_aspect and buildAspect
+	lockf keymap and extent
+
+elegance:
+	rewrite option processing to use longer options i.e
+	-force rather than -f. do not indulge in FSF --evil.
+features:
+	traditional steganography (use lsb of 8/16/32/64 bit boundaries)
+	finish smart-card support
+	attach access for non-root users
+	fix password changing
+	support for guttman's cryptlib
+	MARU_OPTIONS enviromental variable
+	networking support for hosed
+		SSL networking
+		n/m secret splitting of blocks over m servers
+		request a block by randomly broadcasting a request
+	 	  to the servers involved. writes are a bit trickier, although
+	 	  blocks could be given signed generational numbers
+		deniable, encrypted, distributed, n/m secret split log-structured
+		onion routed block-device! yeah!
+		  nb. time to lay off the weed
+	n/m secret sharing
+	emergency detach
+	compression layer
+	conventional file encryption using maru keying	
+	multiple dependent passphrases per aspect
+	convert existing partitions without intermediary
+	log structured remap
+	 	it's hard to see how to make this deniable, but being
+		able to turn any ordinary file system into a log
+		structured file system with roll-back is cool
+design:
+	further abstract crypto / block remapping pipeline to permit:
+	
+		(a) chaining of algorithms within any pipe stage
+		(b) selection of different algorithms
+	re-introduce maruCipherDesc->new(), maruCipherDesc->free() now that
+	  we are no-longer running ciphers in kernel space.
+deniability:
+	accelerated burial. Blocks in an extent can be thought of as a forest
+	floor. Over time leaves randomly fall and obscure the trail of those
+	creatures passing through. After initial extent creation, an initial,
+	expensive burying phase can be conducted to make the extent appear an
+	indeterminate age. Subequent (more expensive, because data must also be
+	read) burying phases can also be conducted. bmap already has slow-burial.
+	zero access times on marutukku binary
+	recomend starting msetkey etc via cron to touch the file regularly, even
+	  when not in use
+	discover aspect(s) via passphrase(s), rather than numerical selection
+	when hosed is in daemon mode where do we log read/write errors? -- let
+	  the user decide with an option
+	on initial creation of the extent and maru.iv file, re-write the file
+	  several times to make it harder for an attacker to determine usage
+	  history
+	consider what to do about shell history keeping mechanims. we could 
+	  recommend methods to the user to turn these off. Some shell history
+ 	  keeping mechanisms are high evil, not only including the full arguments
+	  to each command, but the exact time as well. BSD style process accounting
+	  while it doesn't keep copies of the arguments, also keeps the running
+	  time and cpu usage, which can be used to gauge usage. we can use marry(8)
+	  techniques to deal with some parts of the PACCT issue.
+	process hiding/renaming. hosed should have an option to make it completely
+	  invisible or at least randomly masquerade as a commonly used process, the
+	  maru module name also needs protection from lsmod. we can also recomend
+          that hose is placed in the system startup sequence so recent usage can
+	  not be inferred by its presense
+	ptrace, memory protection. changing euid's in modern unix kernels flags
+	  process resistance to ptrac'ing. in the situation where a maru'er is seized,
+	  there is a race between the maru lifetime and or idle timeouts with
+	  the attackers ability to get root -> hosed internal state. in general
+	  this problem seems unsolvable, but there are two solutions, one of
+	  which may be rigorous (althought daunting to write). For the first problem,
+	  we can suggest the usage of standard compartmentalisation techniques,
+	  secure-levels etc. The primary motivation here is to prevent dumping and
+	  modification of /dev/kmem and /proc/hosed/mem etc. The second solution
+	  is quite interesting. live key, subkey material can occulted by placing it
+	  within randomly within a region of randomly generated bits. if there are
+	  enough inter-dependent peices of key-material or these peices are split
+	  into enough futures peices, the problem of locating the true key
+	  material can be computational intractable. Unfortunately pointers within
+	  hosed must still know how to get at this key material.
+	instead of just having an idle-lifetime, track the user's keypress behavior,
+	  and if there is a sudden change in it, request rekeying. this
+	  needs to be flexible enough to handle different behavior modes (e.g vi/nethack
+	  hijkl etc) in its training. this could be quite interesting and effective.
+	modify extent wiping algorithm to be idenditical to block encryption algorithm
+	
+crypto:
+	add additional key mashing stage, for
+	  ciphers with short keys.
+	support 128 bit block ciphers
+	fix native blowfish
+	finish native rc5
+
+kernel:
+ BSD44:
+	cache purge redundent lower-layer cache
+	zero plain text disk/vm cache on detach
+	fix hanging reference count
+	bypass kue ioctl kapi kludge (we can use a two pass modload instead)
+	debug and stress stest
+
+hosed:
+	mmap extent, set MMAP_WONTNEED to clear lower layer buffer cache
+	use fdatasync()
+	
+regress:
+	64 bit boundaries satisfied
+	endianness for maru.iv and maru.extent
+	test vectors
+	concurrent thrash tests
+	verify aspect blocks do not over-lap
+	verify extent size = block size * block length
+	verify first and last blocks of extent are readable
+
+misc:
+	remove incomplete maru.iv (etc) on key-gen interruption
+	Debug printing macros
+	Consistant m_u64 type pointer arguments for all functions
+	requiring 64 bit aligned data.
+
+build-system:
+	install: target
+	  initial setup scripts. init.d scripts. etc. important!
+	startup-scripts
+	investigate using cook / bsdmake. AUTOMAKE MUST DIE
+
+config:
+	finish integration of confused. 
+
+doc-fix:
+	intro
+	justification problems in SEEALSO/COPYRIGHT
+	update ALGORITHM description
+	sgml identation
+	spell check
+	
+doc-new:
+	copyrights in each source file
+	gentle introduction
+	features list
+	NEWS/README
+	copyrights
+	design paper
+	interrogators' guide
+	fill in help_long
+
+CVS:
+	verify $Id: TODO,v 1.28 2000/10/31 08:40:31 proff Exp $ for every file
+	expansion for $Copyright$ and $Smallcopyright$

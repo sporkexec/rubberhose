@@ -1,0 +1,64 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../libmcommon -I../libproff -g -O2 -Wall -pipe client_common.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  int a_debug ;
+extern  int a_force ;
+extern  volatile char *stackP ;
+extern  void freeWipeList(int  nofree);
+extern  void *maruMalloc(int len);
+extern  void *maruCalloc(int len);
+extern  void maruFree(void *p);
+extern  void maruWipeFree(void *p);
+extern  int matoi(char *s);
+extern  int xmatoi(char *s);
+extern  m_u32 simpleSum(u_char *p, int len);
+extern  int  waitForEntropy ;
+extern  void maruRandom(void *buf, int n, maru_random type, void (*statusCallback)(int,int,int));
+extern  m_u32 maruRandom32();
+extern  void maruRandomf(void *data, int len, maru_random type, char *fmt, ...)  __attribute__ ((format (printf, 4, 5)))  ;
+extern  int  f_wipeMem ;
+extern  void maruWipe(void *p, int n);
+extern  u_char *loadFile(char *name, int *len);
+extern  maruKeymap *loadKeymap(char *name, int *klenp);
+extern  void makeKeymapSum(maruKeymap *h, int len);
+extern  void saveKeymap(char *name, maruKeymap *h, int len);
+extern  void syncInstance(maruInstance *i);
+extern  void freeInstance(maruInstance *i);
+extern  __attribute__ ((__noreturn__))  void wipeStackExit()  ;
+extern  void freeAspect(maruAspect *a);
+extern  maruAspect *buildAspect(maruInstance *i, maruKeymapAspect *h, int as, maruPass *key, int keylen);
+extern  int  validKeymap(maruKeymap *h, int len);
+extern  maruInstance *instanceNew(maruKeymap *h, int klen, maruRemapFlags remap_flags);
+extern  maruAspect *getAspect(maruInstance *i, int as);
+extern  int getKeymapAspectLen(maruInstance *i);
+extern  maruKeymapAspect *getKeymapAspect(maruInstance *i, maruKeymap *keymap, int as);
+extern  maruInstance *genInstance(char *fn, maruRemapFlags remap_flags);
+extern  void listCiphers(FILE *fh);
+extern  maruCipherDesc *xfindCipherTxt(char *txt);
+extern  maruCipherDesc *xfindCipherType(maruCipher cipher);
+extern  void nocore();
+extern  void maruExitHandler();
+extern  void nosignals();
+extern  int  f_timestampHack ;
+extern  int Iam1970(char *fn);
+#ifdef __cplusplus
+}
+#endif

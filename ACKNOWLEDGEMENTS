@@ -1,0 +1,60 @@
+# $Id: ACKNOWLEDGEMENTS,v 1.4 2000/08/17 09:46:20 proff Exp $
+# $Smallcopyright:$
+
+Anonymous
+
+	Long discussions.
+
+Bruce Schneier
+	
+	Bruce designed the Blowfish cipher, and his book
+	_Applied Cryptography_ is the seminal work in this
+	area. I know. Preaching to converted again :)
+
+Steve Reid <sreid@sea-to-sky.net>
+
+	For his public domain implementation of the cast cipher
+
+Peter Guttman <pgut001@cs.auckland.ac.nz>
+
+	Peter's notes on SFS and memory cell charge dissipation and
+	oxidisation proved enlightening. Peter also has a high quality
+	crypto-library called `cryptlib'. Which I didn't use, but
+	from what I've seen of Peter's work, probably should have.
+
+	nb. Peter, your home page is annoying. very annoying. But no
+	doubt incredibly useful if I ever need to plan a covert action
+	entry path against the University of Auckland :)
+
+Eric Young <eay@minicom.oz.au>
+
+	SSLeay. What can one say. Eric is the crypto-coders Mahomet, and
+	a fellow Aussie to boot :)
+
+Tatu Ylonen <ylo@ssh.fi>
+
+	Some of Ylo's cipher implementations in ssh provided for
+	useful study, and gave me an excuse to to not use too much of
+        Eric's crypto code ;)
+
+Matthew Green <mrg@eterna.com.au>
+
+	For suggestions on using tsleep()/wakeup() in BSD4.4
+	to simulate MUTEX()
+
+Mats Lofkvist <mal@algonet.se>
+
+	Did some nice early alpha testing and provided a patch for
+        SIGWINCH handling.
+
+Daniel Assange <lockpick@iq.org>
+
+	For amusing discussions on the whole cryptographic world.
+
+Suelette Dreyfus <suelette@iq.org>
+
+	Strinburg was right. Iasvfoy de muca walks to the east.
+
+Admin Jenkins <jenky@suburbia.net>
+
+	SGML markup of maruguide, nice work on documentation proofing.

@@ -1,0 +1,43 @@
+    _________             _______________              ___________
+   /         \    (3)    /               \     (4)    /           \
+   | KUE LKM | <-------> | Marutukku LKM | <--------> | FS driver |
+   \_________/           \_______________/            \___________/
+        ^                                                  _|_
+        | (1)                                            _/ | \_
+        |                                              _/   |   \_
+        V                                        (5) _/     |     \_ (5)
+ ________________         _______________          _/   (5) |       \_
+/                \  (2)  /               \        /         |         \_
+| hosed (daemon) | <---- | hose (client) |       /          |           \
+\________________/       \_______________/      /      ___________    _____
+         |        \     /         \            /      /           \  /     \
+         |         \__ /____       \ (8)  ___________ | aspect #2 |  | ... |
+         | (7)        /     \ (6)  /     /           \\___________/  \_____/
+         |        ___/       \    /      | aspect #1 |
+   _____________ / (8)  _____________    \___________/
+  /             \      /             \
+  | maru.extent |      | maru.keymap |
+  \_____________/      \_____________/
+
+
+(1) The KUE kernel module dispatches requests for individual blocks of
+    the file system to the hosed daemon.
+(2) Hose and hosed communicate over an AF_UNIX socket. hose can be used
+    from the command line to control the marutukku crypto system.
+(3) KUE and the marutukku kernel module can mostly be seen as a single
+    entity for most cases. The KUE serves a character file to the user-space,
+    the marutukku lkm a block device. The combination of the maru kernel module
+    and kue moves the data back and forth between those.
+(4) For the file system drivers a marutukku block device looks just like
+    any block device. Thus we can use almost any file system we like
+    with marutukku (with the exception of log-based systems).
+(5) Strictly speaking we are looking at 'mounted aspects' here.
+    [...]
+(6) The hosed daemon loads the keying and remap information for the
+    aspects from the maru.keymap file. The keying information is encrypted
+    with a passphrase for now.
+(7) The hosed daemon reands and writes encrypted blocks from/to the extent,
+    a large file or partion which acts as the final backing store
+(8) For creating a keymap file, aspect metadata or wiping the extent,
+    hose accesses maru.keymap and maru.extent directly. This is also employed
+    to encrypt/decrypt extents completely in userspace.

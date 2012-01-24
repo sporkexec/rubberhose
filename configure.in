@@ -1,0 +1,131 @@
+dnl $Id: configure.in,v 1.17 2001/03/28 13:25:48 proff Exp $
+dnl $Smallcopyright:$
+
+AC_INIT(hose/hose.c)
+AC_CANONICAL_SYSTEM
+AM_INIT_AUTOMAKE(rubberhose, 0.8.3)
+AM_CONFIG_HEADER(config.h)
+
+dnl Checks for config.guess and config.sub
+dnl AC_CHECK_TOOL
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_AWK
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
+
+dnl Checks for header files.
+AC_STDC_HEADERS
+AC_HAVE_HEADERS(string.h fcntl.h sys/file.h sys/param.h sys/time.h)
+
+AC_TYPE_SIGNAL
+AC_C_BIGENDIAN
+AC_C_INLINE
+
+AC_CHECK_SIZEOF(char *, 4)
+AC_CHECK_SIZEOF(int *, 4)
+AC_CHECK_SIZEOF(char, 1)
+AC_CHECK_SIZEOF(short, 2)
+AC_CHECK_SIZEOF(int, 4)
+AC_CHECK_SIZEOF(long int, 4)
+AC_CHECK_SIZEOF(long long, 8)
+AC_CHECK_SIZEOF(long, 4)
+AC_CHECK_SIZEOF(int64_t, 8)
+AC_CHECK_SIZEOF(quad_t, 8)
+
+AC_CHECK_FUNCS(usleep strdup strcasecmp strcasestr strncasestr mmap getpagesize mlock munlock mlockall munlockall daemon)
+
+LDFLAGS="$LDFLAGS -L/usr/local/lib -L/usr/local/ssl -L/opt/ssl -L/usr/pkg/lib -L/opt/openssl/lib"
+AC_CHECK_LIB(crypto, EVP_CipherInit)
+dnl yes, this is cheating :)
+AC_CHECK_LIB(crypto, EVP_CipherInit, ssleay=true)
+AC_CHECK_LIB(efence, malloc, EFENCE=-lefence)
+
+AM_CONDITIONAL(SSLEAY, test x$ssleay = xtrue)
+
+dnl The below are not actuall functions but compile-time
+dnl instantiated structures. Since the link tests never actually run the code
+dnl they link against we simply fool AC_CHECK_FUNCS into believing the
+dnl cipher descriptor structs below are functions
+AC_CHECK_FUNCS(EVP_rc2_cbc EVP_bf_cbc EVP_rc4 EVP_idea_cbc EVP_des_cbc \
+	       EVP_des_ede_cbc EVP_des_ede3_cbc EVP_desx_cbc \
+	       EVP_cast5_cbc EVP_rc5_32_12_16_cbc)
+
+dnl check -Wall
+CFLAGS_old="$CFLAGS"
+CFLAGS="$CFLAGS -Wall"
+AC_CACHE_CHECK([if the compiler understands -Wall],
+  nc_cv_prog_gcc_wall,
+  AC_TRY_COMPILE(,,
+    nc_cv_prog_gcc_wall=yes,
+    nc_cv_prog_gcc_wall=no))
+if test $nc_cv_prog_gcc_wall = no; then
+  CFLAGS="$CFLAGS_old"
+fi
+
+dnl check -pipe
+CFLAGS_old="$CFLAGS"
+CFLAGS="$CFLAGS -pipe"
+AC_CACHE_CHECK([if the compiler understands -pipe],
+  nc_cv_prog_gcc_pipe,
+AC_TRY_COMPILE(,,
+  nc_cv_prog_gcc_pipe=yes,
+  nc_cv_prog_gcc_pipe=no))
+if test $nc_cv_prog_gcc_pipe = no; then
+  CFLAGS="$CFLAGS_old"
+fi
+
+AC_CACHE_CHECK([if the kernel has DEVFS support enabled],
+  nc_cv_devfs,
+  test -x /usr/bin/lsvfs && (/usr/bin/lsvfs | grep -q devfs) && nc_cv_devfs=yes || nc_cv_devfs=no)
+if test $nc_cv_devfs = yes; then
+  AC_DEFINE(DEVFS)
+fi
+
+dnl ugly, ugly, ugly -- surely automake has a better way of handling conditional
+dnl sub-directory recursion?
+
+case $target_os in
+  *netbsd*) mtarget=netbsd
+	    target_arch=`sh unamep`;;
+  *freebsd*) mtarget=freebsd;;
+  *linux*) mtarget=linux;;
+esac
+
+AM_CONDITIONAL(mnetbsd, test x$mtarget = xmnetbsd)
+AM_CONDITIONAL(mfreebsd, test x$mtarget = xfreebsd)
+AM_CONDITIONAL(mlinux, test x$mtarget = xlinux)
+
+dnl --with options
+AC_ARG_ENABLE(debug, [ --enable-debug    enable debugging macro in headers], AC_DEFINE(DEBUG))
+AC_ARG_WITH(block-profiling, [ --with-block-profiling    compile with profiling on], CFLAGS="$CFLAGS -a -pg")
+AC_ARG_WITH(debug, [ --with-debug    compile with debugging info], CFLAGS="$CFLAGS -g")
+AC_ARG_WITH(debug-libs, [ --with-debug-libs    compile with debugging libraries], LIBS="$LIBS -lc_g -static")
+AC_ARG_WITH(dmalloc, [ --with-dmalloc   compile with dmalloc],LIBS="$LIBS -ldmalloc" CFLAGS="$CFLAGS -DDMALLOC")
+AC_ARG_WITH(efence, [ --with-efence   compile with electric fence],LIBS="$LIBS -L/usr/pkg/lib -lefence")
+AC_ARG_WITH(mstats, [ --with-mstats    compile with -mstats], CFLAGS="CFLAGS -mstats")
+AC_ARG_WITH(optimise, [ --with-optimise    compile with optimisation on], CFLAGS="$CFLAGS -O6")
+AC_ARG_WITH(profiling, [ --with-profiling    compile with profiling on], CFLAGS="$CFLAGS -pg")
+AC_ARG_WITH(static, [ --with-static    compile statically], CFLAGS="$CFLAGS -static")
+
+dnl XXX find a cleaner way of doing this
+dnl we use -MG or make depend will break on the as-yet-ungenerated .ext's
+MKDEP='gcc -M -MG $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS)'
+AC_SUBST(MKDEP)
+AC_SUBST(EFENCE)
+AC_SUBST(target_cpu)
+AC_SUBST(target_os)
+dnl target_arch is our own hack, for the moment
+AC_SUBST(target_arch)
+rm -f mkernel
+ln -s mkernel.$mtarget mkernel
+dnl we build AC_OUTPUT targets even for undetected archzitectures simply to dampen port regression
+AC_OUTPUT(Makefile mk/Makefile mk/rules.mk libproff/Makefile confused/Makefile
+          libmclient/Makefile hose/Makefile hosed/Makefile mkernel.netbsd/Makefile
+          mkernel.netbsd/mload mkernel.freebsd/Makefile mkernel.freebsd/mload
+          mkernel.linux/Makefile mkernel.linux/hose_modload mkernel.linux/hose_modunload
+	  mkernel.linux/hose_makedevs doc/Makefile regress/Makefile
+	  ideas/Makefile)

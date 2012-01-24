@@ -1,0 +1,225 @@
+For some time now, our group has been working on a
+cryptographically-deniable block storage device (aka Rubberhose), on
+which regular file-systems can be mounted, targeted at the
+human/activist community. We expect to release a developers code set
+at the Usenix Security Symposium in Denver next week.
+
+This is like a regular encrypted disk except that it supports multiple
+keys, where it is computationally infeasible given some of those keys
+to show that there are more keys, or that particular blocks of data
+are being used to store something other than unallocated space. Even
+for the legitimate user.
+
+This mitigates against coercive interrogations and legal compulsion.
+Only "safe" information need be revealed. It isn't possible to show
+that additional information exists. Nor is it possible for the subject
+of a coercive demand to show that they have revealed all
+information. Thus a rational coercer can never demand proof of full
+co-operation, as its provision is computationally infeasible.
+
+We have assorted kernel modules for Linux, NetBSD and FreeBSD. Although
+these modules are designed to abstract away OS primitives and provide
+a fast kernel<->userland messaging layer so the effort involved in
+porting to other operating systems is minimised.
+
+However there are ways to protect against coercive interrogations that
+can be layered on top of cryptographic deniability. Keying schemes can
+be chosen that have beneficial psychological or psychological
+properties. These novel keying schemes are often but not always
+graphical in nature, which has implementation considerations.
+
+At the moment we have a passphrase-based keying feeding into a
+sophisticated key set up routine (that enforces 1 second of original
+cpu time per attempted key). However, passphrase based keying is
+non-optimal under many circumstances that the target group (human
+rights workers) might encounter, because passphrases can be quickly
+conveyed by speech or writing. That is:
+
+	1) Interrogations can take place in room101 and not the computer
+	   room. It's nicer, particularly given the frequency of
+	   equatorial despotism to be tortured in the computer room.
+
+	2) Revealing a passphrase only requires (some of) the brain and
+	   jaw or hand to be left functional.
+
+	3) Revealing a passphrase is quick and requires few higher
+	   cognitive functions, thus it is vulnerable to peak pain,
+	   hallucinogens and `truth drugs' such as schopolomine.
+
+	4) A single observation of a passphrase is enough grasp the
+	   whole keying state. Keyboard sniffers are cheap and in
+	   Australia at least, video bugging is not uncommon.
+
+A good keying system prevents revealing of the key, placing the
+subject of interrogation in a hostile environment (i.e not the
+computer room), damage to as many parts of the subject's body as
+possible, retardation of the subjects mental faculties and retardation
+of the subject's free will. The keying system should also be practical
+enough to be used and adopted by real life people, and not require
+expensive or hard to find hardware.
+
+Where a group of co-operating individuals is concerned, keying schemes
+should discourage defection against the group of individuals being
+coersively interrogated. Rubberhose cryptographic deniability
+discourages defection due to the subject's inability to show that they
+have fully compiled with the interrogation (thus the incentive to
+defect, or at least defect completely, is minimised), but perhaps
+novel keying schemes can augment this.
+
+It is important to understand that rubberhose requires keying and not
+authentication. However any authentication method can be turned into a
+keying method, provided sufficient information for the authentication
+isn't held on the "server". For an example, rubberhose could issue n
+challenges, each of which the user's authentication algorithm
+authenticates or fails to authenticate; the hash of the concatenated
+authenticated challenges then forms the key. However schemes like this
+require n to be >=48, which seems practical only for automated
+methods, or combined with another method which presents more bits of
+key entropy per iteration.
+
+Some possible alternatives to passphrase based keying (we have some more
+notes on these ideas, but no code or concrete design documentation):
+
+	1) interactive transposition matrixes. This is a simple method
+	   to prevent keyboard immediate keyboard sniffing. The user
+	   keeps their passphrase in their head, and a for each letter
+	   a transposition matrix is displayed on the screen.
+
+	2) Maze walking. A maze with several "landmarks" is drawn on
+	   the screen. The user must "visit" and move past these landmarks in a
+	   particular order and direction.
+	   
+	3) Enhanced face recognition. Several arrays of faces are displayed.
+	   The user must choose the numbers next to each face, perform a
+	   simple mathematical operation on them and input the number.
+
+	4) Constraint/simile problems. The user is presented with several
+	   secret knowledge problems of A is to B as C is to ? in different
+	   forms which test areas of cognitive function and or visual function
+	   which would be affected by drugs or severe pain.
+
+	5) Grid drawing. The user draws shapes within a n x n matrix. The direction
+	   of boundary crossing forms the key. For a similar idea, see
+	   "Graphical Passwords", a paper presented at last years usenix
+	   security symposium.
+
+	6) Colour contrast discrimination. It has been shown that individuals see
+	   slightly different hues due to visual cortex and cone cell / retina
+	   variation. It maybe possible to design moire or 
+	   other tests on 24 bit displays which are recognisable by
+	   one party but not another. Just hope no-one runs a magnet
+	   over your monitor. Interestingly, one drug that this method is
+	   highly likely to detect is Viagra, which intereacts with the retinal
+	   environment to produce hue distortions. Rubberhose is naturally
+	   arousing so we don't see this as being an issue.
+
+	7) Forward Error Correction based biometric keying. Traditionally
+	   signature and individual biometric variation tests have failed to
+	   provide good alternatives for keying, for two reasons. 1) the
+	   bio-authorisation template is "secret", hence useless for something
+	   like rubberhose, where *all* secrecy is derived from the key. 2)
+	   quantitisation by the template of the inherent analog variability in
+	   the biological source in order to match with the template dramatically
+	   reduces the keyspace. A FEC based approach may resolve these issues. 
+
+Our current designs for plugable keying mechanims, simply introduce saved
+state on stdin and expect output state (which is subsequently hashed
+to form the key) on stdout.
+
+What follows is a proto-type of 5 in Ocaml (http://www.ocaml.org/), although of
+course almost any language can be used.
+
+As novel keying methods are an intresting problem that requires
+lateral thinking rather than specialist cryptographic expertise, I
+thought it may be of interest to ocaml coders in general.
+
+(* keygrid (c) 2000 Julian Assange <proff-copyright@iq.org> *)
+
+open Graphics
+open Pervasives
+
+let win_x = 400
+let win_y = 300
+let pi = 3.1415926951
+let divisions = 6
+let fdivisions = float_of_int divisions
+let sub_xy (x,y) (x',y') = (x -. x', y -. y')
+let scale x s = int_of_float(x *. (float_of_int s))
+let scale_xy (x,y) = (scale x win_x), (scale y win_y)
+let rscale x s = (float_of_int x) /. (float_of_int s)
+let rscale_xy (x,y) = (rscale x win_x), (rscale y win_y)
+let cell_of_xy (x,y) = int_of_float (x*. fdivisions +. (floor (y *. fdivisions)) *. fdivisions )
+let xy_of_cell cell =
+  ((float_of_int (cell mod divisions)) /. fdivisions),
+  ((float_of_int (cell / divisions)) /. fdivisions)
+let openwin () = open_graph (":0 " ^ string_of_int win_x ^ "x" ^ string_of_int win_y)
+let line xy0 xy1 =
+  let (x0',y0') = scale_xy xy0
+  and (x1',y1') = scale_xy xy1 in
+  Graphics.moveto x0' y0';
+  Graphics.lineto x1' y1'
+
+let drawgrid () =
+  let f x = (float_of_int x) /. (float_of_int divisions) in
+  for n = 1 to divisions do
+    line (0.0,(f n)) (1.0,(f n));
+    line ((f n),0.0) ((f n),1.0)
+  done
+
+exception Restart
+
+let vectorise (x0,y0) (x1,y1) =
+  let len = sqrt ((sqr (x0 -. x1)) +. (sqr (y0 -. y1))) in
+  let angle = pi /. 2.0 +. asin ((x0 -. x1) /. len) in
+    (angle, len)
+
+let rec bordercross xy stat =
+  let mstatus = Graphics.wait_next_event [Mouse_motion; Button_down; Button_up; Key_pressed] in
+  let stat' = if Graphics.button_down() then `Following else `NotFollowing in
+  let xy' = rscale_xy (mstatus.mouse_x, mstatus.mouse_y) in
+    if mstatus.keypressed then
+      if mstatus.key = ' ' then
+	raise Restart 
+      else
+	[]
+    else
+      let cell = cell_of_xy xy in
+	if stat = `Following then
+	  let cell' = cell_of_xy xy' in
+	    line xy xy';
+	    if cell != cell' or stat' = `NotFollowing then
+	      let (theta, len) = vectorise (xy_of_cell cell) (xy_of_cell cell') in
+		 (cell,cell') :: bordercross xy' stat'
+	    else
+	      bordercross xy' stat'
+	else
+	  bordercross xy' stat'
+
+let rec print_xovers = function
+  | [] -> []
+  | (a,b)::tl ->
+      print_string ((string_of_int a) ^ "->" ^ (string_of_int b) ^ " ");
+      print_xovers tl
+
+let main () =
+  openwin();
+  let rec loop() = 
+    Graphics.clear_graph();
+    Graphics.set_color (rgb 0 0 200);
+    drawgrid();
+    Graphics.set_color (rgb 200 0 0);
+    Graphics.moveto 8 15;
+    Graphics.draw_string "Draw secret. Press return when complete, or space to start over.";
+    Graphics.set_color (rgb 0 0 0);
+    try bordercross (0.0,0.0) `NotFollowing
+    with Restart -> loop()
+  in
+  let xovers = loop() in
+  let xovers' =  List.stable_sort (fun (a0,a1) (b0,b1) -> a1 - b1) xovers in
+  let xovers'' = List.stable_sort (fun (a0,a1) (b0,b1) -> a0 - b0) xovers' in
+    print_xovers xovers''
+;;
+
+main()
+
+

@@ -1,0 +1,99 @@
+From owner-ukcrypto@maillist.ox.ac.uk Mon Feb 01 12:17:35 1999
+Return-Path: <owner-ukcrypto@maillist.ox.ac.uk>
+Delivered-To: proff@iq.org
+Received: (qmail 5101 invoked from network); 1 Feb 1999 12:17:26 -0000
+Received: from bagpuss.oucs.ox.ac.uk (exim@163.1.2.37)
+  by suburbia.net with SMTP; 1 Feb 1999 12:17:26 -0000
+Received: from majordom by bagpuss.oucs.ox.ac.uk with local (Exim 2.02 #2)
+	id 107HlI-0006a5-00
+	for ukcrypto-outgoing@bagpuss.oucs.ox.ac.uk; Mon, 1 Feb 1999 11:43:28 +0000
+Received: from mailnews.kub.nl ([137.56.0.220])
+	by bagpuss.oucs.ox.ac.uk with esmtp (Exim 2.02 #2)
+	id 107HlH-0006Zs-00
+	for ukcrypto@maillist.ox.ac.uk; Mon, 1 Feb 1999 11:43:27 +0000
+Received: from frw3.kub.nl (frw3.kub.nl [137.56.128.10])
+	by mailnews.kub.nl (8.8.8/8.8.8) with ESMTP id MAA25888
+	for <ukcrypto@maillist.ox.ac.uk>; Mon, 1 Feb 1999 12:42:00 +0100 (MET)
+Received: from FRW3/SpoolDir by frw3.kub.nl (Mercury 1.40);
+    1 Feb 99 12:42:02 MET
+Received: from SpoolDir by FRW3 (Mercury 1.40); 1 Feb 99 12:41:39 MET
+From: "Bert-Jaap Koops" <E.J.Koops@kub.nl>
+Organization: Tilburg University
+To: ukcrypto@maillist.ox.ac.uk
+Date: Mon, 1 Feb 1999 12:41:37 MET
+Subject: Re: disclosure of crypto keys
+In-reply-to: <l03102803b2d3cc5c906d@[158.152.121.6]>
+X-mailer: Pegasus Mail for Windows (v2.54)
+Message-ID: <A5E4FFA60DB@frw3.kub.nl>
+Sender: owner-ukcrypto@maillist.ox.ac.uk
+Precedence: bulk
+Reply-To: ukcrypto@maillist.ox.ac.uk
+Status: RO
+
+Ian Miller <Ian_Miller@bifroest.demon.co.uk>:
+> >In summary, my conclusion is that in
+> >principle, a command to hand over the crypto key or passphrase is
+> >compatible with the privilege against self-incrimination, provided
+> >there is sufficient evidence that the suspect is able to decrypt.
+> Did you consider the case where the individual subject to such a command
+> refuses to hand-over the long-term key, but agrees to hand-over the session
+> keys for the  revelant messages?
+I considered the question whether legislation can be enacted to give 
+a decryption command as such. Whether it's a command to hand over a 
+private key or session keys is not really relevant to the issue of 
+compatibility with the privilege against self-incrimination. It is, 
+of course, quite relevant once you decide to enact legislation. The 
+choice for handing over session keys, then, should be obvious. 
+(Alternatively, the suspect could decrypt himself and give plaintext, 
+provided the police can somehow monitor that this is done correctly. 
+You might even use a public notary (or TTP ;-) to do the decrypting.)
+
+Adam Back <aba@dcs.ex.ac.uk> wrote:
+> > In summary, my conclusion is that in
+> > principle, a command to hand over the crypto key or passphrase is
+> > compatible with the privilege against self-incrimination, provided
+>  ^^
+> Did you miss out an *in* there?  (in-compatible?)
+> A right to not self-incriminate surely covers not giving out
+> information stored purely in ones mind, which could be argued might
+> incriminate the oneself.
+Not "surely". A passphrase (or memorized key) resembles 
+"material which exists outside of the will of the suspect". Giving 
+blood for a blood sample is compatible with the privilege against 
+self-incrimination, because you cannot alter the blood (or the 
+alcohol percentage in it). You can't alter the passphrase in your 
+mind, because then it wouldn't work on the private key, and you 
+can't alter the private key, because then it wouldn't work on the 
+ciphertext. In that respect, it differs from statements like "I did 
+it", which is an expression of the (changeable) contents of 
+one's mind. The tricky thing remains the retort: "but I don't have 
+the key" or "I've forgotten my passphrase". That is why there must be 
+evidence that someone is able to decrypt (e.g., because the message 
+was encrypted this morning). 
+
+> Also there is the right to remain silent.  (Modulo the change of
+> late to allow the judge to inform the jury to take into account that
+> the person has chosen to remain silent).
+Exactly. See also the Murray case of the European Court. His silence 
+on the question what he did in the house where an IRA hostage was 
+held, could be used as evidence because in this case, there were 
+sufficient and stringent safeguards.
+
+> Technical solutions time (write code not laws):
+Indeed, there are many ways to anticipate a decryption command and 
+make sure you will get away with not decrypting. Another reason why 
+this approach is not fruitful, as I stated.
+
+Kind regards,
+Bert-Jaap
+---------------------------------------------------------------------
+Bert-Jaap Koops     tel     +31 13 466 8101
+Tilburg University  facs    +31 13 466 8149
+P.O. Box 90153      e-mail  E.J.Koops@kub.nl
+5000 LE Tilburg     http://cwis.kub.nl/~frw/people/koops/bertjaap.htm
+the Netherlands
+---------------------------------------------------------------------
+This world's just mad enough to have been made
+by the Being his beings into being prayed. (Howard Nemerov)
+---------------------------------------------------------------------
+

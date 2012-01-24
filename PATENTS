@@ -1,0 +1,131 @@
+# $Id: PATENTS,v 1.4 2000/08/17 09:46:20 proff Exp $
+# $Smallcopyright:$
+
+Some of the ciphers used by Rubberhose fall under algorithmic
+patents. These patents are invoked with royalties due under certain
+conditions:
+
+	1) The cipher is one of IDEA or RC5. AND
+
+	2) The cipher is used for a commercial purpose (although
+	   see how Ascom defines ``commercial purpose''). AND
+
+	3) The cipher is IDEA and is used in the United States,
+           Austria, France, Germany, Italy, the Netherlands, Spain,
+	   Sweden, Switzerland or Japan (patent pending only for Japan
+           as of the time of writing). OR
+
+	4) The cipher is RC5 and is used in the United States.
+
+Details on how to obtain an end-user license for IDEA and RC5 are at the
+end of this document.
+
+There is also a potential issue for those in the USA surrounding RC2
+and RC4 (although probably not my 16 bit `RC4-like' cipher RC16).
+Both of these two cipher's were developed by Rivest. They became
+trade-secrets of RSA (the company), but were NEVER PATENTED. In Sept
+1994 an Anonymous poster using the non-de-plume `David Sterndark'
+(David Sternlight was/is a popularly detested retired conservative
+poster to sci.crypt) publicly posted C source code for the RC4
+algorithm.  RSA immediately issued a strongly worded statement
+claiming that the RC4 algorithm was a `trade-secret'. However, the
+understanding I and and other people have of US trade-secret law is
+that it only applies to those who have a duty to keep trade-secrets
+secret (i.e RSA employees or contractors working under an NDA). The
+conjecture is that the cipher was reverse-engineered from object code
+by someone who was not an RSA employee (i.e someone who had no duty to
+keep RSA trade-secrets secret) rather than leaked from an internal
+source (or taken from RSA development machines by a hacker). RSA have
+huffed-and-puffed stating that their BSAFE (the RSA crypto-library)
+license makes reverse-engineering verboten. However it doesn't
+necessarily follow that merely because someone broke an
+anti-reverse-engineering license clause (which might not be valid
+anyway) that everyone else who hears (in good faith) a description of
+the algorithm is `in-receipt of stolen goods'. And it's entirely
+possible that the reverse-engineer was not held to any such
+license. RSA, for their part (publicly) seem to have no-idea who David
+Sterndark is and haven't been able to show that Sterndark was under
+any sort of trade-secret obligation.  The same situation applies to
+RC2, which was posted publicly in Feb 1996.
+
+IDEA:
+
+  The IDEA algorithm is patented by Ascom Systec Ltd. of CH-5506 Maegenwil,
+  Switzerland, who allow it to be used on a royalty-free basis for certain
+  non-profit applications.  Commercial users must obtain a license from the
+  company in order to use IDEA.  IDEA may be used on a royalty-free basis under
+  the following conditions:
+
+  Free use for private purposes:
+
+  The free use of software containing the algorithm is strictly limited to non
+  revenue generating data transfer between private individuals, ie not serving
+  commercial purposes.  Requests by freeware developers to obtain a
+  royalty-free license to spread an application program containing the
+  algorithm for non-commercial purposes must be directed to Ascom.
+
+  Special offer for shareware developers:
+
+  There is a special waiver for shareware developers.  Such waiver eliminates
+  the upfront fees as well as royalties for the first US$10,000 gross sales of
+  a product containing the algorithm if and only if:
+
+  1. The product is being sold for a minimum of US$10 and a maximum of US$50.
+  2. The source code for the shareware is available to the public.
+
+  Special conditions for research projects:
+
+  The use of the algorithm in research projects is free provided that it serves
+  the purpose of such project and within the project duration.  Any use of the
+  algorithm after the termination of a project including activities resulting
+  from a project and for purposes not directly related to the project requires
+  a license.
+
+  Ascom Tech requires the following notice to be included for freeware
+  products:
+
+  This software product contains the IDEA algorithm as described and claimed in
+  US patent 5,214,703, EPO patent 0482154 (covering Austria, France, Germany,
+  Italy, the Netherlands, Spain, Sweden, Switzerland, and the UK), and Japanese
+  patent application 508119/1991, "Device for the conversion of a digital block
+  and use of same" (hereinafter referred to as "the algorithm").  Any use of
+  the algorithm for commercial purposes is thus subject to a license from Ascom
+  Systec Ltd. of CH-5506 Maegenwil (Switzerland), being the patentee and sole
+  owner of all rights, including the trademark IDEA.
+
+  Commercial purposes shall mean any revenue generating purpose including but
+  not limited to:
+
+  i) Using the algorithm for company internal purposes (subject to a site
+     license).
+
+  ii) Incorporating the algorithm into any software and distributing such
+      software and/or providing services relating thereto to others (subject to
+      a product license).
+
+  iii) Using a product containing the algorithm not covered by an IDEA license
+       (subject to an end user license).
+
+  All such end user license agreements are available exclusively from Ascom
+  Systec Ltd and may be requested via the WWW at http://www.ascom.ch/systec or
+  by email to idea@ascom.ch.
+
+  Use other than for commercial purposes is strictly limited to non-revenue
+  generating data transfer between private individuals.  The use by government
+  agencies, non-profit organizations, etc is considered as use for commercial
+  purposes but may be subject to special conditions.  Any misuse will be
+  prosecuted.
+
+RC5:
+
+  The RC5 algorithm is patented by RSA Data Security Inc. 100 Marine Parkway,
+  Redwoord City, California 94065, ph.+1 415 595-8782, fax +1 415 595-1873, and
+  cannot be used commercially in the US without a license without violating
+  the RC5 patent.
+
+
+--
+Prof. Julian Assange  |If you want to build a ship, don't drum up people
+                      |together to collect wood and don't assign them tasks
+proff@iq.org          |and work, but rather teach them to long for the endless
+proff@gnu.ai.mit.edu  |immensity of the sea. -- Antoine de Saint Exupery

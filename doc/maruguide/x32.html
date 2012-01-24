@@ -1,0 +1,306 @@
+<HTML
+><HEAD
+><TITLE
+>How does Rubberhose work?</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.49"><LINK
+REL="HOME"
+TITLE="The Idiot Savants' Guide to Rubberhose"
+HREF="t1.html"><LINK
+REL="PREVIOUS"
+TITLE="What can you do with Rubberhose?"
+HREF="x25.html"><LINK
+REL="NEXT"
+TITLE="Specific Security Features"
+HREF="x73.html"></HEAD
+><BODY
+CLASS="SECTION"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>The Idiot Savants' Guide to Rubberhose</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x25.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x73.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECTION"
+><H1
+CLASS="SECTION"
+><A
+NAME="AEN32"
+>How does Rubberhose work?</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="AEN35"
+>The Broad Overview</A
+></H2
+><P
+>When you run Rubberhose over a disk for the first time, the program writes random
+characters to the entire drive. (This means you should not run Rubberhose over a
+hard drive or any other storage device which is the sole repository of your
+Swiss bank account numbers.) The most important feature of Rubberhose is that 
+this random noise generated in the initialization is indecipherable from the
+encrypted data which will eventually be stored on the disk.</P
+><P
+>Let's say the hard drive is 1GB. You want to fill the first Rubberhose-encrypted
+portion with 400MB. and the second with 200MB. When you do this, Rubberhose
+doesn't know that you intend to divide up the sections in this way: the
+program assumes each of the sections will be 1GB, and therefore will fill
+the whole drive. In practice, Rubberhose fills the drive on a first come, first
+serve basis: it will keep providing more room to any one section until the
+overall disk has reached capacity.</P
+><P
+>However, when Rubberhose is creating these <SPAN
+CLASS="QUOTE"
+>"partitions"</SPAN
+>
+it doesn't simply cordon off the left corner of the drive. It doesn't work 
+like a normal disk partitioning program, taking large blocks for each 
+partition. Instead, it breaks up the pieces of the 400MB encrypted portion 
+into tiny pieces and scatters them across the entire 1GB drive. 
+This is done in a random manner, so the bits
+of data can not be tracked and re-assembled by an adversary. When you
+decrypt that 400MB section, it will look as though it is actually 1GB in
+size, with 600MB free space. This structure is how Rubberhose hides the
+existence of data in the remaining portion of the disk.</P
+><P
+>Now, you make a second Rubberhose encrypted portion of 200MB. Again, the program
+writes these bits randomly all over the 1GB drive as
+well, while taking care to avoid over-writing the bits assigned to the first
+400MB portion.</P
+><P
+>Since Rubberhose strews the bits all over the drive, we decided to call a Rubberhose
+section an <SPAN
+CLASS="QUOTE"
+>"aspect"</SPAN
+>, rather than a partition or level. 
+Each Rubberhose aspect has
+its own passphrase and must be decrypted separately. The entire Rubberhose drive
+is an <SPAN
+CLASS="QUOTE"
+>"extent"</SPAN
+>. The idea behind choosing the word aspect 
+is simple: a Rubberhose <SPAN
+CLASS="QUOTE"
+>"aspect"</SPAN
+> is simply a view of the same thing 
+(the extent) from a different perspective -- like viewing the same object 
+from different angles. The program lets you make as many aspects in one 
+extent as you want. If anyone seizes your data, they will not be able to 
+tell either through mathematical analysis or physical testing of the disk 
+how many aspects are on the drive, or how much real data is on any one aspect.</P
+><P
+>Rubberhose relies on internal maps to locate where the actual bits of your data
+are stored amid the random characters. Each aspect has its own corresponding
+map, and you can only decrypt that aspect's map when you type in the
+passphrase for that particular aspect. This is why you need to type in all
+the passphrases before you can safely write to a Rubberhose disk.</P
+><P
+>Like the many well disciplined spy agencies which will no doubt try to pick
+apart this program as soon as it is released, Rubberhose works on a strictly 
+<SPAN
+CLASS="QUOTE"
+>"need to know"</SPAN
+> basis. A Rubberhose aspect <SPAN
+CLASS="QUOTE"
+>"knows"</SPAN
+>
+nothing about any other aspect -- including its size, maps or even existence. 
+The program is designed this way because an aspect that doesn't know, can't 
+tell anyone else. The only thing it needs to know is when it must avoid 
+writing over the top of another aspect.</P
+><P
+>As a security measure, Rubberhose doesn't actually give any one
+aspects a piece of real estate on the disk until you actually try to write
+to the disk. (In other words, parts of the extent are only doled out to the
+various aspects dynamically.) This instant generation reduces the risk of
+analysis by an
+enemy, and allows the information hiding. For reading any one aspect, Rubberhose
+doesn't need to know the maps of the other aspects. For read only, when you
+type in one passphrase, Rubberhose will only decrypt the tables which map the bits
+for that one single aspect; all the other mapping tables for other Rubberhose
+aspects stay securely encrypted.</P
+></DIV
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="AEN51"
+>Cryptographic Algorithms You Can Use in Rubberhose</A
+></H2
+><P
+>We like our privacy. So Rubberhose uses only the best cryptographic
+algorithms available.
+You can set up your version of Rubberhose to use any of the following, alone 
+or in combination:
+<P
+></P
+><TABLE
+BORDER="0"
+><TR
+><TD
+>DES</TD
+><TD
+>3DES</TD
+><TD
+>IDEA</TD
+><TD
+>RC5</TD
+><TD
+>RC6</TD
+><TD
+>Blowfish</TD
+><TD
+>Twofish</TD
+><TD
+>CAST</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TABLE
+><P
+></P
+>&#13;</P
+><P
+>The deniable aspects of Rubberhose are built on top of the interaction of strong
+cryptography algorithms. The protection of the data itself, regardless of
+the deniable aspects, also relies on these strong, peer-reviewed algorithms.</P
+><P
+>In addition to the built in ciphers, Rubberhose supports all the symmetric
+algorithms from the latest release of OpenSSL, the world's fastest and most
+well-known crypto-library. Rubberhose's modular design makes it very easy to add
+new algorithms as well.</P
+><P
+>For the legal Riverdance, please read the 
+<A
+HREF="http://www.rubberhose.org/current/src/PATENTS"
+TARGET="_top"
+>PATENTS</A
+> file in the 
+distribution.</P
+></DIV
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="AEN68"
+>File Systems and Rubberhose</A
+></H2
+><P
+>The good news is that Rubberhose is very flexible: you can run it with a wide
+range of file systems, such as UFS, ext2fs, FAT or FAT32.
+Or any file-system your operating system uses to format a disk.
+However, we <I
+CLASS="EMPHASIS"
+>strongly</I
+> recommend that you do 
+not run a log-structured file system with Rubberhose. To understand why, 
+read <A
+HREF="x73.html#DISKSURFATTACKS"
+>the section called <I
+>Thwarting Disk Surface Analysis</I
+></A
+>.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x25.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t1.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x73.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>What can you do with Rubberhose?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Specific Security Features</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

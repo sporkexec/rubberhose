@@ -1,0 +1,1222 @@
+<!DOCTYPE Refentry PUBLIC "-//OASIS//DTD DocBook V3.1//EN">
+
+<RefEntry id="manpage.hose">
+  <DocInfo><Date> "Aug 18 2000"</Date></DocInfo>
+  <RefMeta>
+    <RefEntryTitle>hose</RefEntryTitle>
+    <ManVolNum>1</ManVolNum>
+    <RefMiscInfo>SP</RefMiscInfo>
+  </RefMeta>
+  <RefNameDiv>
+    <RefName>hose</RefName>
+    <RefPurpose>Control all manner of rubberhoses</RefPurpose>
+    <RefClass>A command within the Marutukku encryption system</RefClass>
+  </RefNameDiv>
+  <RefSynopsisDiv>
+    <CmdSynopsis>
+      <Command>hose</Command>
+      <Arg><Replaceable>global-options</Replaceable></Arg>
+      <Arg choice=req><Replaceable>command</Replaceable></Arg>
+      <Arg><Replaceable>local-options</Replaceable></Arg>
+      <Arg Rep=repeat><Replaceable>args</Replaceable></Arg>
+    </CmdSynopsis>
+  </RefSynopsisDiv>
+  <RefSect1>
+      <title>GLOBAL OPTIONS</title>
+<VariableList>
+<VarListEntry>
+<Term><Option>-E</Option></Term>
+<ListItem><Para>Disable wait for entropy (useful for batch tests)</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-f</Option></Term>
+<ListItem><Para>Force through errors where possible</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-L</Option></Term>
+<ListItem><Para>Disable memory locking</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-q</Option></Term>
+<ListItem><Para>Quiet</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-Q</Option></Term>
+<ListItem><Para>Quick and quiet, enable <Option>-d0</Option>, <Option>-ELQTW</Option> and <Option>-P0</Option> options</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-T</Option></Term>
+<ListItem><Para>Disable reseting file time stamps to epoch</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-W</Option></Term>
+<ListItem><Para>Disable memory wiping (useful for batch tests)</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-d <Replaceable>level</Replaceable></Option></Term>
+<ListItem><Para>Set debug level to 'level'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-P <Replaceable>level</Replaceable></Option></Term>
+<ListItem><Para>Set self-psychoanalysis rigour to 'level'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+
+  </RefSect1>
+  <RefSect1>
+      <title>COMMANDS</title>
+    <VariableList>
+<VarListEntry>
+<Term><Link linkend="hose.aspectinfo"<Command>aspectinfo</Command></Link></Term>
+<ListItem><Para>Dump informative info about aspect</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.attachextent"<Command>attachextent</Command></Link></Term>
+<ListItem><Para>Attach extent</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.bindaspect"<Command>bindaspect</Command></Link></Term>
+<ListItem><Para>Binds aspect to device</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.changepass"<Command>changepass</Command></Link></Term>
+<ListItem><Para>Change keying for aspect</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.decryptaspect"<Command>decryptaspect</Command></Link></Term>
+<ListItem><Para>Decrypt from Aspect to output</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.decryptfile"<Command>decryptfile</Command></Link></Term>
+<ListItem><Para>Conventional file decryption</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.dekeyaspect"<Command>dekeyaspect</Command></Link></Term>
+<ListItem><Para>Dekey aspect</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.detachextent"<Command>detachextent</Command></Link></Term>
+<ListItem><Para>Detach previously attached extent</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.encryptaspect"<Command>encryptaspect</Command></Link></Term>
+<ListItem><Para>Encrypt from input to Aspect</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.encryptfile"<Command>encryptfile</Command></Link></Term>
+<ListItem><Para>Conventional file encryption</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.example"<Command>example</Command></Link></Term>
+<ListItem><Para>Show example usage for command</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.help"<Command>help</Command></Link></Term>
+<ListItem><Para>General help or help on a particular command</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.info"<Command>info</Command></Link></Term>
+<ListItem><Para>Display configuration</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.keyaspect"<Command>keyaspect</Command></Link></Term>
+<ListItem><Para>Key aspect (needs an attached extent)</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.list"<Command>list</Command></Link></Term>
+<ListItem><Para>List available ciphers, commands or remaps</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.newaspect"<Command>newaspect</Command></Link></Term>
+<ListItem><Para>Create new aspect for keymap</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.newextent"<Command>newextent</Command></Link></Term>
+<ListItem><Para>Create new extent</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.newkeymap"<Command>newkeymap</Command></Link></Term>
+<ListItem><Para>Create new keymap file</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.psycho"<Command>psycho</Command></Link></Term>
+<ListItem><Para>Visit the psychiatrist</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.remapinfo"<Command>remapinfo</Command></Link></Term>
+<ListItem><Para>Dump remap information</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.speeds"<Command>speeds</Command></Link></Term>
+<ListItem><Para>Test cipher speeds</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.sync"<Command>sync</Command></Link></Term>
+<ListItem><Para>Sync hose daemon pending writes to disk</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.terminate"<Command>terminate</Command></Link></Term>
+<ListItem><Para>Terminate hose daemon</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.unbindaspect"<Command>unbindaspect</Command></Link></Term>
+<ListItem><Para>Unbind aspect from device</Para></ListItem></VarListEntry>
+<VarListEntry>
+<Term><Link linkend="hose.wipe"<Command>wipe</Command></Link></Term>
+<ListItem><Para>Wipe file or extent</Para></ListItem></VarListEntry>
+
+    </VariableList>
+  </RefSect1>
+  <RefSect1>
+    <Title>COMMAND DESCRIPTIONS</Title>
+<RefSect2 id="hose.aspectinfo">
+<Title>aspectinfo</Title>
+<CmdSynopsis>
+<Command>aspectinfo</Command>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap</Replaceable></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Dump informative info about aspect</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example aspectinfo</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose aspectinfo -a 0 maru.keymap
+</userinput>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+Aspect 0:
+        Lattice Cipher: cast-cbc
+        Block Cipher:   idea-cbc
+        Start:          0
+        Blocks:         64
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.attachextent">
+<Title>attachextent</Title>
+<CmdSynopsis>
+<Command>attachextent</Command>
+<Arg><Option>-B</Option></Arg>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Option>-R <Replaceable>path</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap </Replaceable><Arg><Replaceable>extent </Replaceable><Arg><Replaceable>device</Replaceable></Arg></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-B</Option></Term>
+<ListItem><Para>Disable pro-active block reallocation (bmap)</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Attach extent</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example attachextent</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose attachextent -a 0 -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.bindaspect">
+<Title>bindaspect</Title>
+<CmdSynopsis>
+<Command>bindaspect</Command>
+<Arg><Option>-R</Option></Arg>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Binds aspect to device</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example bindaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose bindaspect -a 0 -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.changepass">
+<Title>changepass</Title>
+<CmdSynopsis>
+<Command>changepass</Command>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap</Replaceable></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Change keying for aspect</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example changepass</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose changepass -a 0 maru.keymap
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.decryptaspect">
+<Title>decryptaspect</Title>
+<CmdSynopsis>
+<Command>decryptaspect</Command>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Option>-o <Replaceable>file</Replaceable></Option></Arg>
+<Arg><Option>-s <Replaceable>blocks</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap </Replaceable><Arg><Replaceable>extent </Replaceable><Arg><Replaceable>output</Replaceable></Arg></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-o <Replaceable>file</Replaceable></Option></Term>
+<ListItem><Para>Output operation to 'file'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-s <Replaceable>blocks</Replaceable></Option></Term>
+<ListItem><Para>Size in 'blocks'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Decrypt from Aspect to output</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example decryptaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose decryptaspect -a 0 -o maru.out
+</userinput>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+decrypted 64 blocks from maru.extent to maru.out
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.decryptfile">
+<Title>decryptfile</Title>
+<CmdSynopsis>
+<Command>decryptfile</Command>
+<Arg><Option>-3 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-i <Replaceable>file</Replaceable></Option></Arg>
+<Arg><Option>-o <Replaceable>file</Replaceable></Option></Arg>
+<Arg><Option>-V <Replaceable>iv</Replaceable></Option></Arg>
+<Arg><Replaceable>input </Replaceable><Arg><Replaceable>output</Replaceable></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-3 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for block encryption/decryption</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-i <Replaceable>file</Replaceable></Option></Term>
+<ListItem><Para>Take input from 'file'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-o <Replaceable>file</Replaceable></Option></Term>
+<ListItem><Para>Output operation to 'file'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-V <Replaceable>iv</Replaceable></Option></Term>
+<ListItem><Para>Use 'iv' (in hex) as the initialisation vector</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Conventional file decryption</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example decryptfile</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose decryptfile -3 idea-cbc -i maru.ciphertext -V 0xadeadfedbabecafe -o maru.out
+</userinput>
+
+Passphrase: 
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.dekeyaspect">
+<Title>dekeyaspect</Title>
+<CmdSynopsis>
+<Command>dekeyaspect</Command>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Option>-R <Replaceable>path</Replaceable></Option></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Dekey aspect</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example dekeyaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose dekeyaspect -a 0 -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.detachextent">
+<Title>detachextent</Title>
+<CmdSynopsis>
+<Command>detachextent</Command>
+<Arg><Option>-R <Replaceable>path</Replaceable></Option></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Detach previously attached extent</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example detachextent</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose detachextent -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.encryptaspect">
+<Title>encryptaspect</Title>
+<CmdSynopsis>
+<Command>encryptaspect</Command>
+<Arg><Option>-B</Option></Arg>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Option>-i <Replaceable>file</Replaceable></Option></Arg>
+<Arg><Option>-s <Replaceable>blocks</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap </Replaceable><Arg><Replaceable>extent </Replaceable><Arg><Replaceable>input</Replaceable></Arg></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-B</Option></Term>
+<ListItem><Para>Disable pro-active block reallocation (bmap)</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-i <Replaceable>file</Replaceable></Option></Term>
+<ListItem><Para>Take input from 'file'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-s <Replaceable>blocks</Replaceable></Option></Term>
+<ListItem><Para>Size in 'blocks'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Encrypt from input to Aspect</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example encryptaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose encryptaspect -a 0 -i maru.plaintext maru.keymap
+</userinput>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+encrypted 32 blocks from maru.plaintext to maru.extent
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.encryptfile">
+<Title>encryptfile</Title>
+<CmdSynopsis>
+<Command>encryptfile</Command>
+<Arg><Option>-3 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-i <Replaceable>file</Replaceable></Option></Arg>
+<Arg><Option>-o <Replaceable>file</Replaceable></Option></Arg>
+<Arg><Option>-V <Replaceable>iv</Replaceable></Option></Arg>
+<Arg><Replaceable>input </Replaceable><Arg><Replaceable>output</Replaceable></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-3 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for block encryption/decryption</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-i <Replaceable>file</Replaceable></Option></Term>
+<ListItem><Para>Take input from 'file'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-o <Replaceable>file</Replaceable></Option></Term>
+<ListItem><Para>Output operation to 'file'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-V <Replaceable>iv</Replaceable></Option></Term>
+<ListItem><Para>Use 'iv' (in hex) as the initialisation vector</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Conventional file encryption</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example encryptfile</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose encryptfile -3 idea-cbc -i maru.plaintext -o maru.ciphertext
+</userinput>
+
+Passphrase: 
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.example">
+<Title>example</Title>
+<CmdSynopsis>
+<Command>example</Command>
+<Arg><Option>-m</Option></Arg>
+<Arg>command</Arg></CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-m</Option></Term>
+<ListItem><Para>Minimal output</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Show example usage for command</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example example</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose example newaspect
+</userinput>
+
+Example:
+        ../hose/hose newaspect -2 cast-cbc -3 idea-cbc -a 0 -s 64 -t 1 maru.keymap
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.help">
+<Title>help</Title>
+<CmdSynopsis>
+<Command>help</Command>
+<Arg><Option>-S</Option></Arg>
+<Group><Arg>commands</Arg><Arg>options</arg><Arg><Replaceable>command</Replaceable></Arg></Group></CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-S</Option></Term>
+<ListItem><Para>SGML output</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>General help or help on a particular command</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example help</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose help newkeymap
+</userinput>
+
+Usage: ../hose/hose [-EfLqQTW] [-d level] [-P level] newkeymap [-1 cipher] [-A aspects] [-b bytes] [-c blocks] [-D depth] [-r remap] [-s blocks] [keymap]
+Description:
+        Create new keymap file
+Local options:
+        -1 cipher           Cipher for encryption/decryption of keys
+        -A aspects          Max number of usable aspects
+        -b bytes            Block size in bytes
+        -c blocks           Largest aspect size in blocks
+        -D depth            Depth of block key lattice
+        -r remap            Use remap type 'remap'
+        -s blocks           Size in 'blocks'
+Global options:
+        -E                  Disable wait for entropy (useful for batch tests)
+        -f                  Force through errors where possible
+        -L                  Disable memory locking
+        -q                  Quiet
+        -Q                  Quick and quiet, enable -d0, -ELQTW and -P0 options
+        -T                  Disable reseting file time stamps to epoch
+        -W                  Disable memory wiping (useful for batch tests)
+        -d level            Set debug level to 'level'
+        -P level            Set self-psychoanalysis rigour to 'level'
+Example:
+        ../hose/hose newkeymap -1 cast-cbc -A 6 -b 8192 -c 32 -r bmap -s 128 maru.keymap
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.info">
+<Title>info</Title>
+<CmdSynopsis>
+<Command>info</Command>
+<Arg><Option>-l <Replaceable>seconds</Replaceable></Option></Arg>
+<Arg><Option>-I <Replaceable>seconds</Replaceable></Option></Arg>
+<Arg><Option>-x <Replaceable>msec</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap </Replaceable><Arg><Replaceable>extent </Replaceable><Arg><Replaceable>device</Replaceable></Arg></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-I <Replaceable>seconds</Replaceable></Option></Term>
+<ListItem><Para>Autodetach after 'seconds' of idleness</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-l <Replaceable>seconds</Replaceable></Option></Term>
+<ListItem><Para>Autodetach after 'seconds' since attach</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-x <Replaceable>msec</Replaceable></Option></Term>
+<ListItem><Para>Use 'msec' miliseconds between cipher state xors</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Display configuration</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example info</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose info maru.keymap
+</userinput>
+
+        Major Version:  2
+        Minor Version:  1
+        Key Cipher:
+                name cast-cbc
+                  cipher_num    1
+                  key_size      128 bits
+                  block_size    64 bits
+                  state/ksch    132 bytes
+        Key Iterations: 123562
+        Blocks:         128
+        Block Size:     8192
+        Lattice Depth:  32 (4194304k addressable bytes)
+        Aspects:        6
+        Remap Type:     bmap
+        Checksum:       0xabf0bfb5
+        Maru device:    /dev/maru0
+        Maru extents:   maru.extent
+        Maru IV/SALT:   maru.keymap
+        Life time:      28800 (seconds)
+        Idle time:      1800 (seconds)
+        XOR cycle:      500 (mili seconds)
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.keyaspect">
+<Title>keyaspect</Title>
+<CmdSynopsis>
+<Command>keyaspect</Command>
+<Arg><Option>-R</Option></Arg>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Key aspect (needs an attached extent)</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example keyaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose keyaspect -a 0 -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.list">
+<Title>list</Title>
+<CmdSynopsis>
+<Command>list</Command>
+<Arg><Option>-m</Option></Arg>
+<Group><Arg>ciphers</Arg><Arg>commands</Arg><Arg>remaps</Arg></Group></CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-m</Option></Term>
+<ListItem><Para>Minimal output</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>List available ciphers, commands or remaps</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example list</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose list ciphers
+</userinput>
+
+        name xor
+          cipher_num    16
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    4 bytes
+        name bcopy
+          cipher_num    17
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    4 bytes
+        name idea-cbc
+          cipher_num    2
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    432 bytes
+        name cast-cbc
+          cipher_num    1
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    132 bytes
+        name ssl-blowfish-cbc
+          cipher_num    6
+          key_size      448 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-rc2-cbc
+          cipher_num    12
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-rc4
+          cipher_num    13
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    8196 bytes
+        name ssl-rc5-cbc
+          cipher_num    15
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-idea-cbc
+          cipher_num    11
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-des-cbc
+          cipher_num    7
+          key_size      64 bits (56 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-des-ede-cbc
+          cipher_num    8
+          key_size      128 bits (112 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-des-ede3-cbc
+          cipher_num    9
+          key_size      192 bits (168 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-desx-cbc
+          cipher_num    10
+          key_size      192 bits (168 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-cast-cbc
+          cipher_num    14
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name rc16
+          cipher_num    4
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    131080 bytes
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.newaspect">
+<Title>newaspect</Title>
+<CmdSynopsis>
+<Command>newaspect</Command>
+<Arg><Option>-2 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-3 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Option>-O <Replaceable>block</Replaceable></Option></Arg>
+<Arg><Option>-s <Replaceable>blocks</Replaceable></Option></Arg>
+<Arg><Option>-t <Replaceable>time</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap</Replaceable></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-2 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for generation of block keys</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-3 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for block encryption/decryption</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-O <Replaceable>block</Replaceable></Option></Term>
+<ListItem><Para>Start block range at offset 'block'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-s <Replaceable>blocks</Replaceable></Option></Term>
+<ListItem><Para>Size in 'blocks'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-t <Replaceable>time</Replaceable></Option></Term>
+<ListItem><Para>Use 'time' seconds of key cycle agitation</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Create new aspect for keymap</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example newaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose newaspect -2 cast-cbc -3 idea-cbc -a 0 -s 64 -t 1 maru.keymap
+</userinput>
+
+Generating 11128 pseudo-cryptographically random bytes for aspect 0 erasure
+........................................
+Generating 32 pseudo-cryptographically random bytes for aspect 0 key salt
+........................................
+Generating 104 pseudo-cryptographically random bytes for aspect 0 cycle
+........................................
+Generating 32 cryptographically random bytes for aspect 0 master key
+........................................
+Generating 32 cryptographically random bytes for aspect 0 info key
+........................................
+Generating 32 cryptographically random bytes for aspect 0 remap master key
+........................................
+Generating 104 pseudo-cryptographically random bytes for cycle salt
+........................................
+
+Agitating cast-cbc key generator state for 1 second...
+123562 cast-cbc agitations (123562 per second)
+Generating 4 pseudo-cryptographically random bytes for aspect information salt
+........................................
+Generating 64 pseudo-cryptographically random bytes for primary lattice key salts
+........................................
+Generating 2048 pseudo-cryptographically random bytes for subkey lattice IVs
+........................................
+Generating 8192 pseudo-cryptographically random bytes for block whitener
+........................................
+
+Clearing key artifacts
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.newextent">
+<Title>newextent</Title>
+<CmdSynopsis>
+<Command>newextent</Command>
+<Arg><Option>-1 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-w <Replaceable>rounds</Replaceable></Option></Arg>
+<Arg><Option>-s <Replaceable>blocks</Replaceable></Option></Arg>
+<Arg><Option>-b <Replaceable>bytes</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap</Replaceable></Arg> <Arg><Replaceable>extent</Replaceable></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-1 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for encryption/decryption of keys</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-b <Replaceable>bytes</Replaceable></Option></Term>
+<ListItem><Para>Block size in bytes</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-s <Replaceable>blocks</Replaceable></Option></Term>
+<ListItem><Para>Size in 'blocks'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-w <Replaceable>rounds</Replaceable></Option></Term>
+<ListItem><Para>Apply 'rounds' worth of wiping</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Create new extent</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example newextent</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose newextent -1 cast-cbc -w 0 -s 128 -b 8192
+</userinput>
+
+hose: Warning: creating extent using Unix file holes. Such extents are *not* crypto-deniable.
+Extent creation complete (1048576 bytes)
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.newkeymap">
+<Title>newkeymap</Title>
+<CmdSynopsis>
+<Command>newkeymap</Command>
+<Arg><Option>-1 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-A <Replaceable>aspects</Replaceable></Option></Arg>
+<Arg><Option>-b <Replaceable>bytes</Replaceable></Option></Arg>
+<Arg><Option>-c <Replaceable>blocks</Replaceable></Option></Arg>
+<Arg><Option>-D <Replaceable>depth</Replaceable></Option></Arg>
+<Arg><Option>-r <Replaceable>remap</Replaceable></Option></Arg>
+<Arg><Option>-s <Replaceable>blocks</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap</Replaceable></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-1 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for encryption/decryption of keys</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-A <Replaceable>aspects</Replaceable></Option></Term>
+<ListItem><Para>Max number of usable aspects</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-b <Replaceable>bytes</Replaceable></Option></Term>
+<ListItem><Para>Block size in bytes</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-c <Replaceable>blocks</Replaceable></Option></Term>
+<ListItem><Para>Largest aspect size in blocks</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-D <Replaceable>depth</Replaceable></Option></Term>
+<ListItem><Para>Depth of block key lattice</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-r <Replaceable>remap</Replaceable></Option></Term>
+<ListItem><Para>Use remap type 'remap'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-s <Replaceable>blocks</Replaceable></Option></Term>
+<ListItem><Para>Size in 'blocks'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Create new keymap file</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example newkeymap</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose newkeymap -1 cast-cbc -A 6 -b 8192 -c 32 -r bmap -s 128 maru.keymap
+</userinput>
+
+Generating 64496 pseudo-cryptographically random bytes for keymap erasure
+........................................
+Maru keymap generation complete.
+Saving Maru Keymap as "maru.keymap"
+* MAKE AT LEAST TWO BACKUPS of this file. If a single bit sells out to the dark
+  forces of entropy, your entire maru ciphertext extent will follow suit!
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.psycho">
+<Title>psycho</Title>
+<CmdSynopsis>
+<Command>psycho</Command>
+</CmdSynopsis>
+<synopsis>Visit the psychiatrist</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example psycho</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose -d 9 -P 9 psycho
+</userinput>
+
+hose: psychoanalysis: checking that all command options have help...
+hose: psychoanalysis: checking that all options have commands that use them...
+hose: psychoanalysis: sizeof (m_u64) == 8... passed
+hose: psychoanalysis: sizeof (m_u32) == 4... passed
+hose: psychoanalysis: sizeof (m_u16) == 2... passed
+hose: psychoanalysis: sizeof (m_u8) == 1... passed
+hose: psychoanalysis: sizeof (int) >= 4... passed
+hose: psychoanalysis: hton8(0x12) == 0x12... passed
+hose: psychoanalysis: hton16(0x1234) == 0x3412... passed
+hose: psychoanalysis: hton32(0x12345678) == 0x78563412... passed
+hose: psychoanalysis: hton64(0x1122334455667788) == 0x8877665544332211... passed
+hose: psychoanalysis: MAX_PASSPHRASE >= MIN_PASSPHRASE... passed
+hose: psychoanalysis: MAX_IV == MAX_CIPHER_BLOCK... passed
+hose: psychoanalysis: MAX_CIPHER_BLOCK == 8... passed
+hose: psychoanalysis: sizeof (maruPass) == MAX_PASSPHRASE... passed
+hose: psychoanalysis: sizeof (maruKey) == MAX_KEY... passed
+hose: psychoanalysis: sizeof (maruIV) == MAX_IV... passed
+hose: psychoanalysis: sizeof (maruBlock) == MAX_CIPHER_BLOCK... passed
+hose: psychoanalysis: blockAligned(maruCycle)... passed
+hose: psychoanalysis: blockAligned(maruAspectInfo)... passed
+hose: psychoanalysis: examining "/home/proff"... passed
+hose: psychoanalysis: examining "/etc/mtab"... passed
+hose: psychoanalysis: xor auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: xor auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: bcopy auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: bcopy auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: idea-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: idea-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: cast-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: cast-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-blowfish-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-blowfish-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-rc2-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-rc2-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-rc4 auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-rc4 auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-rc5-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-rc5-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-idea-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-idea-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-des-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-des-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-desx-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-desx-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-cast-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-cast-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: rc16 auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: rc16 auto test vector in != out, ply = 1... passed
+Passed the maru DSM, level 9
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.remapinfo">
+<Title>remapinfo</Title>
+<CmdSynopsis>
+<Command>remapinfo</Command>
+<Arg><Replaceable>keymap</Replaceable></Arg>
+</CmdSynopsis>
+<synopsis>Dump remap information</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example remapinfo</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose remapinfo maru.keymap
+</userinput>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+Remap type: bmap        Dynamically distribute blocks to aspects
+Block -> Aspect ownership map (* = collision):
+0       ......................................................................
+46      ..........................................................
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.speeds">
+<Title>speeds</Title>
+<CmdSynopsis>
+<Command>speeds</Command>
+<Arg><Option>-eS</Option></Arg>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Replaceable>keymap </Replaceable><Arg><Replaceable>extent</Replaceable></Arg></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-e</Option></Term>
+<ListItem><Para>Use entire maru encryption path for speed calculations</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-S</Option></Term>
+<ListItem><Para>SGML output</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Test cipher speeds</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example speeds</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose speeds 
+</userinput>
+
+Cipher           | setkey/s |  512k/s | 1024k/s | 2048k/s | 4096k/s | 8192k/s
+=================+==========+=========+=========+=========+=========+========
+xor              | 28395307 |  688120 |  735121 |  756022 |  769100 |  766624 
+-----------------+----------+---------+---------+---------+---------+--------
+bcopy            | 28817071 |  453326 |  587886 |  685740 |  746232 |  779120 
+-----------------+----------+---------+---------+---------+---------+--------
+idea-cbc         |  1801295 |    4339 |    4193 |    4166 |    4196 |    4224 
+-----------------+----------+---------+---------+---------+---------+--------
+idea-cbc-D       |    31245 |    4272 |    4150 |    4136 |    4188 |    4168 
+-----------------+----------+---------+---------+---------+---------+--------
+cast-cbc         |   462943 |   12883 |   13008 |   12980 |   13120 |   12888 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-blowfish-cbc |     4048 |   14312 |   14369 |   14462 |   14444 |   14240 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc2-cbc      |   124204 |    4211 |    4200 |    4226 |    4248 |    4248 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc4          |   117164 |   23569 |   29444 |   32970 |   35716 |   36976 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc5-cbc      |   294663 |   10822 |   10803 |   10914 |   10812 |   10800 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc5-cbc-D    |   294667 |   18364 |   18599 |   18600 |   18472 |   18592 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-idea-cbc     |  1332064 |    5902 |    6203 |    6282 |    6324 |    6408 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-idea-cbc-D   |    31311 |    5863 |    6317 |    6390 |    6280 |    6216 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-des-cbc      |   455926 |    5507 |    5512 |    5536 |    5524 |    5504 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-des-ede-cbc  |   222911 |    1962 |    1954 |    1964 |    1956 |    1968 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-des-ede3-cbc |   163273 |    1959 |    1948 |    1958 |    1928 |    1960 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-desx-cbc     |   456771 |    5508 |    5384 |    5420 |    5424 |    5400 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-cast-cbc     |   340860 |    9570 |    9515 |    9530 |    9624 |    9536 
+-----------------+----------+---------+---------+---------+---------+--------
+rc16             |      424 |   30795 |   30680 |   30936 |   30864 |   30912 
+-----------------+----------+---------+---------+---------+---------+--------
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.sync">
+<Title>sync</Title>
+<CmdSynopsis>
+<Command>sync</Command>
+<Arg><Option>-R <Replaceable>path</Replaceable></Option></Arg>
+
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Sync hose daemon pending writes to disk</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example sync</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose sync -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.terminate">
+<Title>terminate</Title>
+<CmdSynopsis>
+<Command>terminate</Command>
+<Arg><Option>-R <Replaceable>path</Replaceable></Option></Arg>
+
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Terminate hose daemon</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example terminate</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose terminate -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.unbindaspect">
+<Title>unbindaspect</Title>
+<CmdSynopsis>
+<Command>unbindaspect</Command>
+<Arg><Option>-a <Replaceable>aspect</Replaceable></Option></Arg>
+<Arg><Option>-R <Replaceable>path</Replaceable></Option></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-a <Replaceable>aspect</Replaceable></Option></Term>
+<ListItem><Para>Use aspect number 'aspect'</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-R <Replaceable>path</Replaceable></Option></Term>
+<ListItem><Para>Rendezvous with hosed AF_UNIX socket at 'path'</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Unbind aspect from device</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example unbindaspect</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose unbindaspect -a 0 -R /tmp/rendezvous
+</userinput>
+
+    </screen>  </example>  </refsect2>
+
+
+<RefSect2 id="hose.wipe">
+<Title>wipe</Title>
+<CmdSynopsis>
+<Command>wipe</Command>
+<Arg><Option>-1 <Replaceable>cipher</Replaceable></Option></Arg>
+<Arg><Option>-b <Replaceable>bytes</Replaceable></Option></Arg>
+<Arg><Replaceable>extent</Replaceable></Arg>
+</CmdSynopsis>
+<VariableList>
+<VarListEntry>
+<Term><Option>-1 <Replaceable>cipher</Replaceable></Option></Term>
+<ListItem><Para>Cipher for encryption/decryption of keys</Para></ListItem>
+</VarListEntry>
+<VarListEntry>
+<Term><Option>-b <Replaceable>bytes</Replaceable></Option></Term>
+<ListItem><Para>Block size in bytes</Para></ListItem>
+</VarListEntry>
+</VariableList>
+<synopsis>Wipe file or extent</synopsis></RefSect2>
+
+<refsect2>  <title>EXAMPLE</title>  <example>  <title>Example wipe</title>  <screen>  <prompt>$ </prompt>  <userinput>
+hose wipe -1 rc16 maru.extent
+</userinput>
+
+Generating 32 cryptographically random bytes for rc16 erasure key
+........................................
+
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 192512/1048576Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 522240/1048576Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 843776/1048576Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 1048576/1048576    </screen>  </example>  </refsect2>
+
+
+
+  </RefSect1>
+  <refsect1>
+    <title>ENVIROMENTAL VARIABLES</title>
+    <variablelist>
+      <varlistentry>
+	<term><envar>MARU_PASSPHRASE</envar></term>
+	<listitem><para>Use the contents of this variable instead of ever prompting for a passphrase.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><envar>MARU_PASSPHRASE_n</envar></term>
+	<listitem>
+	  <para>
+	    Use the contents of this variable instead of prompting for a passphrase for aspect_n.
+	    This variable is dominant over <envar>MARU_PASSPHRASE</envar>
+	</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </RefSect1>
+ 
+<refsect1>
+      <title>AUTHORS</title>
+      <Para>
+<Author>
+	  <firstname>Julian</firstname>
+	  <surname>Assange</surname>
+	  <Affiliation>
+	    <JobTitle>Director</JobTitle>
+	    <OrgName>Australian National Cognitive Facility</OrgName>
+	    <Address>
+<POB>PO BOX 2031</POB>
+<Postcode>3122</PostCode>
+<City>Hawthorn</City>
+<State>Victoria</State>
+<Country>Australia</Country>
+<Email>proff@iq.org</Email>
+</Address>
+	  </Affiliation>
+	</Author>
+</Para>
+</refsect1>
+
+ 
+<refsect1>
+  <title>COPYRIGHT</title>
+  <VariableList>
+    <VarListEntry>
+      <Term>Copyright (c) 1997-2000</Term>
+      <ListItem>
+	<Para>
+<Author>
+	    <firstname>Julian</firstname>
+	    <surname>Assange</surname>
+	  </Author>
+</Para>
+      </ListItem>
+    </VarListEntry> 
+    <VarListEntry>
+      <Term>Copyright (c) 1999-2000</Term>
+      <ListItem>
+	<Para>Australian National Cognitive Facility</Para>
+      </ListItem>
+    </VarListEntry> 
+    <VarListEntry>
+      <Term>Copyright (c) 1999-2000</Term>
+      <ListItem>
+	<Para>
+<Author>
+	    <firstname>Ralf</firstname>
+	    <OtherName>P.</OtherName>
+	    <surname>Weinmann</surname>
+	  </Author>
+</Para>
+      </ListItem>
+    </VarListEntry> 
+  </VariableList>
+</refsect1>
+
+</RefEntry>

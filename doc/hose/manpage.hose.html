@@ -1,0 +1,3852 @@
+<HTML
+><HEAD
+><TITLE
+>hose</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.49"></HEAD
+><BODY
+CLASS="REFENTRY"
+><H1
+><A
+NAME="MANPAGE.HOSE"
+>hose</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN8"
+></A
+><H2
+>Name</H2
+>hose&nbsp;--&nbsp;Control all manner of rubberhoses<P
+><B
+></B
+>A command within the Marutukku encryption system</P
+></DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12"
+></A
+><H2
+>Synopsis</H2
+><P
+><B
+CLASS="COMMAND"
+>hose</B
+>  [<TT
+CLASS="REPLACEABLE"
+><I
+>global-options</I
+></TT
+>] {<TT
+CLASS="REPLACEABLE"
+><I
+>command</I
+></TT
+>} [<TT
+CLASS="REPLACEABLE"
+><I
+>local-options</I
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>args</I
+></TT
+>...]</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23"
+></A
+><H2
+>GLOBAL OPTIONS</H2
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-E</TT
+></DT
+><DD
+><P
+>Disable wait for entropy (useful for batch tests)</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-f</TT
+></DT
+><DD
+><P
+>Force through errors where possible</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-L</TT
+></DT
+><DD
+><P
+>Disable memory locking</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-q</TT
+></DT
+><DD
+><P
+>Quiet</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-Q</TT
+></DT
+><DD
+><P
+>Quick and quiet, enable <TT
+CLASS="OPTION"
+>-d0</TT
+>, <TT
+CLASS="OPTION"
+>-ELQTW</TT
+> and <TT
+CLASS="OPTION"
+>-P0</TT
+> options</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-T</TT
+></DT
+><DD
+><P
+>Disable reseting file time stamps to epoch</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-W</TT
+></DT
+><DD
+><P
+>Disable memory wiping (useful for batch tests)</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-d <TT
+CLASS="REPLACEABLE"
+><I
+>level</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Set debug level to 'level'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-P <TT
+CLASS="REPLACEABLE"
+><I
+>level</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Set self-psychoanalysis rigour to 'level'</P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN76"
+></A
+><H2
+>COMMANDS</H2
+><P
+></P
+><DL
+><DT
+><A
+HREF="manpage.hose.html#HOSE.ASPECTINFO"
+><B
+CLASS="COMMAND"
+>aspectinfo</B
+></A
+></DT
+><DD
+><P
+>Dump informative info about aspect</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.ATTACHEXTENT"
+><B
+CLASS="COMMAND"
+>attachextent</B
+></A
+></DT
+><DD
+><P
+>Attach extent</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.BINDASPECT"
+><B
+CLASS="COMMAND"
+>bindaspect</B
+></A
+></DT
+><DD
+><P
+>Binds aspect to device</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.CHANGEPASS"
+><B
+CLASS="COMMAND"
+>changepass</B
+></A
+></DT
+><DD
+><P
+>Change keying for aspect</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.DECRYPTASPECT"
+><B
+CLASS="COMMAND"
+>decryptaspect</B
+></A
+></DT
+><DD
+><P
+>Decrypt from Aspect to output</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.DECRYPTFILE"
+><B
+CLASS="COMMAND"
+>decryptfile</B
+></A
+></DT
+><DD
+><P
+>Conventional file decryption</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.DEKEYASPECT"
+><B
+CLASS="COMMAND"
+>dekeyaspect</B
+></A
+></DT
+><DD
+><P
+>Dekey aspect</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.DETACHEXTENT"
+><B
+CLASS="COMMAND"
+>detachextent</B
+></A
+></DT
+><DD
+><P
+>Detach previously attached extent</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.ENCRYPTASPECT"
+><B
+CLASS="COMMAND"
+>encryptaspect</B
+></A
+></DT
+><DD
+><P
+>Encrypt from input to Aspect</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.ENCRYPTFILE"
+><B
+CLASS="COMMAND"
+>encryptfile</B
+></A
+></DT
+><DD
+><P
+>Conventional file encryption</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.EXAMPLE"
+><B
+CLASS="COMMAND"
+>example</B
+></A
+></DT
+><DD
+><P
+>Show example usage for command</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.HELP"
+><B
+CLASS="COMMAND"
+>help</B
+></A
+></DT
+><DD
+><P
+>General help or help on a particular command</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.INFO"
+><B
+CLASS="COMMAND"
+>info</B
+></A
+></DT
+><DD
+><P
+>Display configuration</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.KEYASPECT"
+><B
+CLASS="COMMAND"
+>keyaspect</B
+></A
+></DT
+><DD
+><P
+>Key aspect (needs an attached extent)</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.LIST"
+><B
+CLASS="COMMAND"
+>list</B
+></A
+></DT
+><DD
+><P
+>List available ciphers, commands or remaps</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.NEWASPECT"
+><B
+CLASS="COMMAND"
+>newaspect</B
+></A
+></DT
+><DD
+><P
+>Create new aspect for keymap</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.NEWEXTENT"
+><B
+CLASS="COMMAND"
+>newextent</B
+></A
+></DT
+><DD
+><P
+>Create new extent</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.NEWKEYMAP"
+><B
+CLASS="COMMAND"
+>newkeymap</B
+></A
+></DT
+><DD
+><P
+>Create new keymap file</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.PSYCHO"
+><B
+CLASS="COMMAND"
+>psycho</B
+></A
+></DT
+><DD
+><P
+>Visit the psychiatrist</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.REMAPINFO"
+><B
+CLASS="COMMAND"
+>remapinfo</B
+></A
+></DT
+><DD
+><P
+>Dump remap information</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.SPEEDS"
+><B
+CLASS="COMMAND"
+>speeds</B
+></A
+></DT
+><DD
+><P
+>Test cipher speeds</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.SYNC"
+><B
+CLASS="COMMAND"
+>sync</B
+></A
+></DT
+><DD
+><P
+>Sync hose daemon pending writes to disk</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.TERMINATE"
+><B
+CLASS="COMMAND"
+>terminate</B
+></A
+></DT
+><DD
+><P
+>Terminate hose daemon</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.UNBINDASPECT"
+><B
+CLASS="COMMAND"
+>unbindaspect</B
+></A
+></DT
+><DD
+><P
+>Unbind aspect from device</P
+></DD
+><DT
+><A
+HREF="manpage.hose.html#HOSE.WIPE"
+><B
+CLASS="COMMAND"
+>wipe</B
+></A
+></DT
+><DD
+><P
+>Wipe file or extent</P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN229"
+></A
+><H2
+>COMMAND DESCRIPTIONS</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.ASPECTINFO"
+></A
+><H3
+>aspectinfo</H3
+><P
+><B
+CLASS="COMMAND"
+>aspectinfo</B
+>  [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Dump informative info about aspect</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN248"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 1. Example aspectinfo</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose aspectinfo -a 0 maru.keymap</B
+></TT
+>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+Aspect 0:
+        Lattice Cipher: cast-cbc
+        Block Cipher:   idea-cbc
+        Start:          0
+        Blocks:         64
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.ATTACHEXTENT"
+></A
+><H3
+>attachextent</H3
+><P
+><B
+CLASS="COMMAND"
+>attachextent</B
+>  [<TT
+CLASS="OPTION"
+>-B</TT
+>] [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>extent </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>device</I
+></TT
+>]]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-B</TT
+></DT
+><DD
+><P
+>Disable pro-active block reallocation (bmap)</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Attach extent</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN292"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 2. Example attachextent</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose attachextent -a 0 -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.BINDASPECT"
+></A
+><H3
+>bindaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>bindaspect</B
+>  [<TT
+CLASS="OPTION"
+>-R</TT
+>] [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Binds aspect to device</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN322"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 3. Example bindaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose bindaspect -a 0 -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.CHANGEPASS"
+></A
+><H3
+>changepass</H3
+><P
+><B
+CLASS="COMMAND"
+>changepass</B
+>  [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Change keying for aspect</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN346"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 4. Example changepass</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose changepass -a 0 maru.keymap</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.DECRYPTASPECT"
+></A
+><H3
+>decryptaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>decryptaspect</B
+>  [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-o <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>extent </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>output</I
+></TT
+>]]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-o <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Output operation to 'file'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Size in 'blocks'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Decrypt from Aspect to output</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN392"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 5. Example decryptaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose decryptaspect -a 0 -o maru.out</B
+></TT
+>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+decrypted 64 blocks from maru.extent to maru.out
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.DECRYPTFILE"
+></A
+><H3
+>decryptfile</H3
+><P
+><B
+CLASS="COMMAND"
+>decryptfile</B
+>  [<TT
+CLASS="OPTION"
+>-3 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-i <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-o <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-V <TT
+CLASS="REPLACEABLE"
+><I
+>iv</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>input </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>output</I
+></TT
+>]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-3 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for block encryption/decryption</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-i <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Take input from 'file'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-o <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Output operation to 'file'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-V <TT
+CLASS="REPLACEABLE"
+><I
+>iv</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use 'iv' (in hex) as the initialisation vector</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Conventional file decryption</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN445"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 6. Example decryptfile</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose decryptfile -3 idea-cbc -i maru.ciphertext -V 0xadeadfedbabecafe -o maru.out</B
+></TT
+>
+
+Passphrase: 
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.DEKEYASPECT"
+></A
+><H3
+>dekeyaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>dekeyaspect</B
+>  [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Dekey aspect</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN476"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 7. Example dekeyaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose dekeyaspect -a 0 -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.DETACHEXTENT"
+></A
+><H3
+>detachextent</H3
+><P
+><B
+CLASS="COMMAND"
+>detachextent</B
+>  [<TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Detach previously attached extent</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN498"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 8. Example detachextent</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose detachextent -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.ENCRYPTASPECT"
+></A
+><H3
+>encryptaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>encryptaspect</B
+>  [<TT
+CLASS="OPTION"
+>-B</TT
+>] [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-i <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>extent </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>input</I
+></TT
+>]]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-B</TT
+></DT
+><DD
+><P
+>Disable pro-active block reallocation (bmap)</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-i <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Take input from 'file'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Size in 'blocks'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Encrypt from input to Aspect</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN551"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 9. Example encryptaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose encryptaspect -a 0 -i maru.plaintext maru.keymap</B
+></TT
+>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+encrypted 32 blocks from maru.plaintext to maru.extent
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.ENCRYPTFILE"
+></A
+><H3
+>encryptfile</H3
+><P
+><B
+CLASS="COMMAND"
+>encryptfile</B
+>  [<TT
+CLASS="OPTION"
+>-3 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-i <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-o <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-V <TT
+CLASS="REPLACEABLE"
+><I
+>iv</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>input </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>output</I
+></TT
+>]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-3 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for block encryption/decryption</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-i <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Take input from 'file'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-o <TT
+CLASS="REPLACEABLE"
+><I
+>file</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Output operation to 'file'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-V <TT
+CLASS="REPLACEABLE"
+><I
+>iv</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use 'iv' (in hex) as the initialisation vector</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Conventional file encryption</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN604"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 10. Example encryptfile</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose encryptfile -3 idea-cbc -i maru.plaintext -o maru.ciphertext</B
+></TT
+>
+
+Passphrase: 
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.EXAMPLE"
+></A
+><H3
+>example</H3
+><P
+><B
+CLASS="COMMAND"
+>example</B
+>  [<TT
+CLASS="OPTION"
+>-m</TT
+>] [command]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-m</TT
+></DT
+><DD
+><P
+>Minimal output</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Show example usage for command</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN625"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 11. Example example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose example newaspect</B
+></TT
+>
+
+Example:
+        ../hose/hose newaspect -2 cast-cbc -3 idea-cbc -a 0 -s 64 -t 1 maru.keymap
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.HELP"
+></A
+><H3
+>help</H3
+><P
+><B
+CLASS="COMMAND"
+>help</B
+>  [<TT
+CLASS="OPTION"
+>-S</TT
+>] [commands | options | <TT
+CLASS="REPLACEABLE"
+><I
+>command</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-S</TT
+></DT
+><DD
+><P
+>SGML output</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>General help or help on a particular command</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN650"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 12. Example help</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose help newkeymap</B
+></TT
+>
+
+Usage: ../hose/hose [-EfLqQTW] [-d level] [-P level] newkeymap [-1 cipher] [-A aspects] [-b bytes] [-c blocks] [-D depth] [-r remap] [-s blocks] [keymap]
+Description:
+        Create new keymap file
+Local options:
+        -1 cipher           Cipher for encryption/decryption of keys
+        -A aspects          Max number of usable aspects
+        -b bytes            Block size in bytes
+        -c blocks           Largest aspect size in blocks
+        -D depth            Depth of block key lattice
+        -r remap            Use remap type 'remap'
+        -s blocks           Size in 'blocks'
+Global options:
+        -E                  Disable wait for entropy (useful for batch tests)
+        -f                  Force through errors where possible
+        -L                  Disable memory locking
+        -q                  Quiet
+        -Q                  Quick and quiet, enable -d0, -ELQTW and -P0 options
+        -T                  Disable reseting file time stamps to epoch
+        -W                  Disable memory wiping (useful for batch tests)
+        -d level            Set debug level to 'level'
+        -P level            Set self-psychoanalysis rigour to 'level'
+Example:
+        ../hose/hose newkeymap -1 cast-cbc -A 6 -b 8192 -c 32 -r bmap -s 128 maru.keymap
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.INFO"
+></A
+><H3
+>info</H3
+><P
+><B
+CLASS="COMMAND"
+>info</B
+>  [<TT
+CLASS="OPTION"
+>-l <TT
+CLASS="REPLACEABLE"
+><I
+>seconds</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-I <TT
+CLASS="REPLACEABLE"
+><I
+>seconds</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-x <TT
+CLASS="REPLACEABLE"
+><I
+>msec</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>extent </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>device</I
+></TT
+>]]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-I <TT
+CLASS="REPLACEABLE"
+><I
+>seconds</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Autodetach after 'seconds' of idleness</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-l <TT
+CLASS="REPLACEABLE"
+><I
+>seconds</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Autodetach after 'seconds' since attach</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-x <TT
+CLASS="REPLACEABLE"
+><I
+>msec</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use 'msec' miliseconds between cipher state xors</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Display configuration</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN696"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 13. Example info</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose info maru.keymap</B
+></TT
+>
+
+        Major Version:  2
+        Minor Version:  1
+        Key Cipher:
+                name cast-cbc
+                  cipher_num    1
+                  key_size      128 bits
+                  block_size    64 bits
+                  state/ksch    132 bytes
+        Key Iterations: 123562
+        Blocks:         128
+        Block Size:     8192
+        Lattice Depth:  32 (4194304k addressable bytes)
+        Aspects:        6
+        Remap Type:     bmap
+        Checksum:       0xabf0bfb5
+        Maru device:    /dev/maru0
+        Maru extents:   maru.extent
+        Maru IV/SALT:   maru.keymap
+        Life time:      28800 (seconds)
+        Idle time:      1800 (seconds)
+        XOR cycle:      500 (mili seconds)
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.KEYASPECT"
+></A
+><H3
+>keyaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>keyaspect</B
+>  [<TT
+CLASS="OPTION"
+>-R</TT
+>] [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Key aspect (needs an attached extent)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN726"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 14. Example keyaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose keyaspect -a 0 -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.LIST"
+></A
+><H3
+>list</H3
+><P
+><B
+CLASS="COMMAND"
+>list</B
+>  [<TT
+CLASS="OPTION"
+>-m</TT
+>] [ciphers | commands | remaps]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-m</TT
+></DT
+><DD
+><P
+>Minimal output</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>List available ciphers, commands or remaps</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN750"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 15. Example list</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose list ciphers</B
+></TT
+>
+
+        name xor
+          cipher_num    16
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    4 bytes
+        name bcopy
+          cipher_num    17
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    4 bytes
+        name idea-cbc
+          cipher_num    2
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    432 bytes
+        name cast-cbc
+          cipher_num    1
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    132 bytes
+        name ssl-blowfish-cbc
+          cipher_num    6
+          key_size      448 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-rc2-cbc
+          cipher_num    12
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-rc4
+          cipher_num    13
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    8196 bytes
+        name ssl-rc5-cbc
+          cipher_num    15
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-idea-cbc
+          cipher_num    11
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-des-cbc
+          cipher_num    7
+          key_size      64 bits (56 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-des-ede-cbc
+          cipher_num    8
+          key_size      128 bits (112 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-des-ede3-cbc
+          cipher_num    9
+          key_size      192 bits (168 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-desx-cbc
+          cipher_num    10
+          key_size      192 bits (168 bits real)
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name ssl-cast-cbc
+          cipher_num    14
+          key_size      128 bits
+          block_size    64 bits
+          state/ksch    8196 bytes
+        name rc16
+          cipher_num    4
+          key_size      256 bits
+          block_size    0 bits (stream cipher)
+          state/ksch    131080 bytes
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.NEWASPECT"
+></A
+><H3
+>newaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>newaspect</B
+>  [<TT
+CLASS="OPTION"
+>-2 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-3 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-O <TT
+CLASS="REPLACEABLE"
+><I
+>block</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-t <TT
+CLASS="REPLACEABLE"
+><I
+>time</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-2 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for generation of block keys</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-3 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for block encryption/decryption</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-O <TT
+CLASS="REPLACEABLE"
+><I
+>block</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Start block range at offset 'block'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Size in 'blocks'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-t <TT
+CLASS="REPLACEABLE"
+><I
+>time</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use 'time' seconds of key cycle agitation</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Create new aspect for keymap</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN819"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 16. Example newaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose newaspect -2 cast-cbc -3 idea-cbc -a 0 -s 64 -t 1 maru.keymap</B
+></TT
+>
+
+Generating 11128 pseudo-cryptographically random bytes for aspect 0 erasure
+........................................
+Generating 32 pseudo-cryptographically random bytes for aspect 0 key salt
+........................................
+Generating 104 pseudo-cryptographically random bytes for aspect 0 cycle
+........................................
+Generating 32 cryptographically random bytes for aspect 0 master key
+........................................
+Generating 32 cryptographically random bytes for aspect 0 info key
+........................................
+Generating 32 cryptographically random bytes for aspect 0 remap master key
+........................................
+Generating 104 pseudo-cryptographically random bytes for cycle salt
+........................................
+
+Agitating cast-cbc key generator state for 1 second...
+123562 cast-cbc agitations (123562 per second)
+Generating 4 pseudo-cryptographically random bytes for aspect information salt
+........................................
+Generating 64 pseudo-cryptographically random bytes for primary lattice key salts
+........................................
+Generating 2048 pseudo-cryptographically random bytes for subkey lattice IVs
+........................................
+Generating 8192 pseudo-cryptographically random bytes for block whitener
+........................................
+
+Clearing key artifacts
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.NEWEXTENT"
+></A
+><H3
+>newextent</H3
+><P
+><B
+CLASS="COMMAND"
+>newextent</B
+>  [<TT
+CLASS="OPTION"
+>-1 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-w <TT
+CLASS="REPLACEABLE"
+><I
+>rounds</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-b <TT
+CLASS="REPLACEABLE"
+><I
+>bytes</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap</I
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>extent</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-1 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for encryption/decryption of keys</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-b <TT
+CLASS="REPLACEABLE"
+><I
+>bytes</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Block size in bytes</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Size in 'blocks'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-w <TT
+CLASS="REPLACEABLE"
+><I
+>rounds</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Apply 'rounds' worth of wiping</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Create new extent</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN872"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 17. Example newextent</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose newextent -1 cast-cbc -w 0 -s 128 -b 8192</B
+></TT
+>
+
+hose: Warning: creating extent using Unix file holes. Such extents are *not* crypto-deniable.
+Extent creation complete (1048576 bytes)
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.NEWKEYMAP"
+></A
+><H3
+>newkeymap</H3
+><P
+><B
+CLASS="COMMAND"
+>newkeymap</B
+>  [<TT
+CLASS="OPTION"
+>-1 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-A <TT
+CLASS="REPLACEABLE"
+><I
+>aspects</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-b <TT
+CLASS="REPLACEABLE"
+><I
+>bytes</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-c <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-D <TT
+CLASS="REPLACEABLE"
+><I
+>depth</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-r <TT
+CLASS="REPLACEABLE"
+><I
+>remap</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-1 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for encryption/decryption of keys</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-A <TT
+CLASS="REPLACEABLE"
+><I
+>aspects</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Max number of usable aspects</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-b <TT
+CLASS="REPLACEABLE"
+><I
+>bytes</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Block size in bytes</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-c <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Largest aspect size in blocks</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-D <TT
+CLASS="REPLACEABLE"
+><I
+>depth</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Depth of block key lattice</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-r <TT
+CLASS="REPLACEABLE"
+><I
+>remap</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use remap type 'remap'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>blocks</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Size in 'blocks'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Create new keymap file</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN950"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 18. Example newkeymap</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose newkeymap -1 cast-cbc -A 6 -b 8192 -c 32 -r bmap -s 128 maru.keymap</B
+></TT
+>
+
+Generating 64496 pseudo-cryptographically random bytes for keymap erasure
+........................................
+Maru keymap generation complete.
+Saving Maru Keymap as "maru.keymap"
+* MAKE AT LEAST TWO BACKUPS of this file. If a single bit sells out to the dark
+  forces of entropy, your entire maru ciphertext extent will follow suit!
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.PSYCHO"
+></A
+><H3
+>psycho</H3
+><P
+><B
+CLASS="COMMAND"
+>psycho</B
+> </P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Visit the psychiatrist</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN962"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 19. Example psycho</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose -d 9 -P 9 psycho</B
+></TT
+>
+
+hose: psychoanalysis: checking that all command options have help...
+hose: psychoanalysis: checking that all options have commands that use them...
+hose: psychoanalysis: sizeof (m_u64) == 8... passed
+hose: psychoanalysis: sizeof (m_u32) == 4... passed
+hose: psychoanalysis: sizeof (m_u16) == 2... passed
+hose: psychoanalysis: sizeof (m_u8) == 1... passed
+hose: psychoanalysis: sizeof (int) &#62;= 4... passed
+hose: psychoanalysis: hton8(0x12) == 0x12... passed
+hose: psychoanalysis: hton16(0x1234) == 0x3412... passed
+hose: psychoanalysis: hton32(0x12345678) == 0x78563412... passed
+hose: psychoanalysis: hton64(0x1122334455667788) == 0x8877665544332211... passed
+hose: psychoanalysis: MAX_PASSPHRASE &#62;= MIN_PASSPHRASE... passed
+hose: psychoanalysis: MAX_IV == MAX_CIPHER_BLOCK... passed
+hose: psychoanalysis: MAX_CIPHER_BLOCK == 8... passed
+hose: psychoanalysis: sizeof (maruPass) == MAX_PASSPHRASE... passed
+hose: psychoanalysis: sizeof (maruKey) == MAX_KEY... passed
+hose: psychoanalysis: sizeof (maruIV) == MAX_IV... passed
+hose: psychoanalysis: sizeof (maruBlock) == MAX_CIPHER_BLOCK... passed
+hose: psychoanalysis: blockAligned(maruCycle)... passed
+hose: psychoanalysis: blockAligned(maruAspectInfo)... passed
+hose: psychoanalysis: examining "/home/proff"... passed
+hose: psychoanalysis: examining "/etc/mtab"... passed
+hose: psychoanalysis: xor auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: xor auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: bcopy auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: bcopy auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: idea-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: idea-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: cast-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: cast-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-blowfish-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-blowfish-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-rc2-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-rc2-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-rc4 auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-rc4 auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-rc5-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-rc5-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-idea-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-idea-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-des-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-des-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-desx-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-desx-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: ssl-cast-cbc auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: ssl-cast-cbc auto test vector in != out, ply = 1... passed
+hose: psychoanalysis: rc16 auto test vector in == out, ply = 1... passed
+hose: psychoanalysis: rc16 auto test vector in != out, ply = 1... passed
+Passed the maru DSM, level 9
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.REMAPINFO"
+></A
+><H3
+>remapinfo</H3
+><P
+><B
+CLASS="COMMAND"
+>remapinfo</B
+>  [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap</I
+></TT
+>]</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Dump remap information</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN976"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 20. Example remapinfo</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose remapinfo maru.keymap</B
+></TT
+>
+
+Agitating master key with cast-cbc key generator over 123562 iterations...
+Aspect 1 passphrase ("." to end): 
+Aspect 2 passphrase ("." to end): 
+Aspect 3 passphrase ("." to end): 
+Aspect 4 passphrase ("." to end): 
+Aspect 5 passphrase ("." to end): 
+Remap type: bmap        Dynamically distribute blocks to aspects
+Block -&#62; Aspect ownership map (* = collision):
+0       ......................................................................
+46      ..........................................................
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.SPEEDS"
+></A
+><H3
+>speeds</H3
+><P
+><B
+CLASS="COMMAND"
+>speeds</B
+>  [<TT
+CLASS="OPTION"
+>-eS</TT
+>] [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>keymap </I
+></TT
+> [<TT
+CLASS="REPLACEABLE"
+><I
+>extent</I
+></TT
+>]]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-e</TT
+></DT
+><DD
+><P
+>Use entire maru encryption path for speed calculations</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-S</TT
+></DT
+><DD
+><P
+>SGML output</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Test cipher speeds</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1014"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 21. Example speeds</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose speeds </B
+></TT
+>
+
+Cipher           | setkey/s |  512k/s | 1024k/s | 2048k/s | 4096k/s | 8192k/s
+=================+==========+=========+=========+=========+=========+========
+xor              | 28395307 |  688120 |  735121 |  756022 |  769100 |  766624 
+-----------------+----------+---------+---------+---------+---------+--------
+bcopy            | 28817071 |  453326 |  587886 |  685740 |  746232 |  779120 
+-----------------+----------+---------+---------+---------+---------+--------
+idea-cbc         |  1801295 |    4339 |    4193 |    4166 |    4196 |    4224 
+-----------------+----------+---------+---------+---------+---------+--------
+idea-cbc-D       |    31245 |    4272 |    4150 |    4136 |    4188 |    4168 
+-----------------+----------+---------+---------+---------+---------+--------
+cast-cbc         |   462943 |   12883 |   13008 |   12980 |   13120 |   12888 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-blowfish-cbc |     4048 |   14312 |   14369 |   14462 |   14444 |   14240 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc2-cbc      |   124204 |    4211 |    4200 |    4226 |    4248 |    4248 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc4          |   117164 |   23569 |   29444 |   32970 |   35716 |   36976 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc5-cbc      |   294663 |   10822 |   10803 |   10914 |   10812 |   10800 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-rc5-cbc-D    |   294667 |   18364 |   18599 |   18600 |   18472 |   18592 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-idea-cbc     |  1332064 |    5902 |    6203 |    6282 |    6324 |    6408 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-idea-cbc-D   |    31311 |    5863 |    6317 |    6390 |    6280 |    6216 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-des-cbc      |   455926 |    5507 |    5512 |    5536 |    5524 |    5504 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-des-ede-cbc  |   222911 |    1962 |    1954 |    1964 |    1956 |    1968 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-des-ede3-cbc |   163273 |    1959 |    1948 |    1958 |    1928 |    1960 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-desx-cbc     |   456771 |    5508 |    5384 |    5420 |    5424 |    5400 
+-----------------+----------+---------+---------+---------+---------+--------
+ssl-cast-cbc     |   340860 |    9570 |    9515 |    9530 |    9624 |    9536 
+-----------------+----------+---------+---------+---------+---------+--------
+rc16             |      424 |   30795 |   30680 |   30936 |   30864 |   30912 
+-----------------+----------+---------+---------+---------+---------+--------
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.SYNC"
+></A
+><H3
+>sync</H3
+><P
+><B
+CLASS="COMMAND"
+>sync</B
+>  [<TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Sync hose daemon pending writes to disk</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1036"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 22. Example sync</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose sync -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.TERMINATE"
+></A
+><H3
+>terminate</H3
+><P
+><B
+CLASS="COMMAND"
+>terminate</B
+>  [<TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Terminate hose daemon</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1058"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 23. Example terminate</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose terminate -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.UNBINDASPECT"
+></A
+><H3
+>unbindaspect</H3
+><P
+><B
+CLASS="COMMAND"
+>unbindaspect</B
+>  [<TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-a <TT
+CLASS="REPLACEABLE"
+><I
+>aspect</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Use aspect number 'aspect'</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-R <TT
+CLASS="REPLACEABLE"
+><I
+>path</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Rendezvous with hosed AF_UNIX socket at 'path'</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Unbind aspect from device</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1089"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 24. Example unbindaspect</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose unbindaspect -a 0 -R /tmp/rendezvous</B
+></TT
+>
+
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="HOSE.WIPE"
+></A
+><H3
+>wipe</H3
+><P
+><B
+CLASS="COMMAND"
+>wipe</B
+>  [<TT
+CLASS="OPTION"
+>-1 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+>] [<TT
+CLASS="OPTION"
+>-b <TT
+CLASS="REPLACEABLE"
+><I
+>bytes</I
+></TT
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>extent</I
+></TT
+>]</P
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="OPTION"
+>-1 <TT
+CLASS="REPLACEABLE"
+><I
+>cipher</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Cipher for encryption/decryption of keys</P
+></DD
+><DT
+><TT
+CLASS="OPTION"
+>-b <TT
+CLASS="REPLACEABLE"
+><I
+>bytes</I
+></TT
+></TT
+></DT
+><DD
+><P
+>Block size in bytes</P
+></DD
+></DL
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>Wipe file or extent</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN1122"
+></A
+><H3
+>EXAMPLE</H3
+><DIV
+CLASS="EXAMPLE"
+><P
+><B
+>Example 25. Example wipe</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>  <TT
+CLASS="PROMPT"
+>$ </TT
+>  <TT
+CLASS="USERINPUT"
+><B
+>hose wipe -1 rc16 maru.extent</B
+></TT
+>
+
+Generating 32 cryptographically random bytes for rc16 erasure key
+........................................
+
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 192512/1048576
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 522240/1048576
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 843776/1048576
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 1048576/1048576
+    </PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1129"
+></A
+><H2
+>ENVIROMENTAL VARIABLES</H2
+><P
+></P
+><DL
+><DT
+><TT
+CLASS="ENVAR"
+>MARU_PASSPHRASE</TT
+></DT
+><DD
+><P
+>Use the contents of this variable instead of ever prompting for a passphrase.</P
+></DD
+><DT
+><TT
+CLASS="ENVAR"
+>MARU_PASSPHRASE_n</TT
+></DT
+><DD
+><P
+>	    Use the contents of this variable instead of prompting for a passphrase for aspect_n.
+	    This variable is dominant over <TT
+CLASS="ENVAR"
+>MARU_PASSPHRASE</TT
+>
+	</P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1143"
+></A
+><H2
+>AUTHORS</H2
+><P
+>Julian Assange</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1159"
+></A
+><H2
+>COPYRIGHT</H2
+><P
+></P
+><DL
+><DT
+>Copyright (c) 1997-2000</DT
+><DD
+><P
+>Julian Assange</P
+></DD
+><DT
+>Copyright (c) 1999-2000</DT
+><DD
+><P
+>Australian National Cognitive Facility</P
+></DD
+><DT
+>Copyright (c) 1999-2000</DT
+><DD
+><P
+>Ralf P. Weinmann</P
+></DD
+></DL
+></DIV
+></BODY
+></HTML
+>

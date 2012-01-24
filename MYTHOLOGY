@@ -1,0 +1,663 @@
+# $Id: MYTHOLOGY,v 1.3 2001/01/27 23:44:04 proff Exp $
+# $Smallcopyright:$
+
+Here is something to amuse, delight and horrify - the tail of:
+
+       _ONE MAN'S SEARCH FOR A CRYPTOGRAPHIC MYTHOLOGY_
+
+I recently wrote a VNODE (4.4bsd) based encrypted file-system. Now
+the day dawned when I decided it was high time to discard my rather
+egocentric working name _Proffs_ (i.e Proff File System) and cast
+about for a decent, respectable name. My first thought on this
+matter was:
+
+CERBERUS, n. The watch-dog of Hades, whose duty it was to guard
+   the entrance -- against whom or what does not
+   clearly appear; everybody, sooner or later, had to go there,
+   and nobody wanted to carry off the entrance. Cerberus is known
+   to have had three heads, and some of the poets have credited
+   him with as many as a hundred.
+
+Only, what was the relation between KERBEROS and CERBERUS? Pups
+from the same litter, or was the relationship a little more
+incestuous? I had to find out. There was no way - n o  w a y - I'd be
+having my encrypted file system playing second fiddle to that evil
+MIT authentication beast.
+
+KERBEROS; also spelled Cerberus.  n.  The watch dog of
+   Hades, whose duty it was to guard the entrance--against
+   whom or what does not clearly appear; . . . it is known
+   to have had three heads. . .
+
+Mythology couldn't get any more incestuous than that. 
+
+450,000 bytes of Greek polytheism later, and I'm wondering if the
+Gods of Olympus really had any high-paid guards to speak of except
+the multi-headed mongrel from Hades. I'm feeling down. I'm cursing
+the Ancients. I'm disrespectfully humming tunes `All and All it's
+Just Another Greek in the Wall', and `Athena be my Lover' when I
+discover:
+
+JANUS: in Roman mythology, custodian of the universe, god of
+   beginnings. The guardian of gates and doors, he held
+   sacred the first hour of the day, first day of the month, and
+   first month of the year (which bears his name). He is represented
+   with two bearded faces set back to back.
+
+Custodian of the universe. Guardian of gates and doors. Cooool.
+Janus.  January. I like it.  Only while I'm liking it, I'm thinking
+that I've heard the word Janus a lot before. I'm thinking it isn't
+just me who has looked up from the middle of a Greek mythology
+text, whilst in the throes of a name hunt with the words "Cooool"
+on their lips.  No: the Gods of Olympus don't smile on me that way.
+AltaVista confirms the truth of Heaven's bad attitude.
+17,423 references.  _The Janus Mutual Trade Fund_, _The Janus
+Project_, _Janus ADA95_, a dozen ISPs from Canada (what is *with*
+these Canadians?), _Janus' cool word list_ (turns out to be not so
+cool), _The Janus Ensemble_, _Hotel Janus_, _Janus Theatre_,
+_janus.com_, _janusfunds.com_, _Janus_ an Australian Police drama
+series and of course, the sixth moon of Saturn - _Janus_. Janus is
+kaput. I'm not sure whether to feel smug or grim about
+the rest of the world's lack of originality.
+
+Guards. Guardians. The Greeks didn't have many with bite and I'm
+loosing patience with the whole culture. Euphrosyne, Aglaia, and
+Thalia do not grace me.  What I need is something that evokes
+passion within my cryptographic domain. And when you come down to
+it, that means something which produces copious amounts of gore
+and blood, at will, from those who would dare to pass its demesne
+of protection.
+
+     The Erinyes, or Furies, were three goddesses who punished by
+     their secret stings the crimes of those who escaped or defied
+     public justice. The heads of the Furies were wreathed with
+     serpents, and their whole appearance was terrific and appalling.
+     Their names were Alecto, Tisiphone, and Megaera.  They were
+     also called Eumenides.
+
+Aye. Plenty of gore there. But somewhat lacking in cryptographic
+analogy.  Fantastic material for the group that doesn't meet at number
+41 West Chester drv. every Saturday night though. They will
+appreciate what the Erinyes were trying to achieve.
+
+Somewhat heartened, my mind turns to the Erinyes' dress sense. "..heads
+of the Furies were wreathed with serpents, and their whole appearance
+was terrific and appalling". Terrific. Serpents.
+
+Terrific \Ter*rif"ic\, a. [L. terrificus; fr. terrere: to frighten
+   + facere: to make. See Terror, and Fact.] Causing
+   terror; adapted to excite great fear or dread; terrible; as, a
+   terrific form; a terrific sight.
+
+Is it a symptom of society in decay that this word has come to mean:
+
+Excellent \Ex"cel*lent\, a. [F. excellent, L. excellens, -entis,
+   p. pr. of excellere. See Excel.] 1. Excelling;
+   surpassing others in some good quality or the sum of qualities;
+   of great worth; eminent, in a good sense; superior, as an
+   excellent man, artist, citizen, husband, discourse, book, song,
+   etc.; excellent breeding, principles, aims, action.
+
+Or as Milton would say:
+
+   To love . . . What I see excellent in good or fair.
+
+On the other hand, David Hume (1711-1776):
+
+   The more exquisite any good is, of which a small specimen is
+   afforded us, the sharper is the evil, allied to it; and few
+   exceptions are found to this uniform law of nature. The most
+   sprightly wit borders on madness; the highest effusions of joy
+   produce the deepest melancholy; the most ravishing pleasures
+   are attended with the most cruel lassitude and disgust; the most
+   flattering hopes make way for the severest disappointments. And,
+   in general, no course of life has such safety (for happiness is
+   not to be dreamed of) as the temperate and moderate, which
+   maintains, as far as possible, a mediocrity, and a kind of
+   insensibility, in every thing.
+
+Perhaps it is the sign of a brain in decay, rather than a society that
+I dwell on it at all, because Terrific hair serpents lead me
+unfailingly into the arms of the Medusa. A guardian of fearsome looks,
+but dubious motivations according to authorities such as Clash of the
+Titans (1981). But who cares, Princeton's history department no longer
+wants to talk to me at all. I'm cast adrift, to rely on my plasticine
+childhood memories and the mythological swamp of the web.
+
+   NAME: Medusa
+   FAVORITE PASTIME: Turning men to stone
+   PLACE OF ORIGIN: Los Alamos Secret CIA Lab
+   SPECIAL GIFTS: Petrified Aggregate Projectist
+   FAVORITE MOVIE: Mighty Morphin' Power Rangers
+   GOALS IN LIFE: To be a nice person
+   FAVORITE BOOK: Madonna's biography
+   PET PEEVE: Bad hair days
+
+Jesus. I've been sucked into comic book hell. Princeton, take me back.
+I won't curse at the ancient Greek's sexual proclivities anymore. I'm
+sure chaste marriages were very daunting to those yet to have them. I
+was only joking. Lighten up will you?
+
+The history faculty however was still licking its wounds, and was not
+ready to forgive me. I'd have to find an authoritative source
+somewhere else. Perhaps I could filter out the comic book hell
+contaminants and come up with respected history Ivy, even if it wasn't
+Princeton Ivy.
+
+   To decapitate - to castrate. The terror of the Medusa is thus
+   a terror of castration that is linked to the sight of something.
+   The hair upon the Medusa's head is frequently represented in
+   works of art in the form of snakes, and these once again are
+   derived from the castration complex. It is a remarkable fact
+   that however frightening they may be in themselves, they
+   nevertheless serve as a mitigation of the horror, for they
+   replace the penis, the absence of which is the cause of the
+   horror. This is a confirmation of the technical rule according
+   to which a multiplication of penis symbols signifies castration.
+
+   Sigmund Freud
+   The Medusa's Head
+
+You had to hand it to Sigmund. He was nothing if not authoritative,
+and after reading his inspiring words on the terrific serpent haired
+woman, two things became clear to me. One, _Proffs_ and the Gorgon had
+certain unresolved metaphorical incompatibilities and two, Sigmund was
+clinically insane. I didn't want my software giving anyone a
+castration complex, but I didn't want to give up snorting coke either.
+
+The denizens of Olympus would have to be excluded from contest
+verbatim.  I'd read Freud on Perversions a few years before and knew
+Medusa was just a portent of things to come.  What I needed was
+another polytheist culture entirely.  Latin didn't help me. Nearly all
+the Roman Gods had been vilely plagiarised from the Greeks, Latin
+names or not.  Freud knew this as well as I did.  The Norse gods were
+of little assistance to me.  The only one worth paying school to was
+Loki, the Norse god of mischief. Loki was a very cool dude, which was
+why his name had been appropriated as a moniker by virtually every
+Bjorn, Sven, and Bob hacker to come out of Scandinavia in the last 10
+years. No, Loki was not for me.
+
+The problem craved for a polytheist mythology outside the realm of my,
+and more importantly Sigmund Freud's, Western European upbringing.
+The answer to my question was by definition locked within a body of
+history I didn't know an onion skin about. In order for the pilgrim to
+reach the master he must first place his foot on the path, no matter
+how gradual the slope to the mountain of enlightenment. Zen Buddhism
+is good like that. Fabricating parables as you go along that is.
+
+   Zen master Gutei raised his finger whenever he was asked a
+   question about Zen. A young novice began to imitate
+   him in this way. When Gutei was told about the novice's imitation,
+   he sent for him and asked him if it were true. The novice admitted
+   it was so. Gutei asked him if he understood. In reply the novice
+   held up his index finger. Gutei promptly cut it off.  The novice
+   ran from the room, howling in pain. As he reached the threshold,
+   Gutei called, "Boy!". When the novice returned, Gutei raised
+   his index finger. At that instant the novice was enlightened.
+
+But wait. This Koan isn't fabricated. At least, not by me. And unlike
+most Zen Koan's I think you will agree that it pleasantly satisfies
+Schopenhauer's "life, without pain, has no meaning".  However,
+semantically I saw a very unhealthy correlation to forgetting
+one's encryption key and losing one's finger.
+
+My mind was drawn to the memory of the real-life nightmare of laying in
+the easy-chair of a Swanston St. hypnotherapist suite, gazing intently
+into a bright, but distant red light, while chanting the mantra "I am
+not cynical about hypnotherapy. I am not cynical about hypnotherapy.
+I am not cynical about an Indian doctor with a 5th floor office
+decorated coup'd'Edelstien. I'm not cynical about a man who claims
+that his foremost clientele are rich middle aged women who have put
+their jewellery somewhere "safe" and consequently are unable to recall
+the location.  I'm not cynical about a hypnotist who extols the
+virtues of having a M.D. so his patients can claim 2/3rds of the cost
+of these jewellery retrieval sessions under Medicare. I do not have a
+cynical belief that these middle aged women are in-fact suffering from
+some form of Mesmer complex.  And by all the powers in Heaven, I have
+no pessimism about recalling my god-damned pass-phrase!".
+
+I didn't remember the pass-phrase and you will notice Gutei keeps
+very quiet about what he does with the novice's finger.  The data I
+was trying to retrieve from ye olde neural net was, let us say, the
+location of the key to every chasty belt in the world, and I would
+have traded placed with Gutei's novice, before you could say "Boy!
+Was I enlightened".
+
+I put my chin on my knee, and looked for flaws in the soft grain of my
+beige plastic monitor casing. Unless I could jump into another reality
+it was the end of the line for _Proffs_ and _One Man's Search for a
+Cryptographic Mythology_. Boy! Was I bummed.
+
+One of the great sins of programmers is procedural thinking.  And it
+was exactly this sort of folly I was engaging in. There were around 6
+billion other realities going about their business. I grant you that 2
+billion of these were no doubt indulging in the confusion and
+diffusion of an avalanche of pseudo-random mental images and sequences
+we associate with dreams, and probably another 2 billion busy
+expanding their minds with the powerful products of hash or decaying
+into a compressive state of increasing entropy and liquor rounds. This
+still left a select 2 billion souls with which to weave my work.  If I
+approached them directly rather than by analysing the information
+trails they left behind, I'd stand a good chance of getting my feet
+onto the path of cryptographic mythological enlightenment.
+
+I had a Swedish friend who called himself Elk on odd days and Godflesh
+on even days. Don't ask why. As far as I know he's isn't bisexual, and
+being Swedish, who was counting? Yet a man with a foot in multiples
+worlds seemed like a good place to start. Elk (for the day was mod
+2 == 0) listened to my quest for cryptographic myth. He pondered, and
+uncovered a diamond in the rough. MARUTUKKU.
+
+  The third name is MARUTUKKU, Master of the arts of protection,
+  chained the Mad God at the Battle. Sealed the Ancient Ones in
+  their Caves, behind the Gates.
+
+F a r  o u t. Master of the arts of protection. Chained the Mad
+God.  Sealed the Ancient Ones in their Caves. Behind the Gates.
+Even the very word MARUTUKKU looked like it had been run through a
+product cipher.
+
+But I wasn't about to trust the work of a self-admitted Swedish
+Sumeria freak who was obviously suffering from a bi-polar moniker
+disorder. Was it mere coincidence that MARUTUKKU was an anagram for U
+KUKU MART and U KUKU TRAM? I didn't want MARUTUKKU to end up as
+another cog in the annals of Freudian analogy. What I needed was the
+sort of Authoritative History that only Princeton's history faculty
+could provide. The tablets of the Enuma Elish:
+
+  The Akkadian Creation Epic
+
+   Based on the translation of E. A. Speiser, with the additions
+   by A. K. Grayson, Ancient Near-Eastern Texts Relating to the
+   Old Testament, third edition, edited by James Pritchard (Princeton,
+   1969), pp. 60-72; 501-503, with minor modifications.
+
+   This work, the ancient Mesopotamian creation epic consisting of
+   seven tablets, tells of the struggle between cosmic order and
+   chaos. It is named after its opening words. It was recited on
+   the fourth day of the ancient Babylonian New Year's festival.
+   The text probably dates from the Old Babylonian period, i.e.,
+   the early part of the second millennium B.C.E.
+
+[...]
+
+   The third name is MARUTUKKU  Master of the arts of protection,
+   chained the Mad God at the Battle. Sealed the Ancient Ones in
+   their Caves, behind the Gates.
+
+[...]
+
+   MARUTUKKU truly is the refuge of his land, city, and people.
+   Unto him shall the people give praise forever.
+
+All praise the MARUTUKKU! My search had born a ripe and tasty fruit
+indeed. The quest for a cryptographic mythology was complete. Or was
+it? The words of Hume kept coming back to me and I had a nagging
+feeling that there was some substance in them.
+
+If MARUTUKKU was my exquisite cryptographic good, of wit, effusive
+joy, ravishing pleasure and flattering hope; then where was the
+counter point? The figure to its ground - the sharper evil, the
+madness, the melancholy, the most cruel lassitudes, disgusts and the
+severest disappointments. Was Hume right? Because if he was, there was
+only one organisation this string of hellish adjectives could
+represent. The cryptographic devil with its 500,000 sq feet of office
+space in Maryland. But surely there could be no reference to such an
+organisation in the 4,000 year old Babylonian tablets.  The idea was
+preposterous. Wasn't it?
+
+TABLET VII OF THE ENUMA ELISH:
+
+ESIZKUR shall sit aloft in the house of prayer;
+   May the gods bring their presents before him, that from
+   him they may receive their assignments; none can without
+   him create artful works.  Four black-headed ones are
+   among his creatures; aside from him no god knows the
+   answer as to their days.
+
+It's a cold and wintry night here in Melbourne and the gusts of wind
+and rain seem to be unusually chilling. What had I, in my search for a
+cryptographic mythology, stumbled onto?
+
+I look hard at the seven letters E-S-I-Z-K-U-R. A frown turns to
+a smile and then a dead pan stare. I write down:
+
+			  IRK ZEUS
+
+--
+Prof. Julian Assange  |If you want to build a ship, don't drum up people
+		      |together to collect wood and don't assign them tasks
+proff@iq.org          |and work, but rather teach them to long for the endless
+proff@gnu.ai.mit.edu  |immensity of the sea. -- Antoine de Saint Exupery
+
+-------------------------------------------------------------------------------
+From: "James R. Watson II" <jamesworld@intelligencia.com>
+Subject: Re: BoS: Cryptographic Mythology
+To: proff@suburbia.net
+Date: Wed, 04 Jun 1997 15:42:19 -0500
+
+Yes but Babylon was destroyed.  Why not Gabriel.  God's Archangel of Might.
+He has never withstood a defeat.
+
+James
+
+-------------------------------------------------------------------------------
+From: peter@baileynm.com (Peter da Silva)
+Subject: Re: BoS: Cryptographic Mythology
+To: proff@suburbia.net
+Date: Wed, 4 Jun 1997 09:50:41 -0500 (CDT)
+
+What about the bloke who carried the souls of the dead accross the styx?
+
+Damn, I forgot his name.
+
+Or the styx itself?
+
+Dante used Minos as a gatekeeper, I think.
+
+Larry Niven certainly did.
+
+Actually, Larry Niven's retelling of the Inferno contains all sorts of cool
+source material.
+
+-------------------------------------------------------------------------------
+From: woods@most.weird.com (Greg A. Woods)
+Subject: Re: BoS: Cryptographic Mythology
+To: proff@suburbia.net
+Date: Wed, 4 Jun 1997 11:40:58 -0400 (EDT)
+
+[ On Wed, June 4, 1997 at 02:03:43 (+1000), proff@suburbia.net wrote: ]
+> Subject: BoS: Cryptographic Mythology
+>
+> Here is something to amuse, delight and horrify - the tail of:
+> 
+>        _One Man's Search for a Cryptographic Mythology_.
+
+Awsome!  Thanks very much for sharing that work of art!  It was indeed
+enlightening and amusing!
+
+-- 
+							Greg A. Woods
+
++1 416 443-1734			VE3TCP			robohack!woods
+Planix, Inc. <woods@planix.com>; Secrets of the Weird <woods@weird.com>
+
+-------------------------------------------------------------------------------
+From: "Sebastian Dols" <sdols@adv.es>
+Subject: Re: BoS: Cryptographic Mythology
+To: proff@suburbia.net
+Date: Wed, 4 Jun 1997 16:45:10 +0000
+
+About mythology... If  I am not in a mistake, Gryphos  are the 
+creatures, with eagle head and wings and with lion body , in charge 
+of keeping the treasures hidden.
+
+Maybe your pet could be this 8D.
+
+-------------------------------------------------------------------------------
+From: Toto <toto@sk.sympatico.ca>
+Subject: Re: Cryptographic Mythology
+To: proff@gnu.ai.mit.edu
+Date: Tue, 03 Jun 1997 14:27:15 -0600
+
+proff@suburbia.net wrote: 
+>        _One Man's Search for a Cryptographic Mythology_.
+
+  I enjoyed your recounting of your divine/sublime search.
+If you ever desire to search through the "post-ancient rites
+of the Computer Age" then check out the works below.
+-- 
+Toto
+"The Xenix Chainsaw Massacre"
+http://bureau42.base.org/public/xenix/
+"WebWorld & the Mythical Circle of Eunuchs"
+http://bureau42.base.org/public/webworld
+"The Final Frontier"
+http://www3.sk.sympatico.ca/carljohn/
+
+[Editor's note. Yes, the author is the same Canadian Toto who's now serving one year
+ in club fed for his proselytization of Bell's `Assiniation Politics' discussion
+ paper and spitting in an FBI agents eye]
+
+-------------------------------------------------------------------------------
+From: Alan Thew <Alan.Thew@liverpool.ac.uk>
+Subject: Re: BoS: Cryptographic Mythology 
+To: proff@suburbia.net
+Date: Thu, 5 Jun 1997 19:40:49 +0100 (BST)
+
+I actually read it all. Wonderful stuff!
+
+-
+Alan Thew                                       alan.thew@liverpool.ac.uk
+Computing Services,University of Liverpool      Fax: +44 151 794-4442
+
+-------------------------------------------------------------------------------
+From: Doug Hughes <Doug.Hughes@Eng.Auburn.EDU>
+Subject: Re: Cryptographic Mythology 
+To: proff@suburbia.net
+Date: Fri, 6 Jun 1997 09:02:38 -0500
+
+
+Great yarn!
+
+Had you considered Charon? guardian of the underworld? Sailor of the 
+river Styx? (One could make an interesting analogy between the underworld
+and cryptography..)
+
+-------------------------------------------------------------------------------
+From: Paul Pomes <ppomes@Qualcomm.com>
+Subject: Re: Cryptographic Mythology 
+To: proff@suburbia.net
+Date: Tue, 03 Jun 1997 10:18:11 -0700
+
+What a piece of work!  Excellent and educated; thanks for sharing that
+with the list.
+
+/pbp
+
+
+-------------------------------------------------------------------------------
+From: "Perry E. Metzger" <perry@piermont.com>
+Subject: Re: Cryptographic Mythology 
+To: proff@suburbia.net
+Date: Tue, 03 Jun 1997 12:53:23 -0400
+
+
+proff@suburbia.net writes:
+> 
+> Here is something to amuse, delight and horrify - the tail of:
+> 
+>        _One Man's Search for a Cryptographic Mythology_.
+> 
+> I recently wrote a VNODE (4.4bsd) based encrypted file-system. Now
+> the day dawned when I decided it was high time to discard my rather
+> egocentric working name _Proffs_ (i.e Proff File System) and cast
+> about for a decent, respectable name. My first thought on this
+> matter was:
+
+The rest of this was highly amusing.
+
+I was wondering, though, if your VNODE encrypting file system was
+available to the public. :)
+
+-------------------------------------------------------------------------------
+From: Larry Kwiat <kwiat@gov.yk.ca>
+Subject: Re: Cryptographic Mythology
+To: proff@suburbia.net
+cc: firewalls@greatcircle.com
+Date: Mon, 9 Jun 1997 09:19:23 -0400 (EDT)
+
+
+On Wed, 4 Jun 1997 02:03:43 +1000 (EST) proff@suburbia.net wrote:
+
+> Guards. Guardians. The Greeks didn't have many with bite 
+and I'm.....> loosing patience with the whole culture.
+
+...Have you considered Mahakala? -Tibetan Buddhist guardian 
+of the Dharmas (natural laws, phil. incl. physics) It 
+chains into the whole Hindu pantheon, but it makes an 
+entertaining stop in Tibet in the 800's to engage the 
+services of the local Bon religious security deities. They 
+have interesting methods, having had their experiences with 
+the Mongols etc. The chaotic aspect is particularly 
+appealing.
+
+-------------------------------------------------------------------------------
+From: "Mr. Man" <Satan@DeMoNiCuS.com>
+Subject: Cryptographic Mythology
+To: proff@gnu.ai.mit.edu
+Date: Wed, 04 Jun 1997 11:19:01 -0400
+
+Prof.,
+
+Absolutely brilliant.  I enjoyed your "story" immensely.
+
+-------------------------------------------------------------------------------
+From: Andrew Purshottam <woutput@earthlink.net>
+Subject: Re: Cryptographic Mythology
+To: proff@suburbia.net
+Date: Tue, 03 Jun 1997 14:32:24 -0700
+
+Speaking of guardian deitites, I believe the aboriginal Australian peoples have 
+a guardian of the afterlife, named "Timara" who appears as a stick figure
+with outstretched arms in some cave paintings. This is a vague memory 
+from a CD box for aboriginal music.
+
+Andy
+
+-------------------------------------------------------------------------------
+From: "Richard Schroeppel" <rcs@cs.arizona.edu>
+Subject: Kerberos & Cryptographic Mythology
+To: proff@gnu.ai.mit.edu
+Date: Tue, 3 Jun 1997 10:03:37 MST
+
+This is probably known only to alumni, but MIT students
+all agree that "Tech is Hell".  Kerberos was used to
+protect the MIT campus network workstations.
+
+Rich Schroeppel   rcs@cs.arizoan.edu  (and MIT '68)
+
+-------------------------------------------------------------------------------
+From: Stan Kelly Bootle <skb@crl.com>
+Subject: RE-Cryptographic Mythology
+To: Julian Assange <proff@gnu.ai.mit.edu>
+Cc: Jim Carroll <PJCARROL@ca.oracle.com>
+Date: Wed, 4 Jun 1997 20:38:54 -0700 (PDT)
+
+Julian: Jim Carroll passed on yr delightful adventures
+in classical onomastics -- it's a theme I've discussed
+several times in my UNIX Review column, exploiting mainly
+the Greek and Roman pantheons. Your pursuit of the
+Akkadians is most commendable -- may I quote you on
+MARUTUKKU and ESIZKUR? I plan to challenge my readers to
+expand these into credible, retro-acronyms* -- or perhaps you
+have already tackled this? BTW Cerberus is just the Latin
+transliteration of the Greek Kerberos -- the latter is
+preferred, I think, because it removes any ambiguity re-
+pronunciation -- if the kappa fits, wear it. Pluto placed his
+bad dog at the entrance of Hades to keep the dead IN and the living
+OUT! The archetypical corporate firewall?
+However, to borrow from the current security vocab, this arrangement
+had several _vulnerabilities_: many heroes diverted Kerberos
+by shoving cake in its 50 mouths (according to Hesiod);
+Orpheus** lulled it with his lyre; and Hercules just clubbed
+the shit out of it. Hints to beat the eponymous firewall?
+PAX etc., Stan Kelly-Bootle
+Contributing Editor: UNIX Review; Object Magazine (starting Jun'97)
+Contributor: Software Development Magazine
+skb@crl.com; http://www.crl.com/~skb
+* See entries @ acronym; retronym; onomancy: _The Computer
+Contradictionary_, Stan Kelly-Bootle (MIT Press, 1995)
+** Yes, there's an ORPHEUS package (Open Resort-Property Heuristic
+Engagement and Utilization System) coined by Steve Yancey.
+PS: Janus is taboo, of course, being the "Guardian of Gates."
+
+-------------------------------------------------------------------------------
+From: Steen Hansen <steen@dds.dent.ohio-state.edu>
+Subject: Mythologic security guards
+To: proff@gnu.ai.mit.edu
+Cc: steen@dds.dent.ohio-state.edu
+Date: Fri, 22 Aug 1997 8:06:59 EDT
+
+
+Hello,
+
+I read in Unix Review that you are looking for mythologic guards for your
+encrypted file system.
+
+In the nordic mythology, there is Heimdal, the watchman for the rainbow
+bridge (Rimfaxe), that leads to "Asgaard" the homestead of the gods. Heimdal
+had a sight so sharp he could see to the end of the world, and his hearing
+could hear grass grow!
+
+
+Steen
+
+--
+Steen Hansen Hviid, CCP                E-mail: hansen+@osu.edu
+Systems & LAN Administrator      Dentistry: We/Fr    792-1915
+University Technology Services   Stores:    Mo/Tu/Th 292-2501
+The Ohio State University
+
+The traveler sees what he sees; the tourist sees what he has come to see.
+  --Gilbert K. Chesterton
+
+-------------------------------------------------------------------------------
+From: Steen Hansen <steen@dds.dent.ohio-state.edu>
+Subject: SV: Mythologic security guards (fwd)
+To: proff@iq.org
+Date: Tue, 23 Sep 1997 13:13:02 EDT
+
+
+I remembered the name of the rainbowbridge wrong. It was called 
+Bifrost!
+
+The following is taken from  
+
+http://www.luth.se/luth/present/sweden/history/gods/Old_norse_myth.html
+
+
+>At Urdawell which is guarded by the three fates the gods have their
+conferences each day. They ride daily over the bridge Bifrost, a
+bridge which shimmers in all the colours of the rainbow and is
+watched by the god Heimdal (also called Rig), nine mothers and nine
+sisters son and beholder of Gjallarhornet which is nordic tales last
+trump . Heimdal sleeps lighter than the bird, sees one hundred
+traveldays in each direction from his castle Himinbjorg and has
+such sharp hearing that he can hear the grass and the wool grow.
+
+
+--
+Steen Hansen, CCP                E-mail: hansen+@osu.edu
+Systems & LAN Administrator      Dentistry: We/Fr    792-1915
+University Technology Services   Stores:    Mo/Tu/Th 292-2501
+The Ohio State University
+
+The traveler sees what he sees; the tourist sees what he has come to see.
+  --Gilbert K. Chesterton
+
+-------------------------------------------------------------------------------
+From: Philippe Regnauld <regnauld@deepo.prosa.dk>
+Subject: Acronym for MARUTUKKU
+To: Julian Assange <proff@iq.org>
+Date: Thu, 27 Nov 1997 13:10:38 +0100
+
+Playing around with an acronym generator, and fiddling the output (time for
+lunch):
+
+M angled 
+A ccess 
+R eturned
+U nto 
+T respassers 
+U nheeding
+K rypto 
+K ey 
+U nity
+
+
+-- 
+ -[ Philippe Regnauld / sysadmin / regnauld@deepo.prosa.dk / +55.4N +11.3E ]-
+  "Pluto placed his bad dog at the entrance of Hades to keep the dead IN and
+   the living OUT! The archetypical corporate firewall?"
+   -- Stan Kelly Bootle, about Cerberus ["MYTHOLOGY", in Marutukku distrib]

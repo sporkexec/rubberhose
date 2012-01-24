@@ -1,0 +1,141 @@
+/* config.h.in.  Generated automatically from configure.in by autoheader.  */
+
+/* Define as __inline if that's what the C compiler calls it.  */
+#undef inline
+
+/* Define as the return type of signal handlers (int or void).  */
+#undef RETSIGTYPE
+
+/* Define if you have the ANSI C header files.  */
+#undef STDC_HEADERS
+
+/* Define if your processor stores words with the most significant
+   byte first (like Motorola and SPARC, unlike Intel and VAX).  */
+#undef WORDS_BIGENDIAN
+
+/* support for the DEVFS file-system (FreeBSD) */
+#undef DEVFS
+#undef PACKAGE
+#undef VERSION
+#undef DEBUG
+
+/* The number of bytes in a char.  */
+#undef SIZEOF_CHAR
+
+/* The number of bytes in a char *.  */
+#undef SIZEOF_CHAR_P
+
+/* The number of bytes in a int.  */
+#undef SIZEOF_INT
+
+/* The number of bytes in a int *.  */
+#undef SIZEOF_INT_P
+
+/* The number of bytes in a int64_t.  */
+#undef SIZEOF_INT64_T
+
+/* The number of bytes in a long.  */
+#undef SIZEOF_LONG
+
+/* The number of bytes in a long int.  */
+#undef SIZEOF_LONG_INT
+
+/* The number of bytes in a long long.  */
+#undef SIZEOF_LONG_LONG
+
+/* The number of bytes in a quad_t.  */
+#undef SIZEOF_QUAD_T
+
+/* The number of bytes in a short.  */
+#undef SIZEOF_SHORT
+
+/* Define if you have the EVP_bf_cbc function.  */
+#undef HAVE_EVP_BF_CBC
+
+/* Define if you have the EVP_cast5_cbc function.  */
+#undef HAVE_EVP_CAST5_CBC
+
+/* Define if you have the EVP_des_cbc function.  */
+#undef HAVE_EVP_DES_CBC
+
+/* Define if you have the EVP_des_ede3_cbc function.  */
+#undef HAVE_EVP_DES_EDE3_CBC
+
+/* Define if you have the EVP_des_ede_cbc function.  */
+#undef HAVE_EVP_DES_EDE_CBC
+
+/* Define if you have the EVP_desx_cbc function.  */
+#undef HAVE_EVP_DESX_CBC
+
+/* Define if you have the EVP_idea_cbc function.  */
+#undef HAVE_EVP_IDEA_CBC
+
+/* Define if you have the EVP_rc2_cbc function.  */
+#undef HAVE_EVP_RC2_CBC
+
+/* Define if you have the EVP_rc4 function.  */
+#undef HAVE_EVP_RC4
+
+/* Define if you have the EVP_rc5_32_12_16_cbc function.  */
+#undef HAVE_EVP_RC5_32_12_16_CBC
+
+/* Define if you have the daemon function.  */
+#undef HAVE_DAEMON
+
+/* Define if you have the getpagesize function.  */
+#undef HAVE_GETPAGESIZE
+
+/* Define if you have the mlock function.  */
+#undef HAVE_MLOCK
+
+/* Define if you have the mlockall function.  */
+#undef HAVE_MLOCKALL
+
+/* Define if you have the mmap function.  */
+#undef HAVE_MMAP
+
+/* Define if you have the munlock function.  */
+#undef HAVE_MUNLOCK
+
+/* Define if you have the munlockall function.  */
+#undef HAVE_MUNLOCKALL
+
+/* Define if you have the strcasecmp function.  */
+#undef HAVE_STRCASECMP
+
+/* Define if you have the strcasestr function.  */
+#undef HAVE_STRCASESTR
+
+/* Define if you have the strdup function.  */
+#undef HAVE_STRDUP
+
+/* Define if you have the strncasestr function.  */
+#undef HAVE_STRNCASESTR
+
+/* Define if you have the usleep function.  */
+#undef HAVE_USLEEP
+
+/* Define if you have the <fcntl.h> header file.  */
+#undef HAVE_FCNTL_H
+
+/* Define if you have the <string.h> header file.  */
+#undef HAVE_STRING_H
+
+/* Define if you have the <sys/file.h> header file.  */
+#undef HAVE_SYS_FILE_H
+
+/* Define if you have the <sys/param.h> header file.  */
+#undef HAVE_SYS_PARAM_H
+
+/* Define if you have the <sys/time.h> header file.  */
+#undef HAVE_SYS_TIME_H
+
+/* Define if you have the crypto library (-lcrypto).  */
+#undef HAVE_LIBCRYPTO
+
+/* Name of package */
+#undef PACKAGE
+
+/* Version number of package */
+#undef VERSION
+

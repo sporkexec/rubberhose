@@ -1,0 +1,26 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -DHAVE_CONFIG_H -I. -I. -I.. -nostdinc -I../libmclient -I../libmcipher -I../libmcommon -I/sys -DMARU_MOD -DKERNEL -D_KERNEL -DLKM -D_LKM -DUVM -DPMAP_NEW -g -O2 -Wall -pipe nbsd_kue.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  void kueattach(int num);
+extern  void kuedetach();
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,21 @@
+# $Id: README-manpages,v 1.2 1999/09/09 07:43:16 proff Exp $
+# $Smallcopyright: $
+
+The Rubberhose man-page collection was written in a sophisticated sgml
+grammer (DTD) called `Docbook'. The Docbook grammer was developed by
+the Davenport group and is used by O'Reilly Associates, Sun, DEC, HP
+and others to generate most of their technical documentation.
+
+For more information, see http://www.ora.com/Davenport
+
+The sgml parser used was sp/nsgmls (ftp://ftp.jclark.com/pub/sp) by
+James Clark.  transpec/instant from the DEC docbook-to-man converter
+(available from the Davenport group url above) provided rendering to
+*roff manpage macros.
+
+Some of these packages are available from the BSD ports system in
+/usr/ports/textproc
+
+The intolerably flexible Emacs/psgml mode was used for editing the
+raw sgml files into their current awful state :)
+

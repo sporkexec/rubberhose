@@ -1,0 +1,11 @@
+CPP = @CPP@
+
+%.ext : %.c %.h $(top_srcdir)/config.h $(top_srcdir)/genextern.sh
+	CPP="$(CPP)";export CPP; sh $(top_srcdir)/genextern.sh > $@.tmp $(COMPILE) $< && mv -f $@.tmp $@ || rm -f $@.tmp
+
+%.c %.h : %.cf
+	$(top_srcdir)/confused/confused $<
+
+spotless: distclean
+	find . -name '*.[oisa]' -o -name '*~' -o -name maru.extent -o -name maru.iv -o -name .depend -o -name '*TAGS'|xargs rm -f
+	find . -name .deps |xargs rm -rf

@@ -1,0 +1,991 @@
+.\" This -*- nroff -*- file has been generated from
+.\" DocBook SGML with docbook-to-man on Debian GNU/Linux.
+...\"
+...\"	transcript compatibility for postscript use.
+...\"
+...\"	synopsis:  .P! <file.ps>
+...\"
+.de P!
+\\&.
+.fl			\" force out current output buffer
+\\!%PB
+\\!/showpage{}def
+...\" the following is from Ken Flowers -- it prevents dictionary overflows
+\\!/tempdict 200 dict def tempdict begin
+.fl			\" prolog
+.sy cat \\$1\" bring in postscript file
+...\" the following line matches the tempdict above
+\\!end % tempdict %
+\\!PE
+\\!.
+.sp \\$2u	\" move below the image
+..
+.de pF
+.ie     \\*(f1 .ds f1 \\n(.f
+.el .ie \\*(f2 .ds f2 \\n(.f
+.el .ie \\*(f3 .ds f3 \\n(.f
+.el .ie \\*(f4 .ds f4 \\n(.f
+.el .tm ? font overflow
+.ft \\$1
+..
+.de fP
+.ie     !\\*(f4 \{\
+.	ft \\*(f4
+.	ds f4\"
+'	br \}
+.el .ie !\\*(f3 \{\
+.	ft \\*(f3
+.	ds f3\"
+'	br \}
+.el .ie !\\*(f2 \{\
+.	ft \\*(f2
+.	ds f2\"
+'	br \}
+.el .ie !\\*(f1 \{\
+.	ft \\*(f1
+.	ds f1\"
+'	br \}
+.el .tm ? font underflow
+..
+.ds f1\"
+.ds f2\"
+.ds f3\"
+.ds f4\"
+'\" t 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n  
+.TH "hose" "1" 
+.SH "NAME" 
+hose \(em Control all manner of rubberhoses 
+.PP 
+A command within the Marutukku encryption system 
+.SH "SYNOPSIS" 
+.PP 
+\fBhose\fP [\fIglobal-options\fP] \fIcommand\fP  [\fIlocal-options\fP]  [\fIargs\fP \&...]  
+.SH "GLOBAL OPTIONS" 
+.IP "\fB-E\fP" 10 
+Disable wait for entropy (useful for batch tests) 
+.IP "\fB-f\fP" 10 
+Force through errors where possible 
+.IP "\fB-L\fP" 10 
+Disable memory locking 
+.IP "\fB-q\fP" 10 
+Quiet 
+.IP "\fB-Q\fP" 10 
+Quick and quiet, enable \fB-d0\fP, \fB-ELQTW\fP and \fB-P0\fP options 
+.IP "\fB-T\fP" 10 
+Disable reseting file time stamps to epoch 
+.IP "\fB-W\fP" 10 
+Disable memory wiping (useful for batch tests) 
+.IP "\fB-d \fIlevel\fP\fP" 10 
+Set debug level to 'level' 
+.IP "\fB-P \fIlevel\fP\fP" 10 
+Set self-psychoanalysis rigour to 'level' 
+.SH "COMMANDS" 
+.IP "\fI\fBaspectinfo\fP\fR" 10 
+Dump informative info about aspect 
+.IP "\fI\fBattachextent\fP\fR" 10 
+Attach extent 
+.IP "\fI\fBbindaspect\fP\fR" 10 
+Binds aspect to device 
+.IP "\fI\fBchangepass\fP\fR" 10 
+Change keying for aspect 
+.IP "\fI\fBdecryptaspect\fP\fR" 10 
+Decrypt from Aspect to output 
+.IP "\fI\fBdecryptfile\fP\fR" 10 
+Conventional file decryption 
+.IP "\fI\fBdekeyaspect\fP\fR" 10 
+Dekey aspect 
+.IP "\fI\fBdetachextent\fP\fR" 10 
+Detach previously attached extent 
+.IP "\fI\fBencryptaspect\fP\fR" 10 
+Encrypt from input to Aspect 
+.IP "\fI\fBencryptfile\fP\fR" 10 
+Conventional file encryption 
+.IP "\fI\fBexample\fP\fR" 10 
+Show example usage for command 
+.IP "\fI\fBhelp\fP\fR" 10 
+General help or help on a particular command 
+.IP "\fI\fBinfo\fP\fR" 10 
+Display configuration 
+.IP "\fI\fBkeyaspect\fP\fR" 10 
+Key aspect (needs an attached extent) 
+.IP "\fI\fBlist\fP\fR" 10 
+List available ciphers, commands or remaps 
+.IP "\fI\fBnewaspect\fP\fR" 10 
+Create new aspect for keymap 
+.IP "\fI\fBnewextent\fP\fR" 10 
+Create new extent 
+.IP "\fI\fBnewkeymap\fP\fR" 10 
+Create new keymap file 
+.IP "\fI\fBpsycho\fP\fR" 10 
+Visit the psychiatrist 
+.IP "\fI\fBremapinfo\fP\fR" 10 
+Dump remap information 
+.IP "\fI\fBspeeds\fP\fR" 10 
+Test cipher speeds 
+.IP "\fI\fBsync\fP\fR" 10 
+Sync hose daemon pending writes to disk 
+.IP "\fI\fBterminate\fP\fR" 10 
+Terminate hose daemon 
+.IP "\fI\fBunbindaspect\fP\fR" 10 
+Unbind aspect from device 
+.IP "\fI\fBwipe\fP\fR" 10 
+Wipe file or extent 
+.SH "COMMAND DESCRIPTIONS" 
+.SS "aspectinfo" 
+.PP 
+\fBaspectinfo\fP [\fB-a \fIaspect\fP\fP]  [\fIkeymap\fP]  
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Dump informative info about aspect 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample aspectinfo\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose aspectinfo -a 0 maru.keymap\fP  
+Agitating master key with cast-cbc key generator over 123562 iterations... 
+Aspect 1 passphrase ("." to end):  
+Aspect 2 passphrase ("." to end):  
+Aspect 3 passphrase ("." to end):  
+Aspect 4 passphrase ("." to end):  
+Aspect 5 passphrase ("." to end):  
+Aspect 0: 
+Lattice Cipher: cast-cbc 
+Block Cipher:   idea-cbc 
+Start:          0 
+Blocks:         64 
+ 
+.fi 
+.SS "attachextent" 
+.PP 
+\fBattachextent\fP [\fB-B\fP]  [\fB-a \fIaspect\fP\fP]  [\fB-R \fIpath\fP\fP]  [\fIkeymap \fP [\fIextent \fP [\fIdevice\fP] ] ]  
+.IP "\fB-B\fP" 10 
+Disable pro-active block reallocation (bmap) 
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Attach extent 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample attachextent\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose attachextent -a 0 -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "bindaspect" 
+.PP 
+\fBbindaspect\fP [\fB-R\fP]  [\fB-a \fIaspect\fP\fP]  
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Binds aspect to device 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample bindaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose bindaspect -a 0 -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "changepass" 
+.PP 
+\fBchangepass\fP [\fB-a \fIaspect\fP\fP]  [\fIkeymap\fP]  
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Change keying for aspect 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample changepass\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose changepass -a 0 maru.keymap\fP  
+ 
+.fi 
+.SS "decryptaspect" 
+.PP 
+\fBdecryptaspect\fP [\fB-a \fIaspect\fP\fP]  [\fB-o \fIfile\fP\fP]  [\fB-s \fIblocks\fP\fP]  [\fIkeymap \fP [\fIextent \fP [\fIoutput\fP] ] ]  
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.IP "\fB-o \fIfile\fP\fP" 10 
+Output operation to 'file' 
+.IP "\fB-s \fIblocks\fP\fP" 10 
+Size in 'blocks' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Decrypt from Aspect to output 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample decryptaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose decryptaspect -a 0 -o maru.out\fP  
+Agitating master key with cast-cbc key generator over 123562 iterations... 
+Aspect 1 passphrase ("." to end):  
+Aspect 2 passphrase ("." to end):  
+Aspect 3 passphrase ("." to end):  
+Aspect 4 passphrase ("." to end):  
+Aspect 5 passphrase ("." to end):  
+decrypted 64 blocks from maru.extent to maru.out 
+ 
+.fi 
+.SS "decryptfile" 
+.PP 
+\fBdecryptfile\fP [\fB-3 \fIcipher\fP\fP]  [\fB-i \fIfile\fP\fP]  [\fB-o \fIfile\fP\fP]  [\fB-V \fIiv\fP\fP]  [\fIinput \fP [\fIoutput\fP] ]  
+.IP "\fB-3 \fIcipher\fP\fP" 10 
+Cipher for block encryption/decryption 
+.IP "\fB-i \fIfile\fP\fP" 10 
+Take input from 'file' 
+.IP "\fB-o \fIfile\fP\fP" 10 
+Output operation to 'file' 
+.IP "\fB-V \fIiv\fP\fP" 10 
+Use 'iv' (in hex) as the initialisation vector 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Conventional file decryption 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample decryptfile\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose decryptfile -3 idea-cbc -i maru.ciphertext -V 0xadeadfedbabecafe -o maru.out\fP  
+Passphrase:  
+ 
+.fi 
+.SS "dekeyaspect" 
+.PP 
+\fBdekeyaspect\fP [\fB-a \fIaspect\fP\fP]  [\fB-R \fIpath\fP\fP]  
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Dekey aspect 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample dekeyaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose dekeyaspect -a 0 -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "detachextent" 
+.PP 
+\fBdetachextent\fP [\fB-R \fIpath\fP\fP]  
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Detach previously attached extent 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample detachextent\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose detachextent -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "encryptaspect" 
+.PP 
+\fBencryptaspect\fP [\fB-B\fP]  [\fB-a \fIaspect\fP\fP]  [\fB-i \fIfile\fP\fP]  [\fB-s \fIblocks\fP\fP]  [\fIkeymap \fP [\fIextent \fP [\fIinput\fP] ] ]  
+.IP "\fB-B\fP" 10 
+Disable pro-active block reallocation (bmap) 
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.IP "\fB-i \fIfile\fP\fP" 10 
+Take input from 'file' 
+.IP "\fB-s \fIblocks\fP\fP" 10 
+Size in 'blocks' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Encrypt from input to Aspect 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample encryptaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose encryptaspect -a 0 -i maru.plaintext maru.keymap\fP  
+Agitating master key with cast-cbc key generator over 123562 iterations... 
+Aspect 1 passphrase ("." to end):  
+Aspect 2 passphrase ("." to end):  
+Aspect 3 passphrase ("." to end):  
+Aspect 4 passphrase ("." to end):  
+Aspect 5 passphrase ("." to end):  
+encrypted 32 blocks from maru.plaintext to maru.extent 
+ 
+.fi 
+.SS "encryptfile" 
+.PP 
+\fBencryptfile\fP [\fB-3 \fIcipher\fP\fP]  [\fB-i \fIfile\fP\fP]  [\fB-o \fIfile\fP\fP]  [\fB-V \fIiv\fP\fP]  [\fIinput \fP [\fIoutput\fP] ]  
+.IP "\fB-3 \fIcipher\fP\fP" 10 
+Cipher for block encryption/decryption 
+.IP "\fB-i \fIfile\fP\fP" 10 
+Take input from 'file' 
+.IP "\fB-o \fIfile\fP\fP" 10 
+Output operation to 'file' 
+.IP "\fB-V \fIiv\fP\fP" 10 
+Use 'iv' (in hex) as the initialisation vector 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Conventional file encryption 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample encryptfile\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose encryptfile -3 idea-cbc -i maru.plaintext -o maru.ciphertext\fP  
+Passphrase:  
+ 
+.fi 
+.SS "example" 
+.PP 
+\fBexample\fP [\fB-m\fP]  [command]  
+.IP "\fB-m\fP" 10 
+Minimal output 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Show example usage for command 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample example\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose example newaspect\fP  
+Example: 
+../hose/hose newaspect -2 cast-cbc -3 idea-cbc -a 0 -s 64 -t 1 maru.keymap 
+ 
+.fi 
+.SS "help" 
+.PP 
+\fBhelp\fP [\fB-S\fP]  [commands  | options  | \fIcommand\fP ]  
+.IP "\fB-S\fP" 10 
+SGML output 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+General help or help on a particular command 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample help\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose help newkeymap\fP  
+Usage: ../hose/hose [-EfLqQTW] [-d level] [-P level] newkeymap [-1 cipher] [-A aspects] [-b bytes] [-c blocks] [-D depth] [-r remap] [-s blocks] [keymap] 
+Description: 
+Create new keymap file 
+Local options: 
+-1 cipher           Cipher for encryption/decryption of keys 
+-A aspects          Max number of usable aspects 
+-b bytes            Block size in bytes 
+-c blocks           Largest aspect size in blocks 
+-D depth            Depth of block key lattice 
+-r remap            Use remap type 'remap' 
+-s blocks           Size in 'blocks' 
+Global options: 
+-E                  Disable wait for entropy (useful for batch tests) 
+-f                  Force through errors where possible 
+-L                  Disable memory locking 
+-q                  Quiet 
+-Q                  Quick and quiet, enable -d0, -ELQTW and -P0 options 
+-T                  Disable reseting file time stamps to epoch 
+-W                  Disable memory wiping (useful for batch tests) 
+-d level            Set debug level to 'level' 
+-P level            Set self-psychoanalysis rigour to 'level' 
+Example: 
+../hose/hose newkeymap -1 cast-cbc -A 6 -b 8192 -c 32 -r bmap -s 128 maru.keymap 
+ 
+.fi 
+.SS "info" 
+.PP 
+\fBinfo\fP [\fB-l \fIseconds\fP\fP]  [\fB-I \fIseconds\fP\fP]  [\fB-x \fImsec\fP\fP]  [\fIkeymap \fP [\fIextent \fP [\fIdevice\fP] ] ]  
+.IP "\fB-I \fIseconds\fP\fP" 10 
+Autodetach after 'seconds' of idleness 
+.IP "\fB-l \fIseconds\fP\fP" 10 
+Autodetach after 'seconds' since attach 
+.IP "\fB-x \fImsec\fP\fP" 10 
+Use 'msec' miliseconds between cipher state xors 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Display configuration 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample info\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose info maru.keymap\fP  
+Major Version:  2 
+Minor Version:  1 
+Key Cipher: 
+name cast-cbc 
+cipher_num    1 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    132 bytes 
+Key Iterations: 123562 
+Blocks:         128 
+Block Size:     8192 
+Lattice Depth:  32 (4194304k addressable bytes) 
+Aspects:        6 
+Remap Type:     bmap 
+Checksum:       0xabf0bfb5 
+Maru device:    /dev/maru0 
+Maru extents:   maru.extent 
+Maru IV/SALT:   maru.keymap 
+Life time:      28800 (seconds) 
+Idle time:      1800 (seconds) 
+XOR cycle:      500 (mili seconds) 
+ 
+.fi 
+.SS "keyaspect" 
+.PP 
+\fBkeyaspect\fP [\fB-R\fP]  [\fB-a \fIaspect\fP\fP]  
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Key aspect (needs an attached extent) 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample keyaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose keyaspect -a 0 -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "list" 
+.PP 
+\fBlist\fP [\fB-m\fP]  [ciphers  | commands  | remaps ]  
+.IP "\fB-m\fP" 10 
+Minimal output 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+List available ciphers, commands or remaps 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample list\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose list ciphers\fP  
+name xor 
+cipher_num    16 
+key_size      256 bits 
+block_size    0 bits (stream cipher) 
+state/ksch    4 bytes 
+name bcopy 
+cipher_num    17 
+key_size      256 bits 
+block_size    0 bits (stream cipher) 
+state/ksch    4 bytes 
+name idea-cbc 
+cipher_num    2 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    432 bytes 
+name cast-cbc 
+cipher_num    1 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    132 bytes 
+name ssl-blowfish-cbc 
+cipher_num    6 
+key_size      448 bits 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-rc2-cbc 
+cipher_num    12 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-rc4 
+cipher_num    13 
+key_size      256 bits 
+block_size    0 bits (stream cipher) 
+state/ksch    8196 bytes 
+name ssl-rc5-cbc 
+cipher_num    15 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-idea-cbc 
+cipher_num    11 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-des-cbc 
+cipher_num    7 
+key_size      64 bits (56 bits real) 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-des-ede-cbc 
+cipher_num    8 
+key_size      128 bits (112 bits real) 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-des-ede3-cbc 
+cipher_num    9 
+key_size      192 bits (168 bits real) 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-desx-cbc 
+cipher_num    10 
+key_size      192 bits (168 bits real) 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name ssl-cast-cbc 
+cipher_num    14 
+key_size      128 bits 
+block_size    64 bits 
+state/ksch    8196 bytes 
+name rc16 
+cipher_num    4 
+key_size      256 bits 
+block_size    0 bits (stream cipher) 
+state/ksch    131080 bytes 
+ 
+.fi 
+.SS "newaspect" 
+.PP 
+\fBnewaspect\fP [\fB-2 \fIcipher\fP\fP]  [\fB-3 \fIcipher\fP\fP]  [\fB-a \fIaspect\fP\fP]  [\fB-O \fIblock\fP\fP]  [\fB-s \fIblocks\fP\fP]  [\fB-t \fItime\fP\fP]  [\fIkeymap\fP]  
+.IP "\fB-2 \fIcipher\fP\fP" 10 
+Cipher for generation of block keys 
+.IP "\fB-3 \fIcipher\fP\fP" 10 
+Cipher for block encryption/decryption 
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.IP "\fB-O \fIblock\fP\fP" 10 
+Start block range at offset 'block' 
+.IP "\fB-s \fIblocks\fP\fP" 10 
+Size in 'blocks' 
+.IP "\fB-t \fItime\fP\fP" 10 
+Use 'time' seconds of key cycle agitation 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Create new aspect for keymap 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample newaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose newaspect -2 cast-cbc -3 idea-cbc -a 0 -s 64 -t 1 maru.keymap\fP  
+Generating 11128 pseudo-cryptographically random bytes for aspect 0 erasure 
+........................................ 
+Generating 32 pseudo-cryptographically random bytes for aspect 0 key salt 
+........................................ 
+Generating 104 pseudo-cryptographically random bytes for aspect 0 cycle 
+........................................ 
+Generating 32 cryptographically random bytes for aspect 0 master key 
+........................................ 
+Generating 32 cryptographically random bytes for aspect 0 info key 
+........................................ 
+Generating 32 cryptographically random bytes for aspect 0 remap master key 
+........................................ 
+Generating 104 pseudo-cryptographically random bytes for cycle salt 
+........................................ 
+ 
+Agitating cast-cbc key generator state for 1 second... 
+123562 cast-cbc agitations (123562 per second) 
+Generating 4 pseudo-cryptographically random bytes for aspect information salt 
+........................................ 
+Generating 64 pseudo-cryptographically random bytes for primary lattice key salts 
+........................................ 
+Generating 2048 pseudo-cryptographically random bytes for subkey lattice IVs 
+........................................ 
+Generating 8192 pseudo-cryptographically random bytes for block whitener 
+........................................ 
+ 
+Clearing key artifacts 
+ 
+.fi 
+.SS "newextent" 
+.PP 
+\fBnewextent\fP [\fB-1 \fIcipher\fP\fP]  [\fB-w \fIrounds\fP\fP]  [\fB-s \fIblocks\fP\fP]  [\fB-b \fIbytes\fP\fP]  [\fIkeymap\fP]  [\fIextent\fP]  
+.IP "\fB-1 \fIcipher\fP\fP" 10 
+Cipher for encryption/decryption of keys 
+.IP "\fB-b \fIbytes\fP\fP" 10 
+Block size in bytes 
+.IP "\fB-s \fIblocks\fP\fP" 10 
+Size in 'blocks' 
+.IP "\fB-w \fIrounds\fP\fP" 10 
+Apply 'rounds' worth of wiping 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Create new extent 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample newextent\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose newextent -1 cast-cbc -w 0 -s 128 -b 8192\fP  
+hose: Warning: creating extent using Unix file holes. Such extents are *not* crypto-deniable. 
+Extent creation complete (1048576 bytes) 
+ 
+.fi 
+.SS "newkeymap" 
+.PP 
+\fBnewkeymap\fP [\fB-1 \fIcipher\fP\fP]  [\fB-A \fIaspects\fP\fP]  [\fB-b \fIbytes\fP\fP]  [\fB-c \fIblocks\fP\fP]  [\fB-D \fIdepth\fP\fP]  [\fB-r \fIremap\fP\fP]  [\fB-s \fIblocks\fP\fP]  [\fIkeymap\fP]  
+.IP "\fB-1 \fIcipher\fP\fP" 10 
+Cipher for encryption/decryption of keys 
+.IP "\fB-A \fIaspects\fP\fP" 10 
+Max number of usable aspects 
+.IP "\fB-b \fIbytes\fP\fP" 10 
+Block size in bytes 
+.IP "\fB-c \fIblocks\fP\fP" 10 
+Largest aspect size in blocks 
+.IP "\fB-D \fIdepth\fP\fP" 10 
+Depth of block key lattice 
+.IP "\fB-r \fIremap\fP\fP" 10 
+Use remap type 'remap' 
+.IP "\fB-s \fIblocks\fP\fP" 10 
+Size in 'blocks' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Create new keymap file 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample newkeymap\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose newkeymap -1 cast-cbc -A 6 -b 8192 -c 32 -r bmap -s 128 maru.keymap\fP  
+Generating 64496 pseudo-cryptographically random bytes for keymap erasure 
+........................................ 
+Maru keymap generation complete. 
+Saving Maru Keymap as "maru.keymap" 
+* MAKE AT LEAST TWO BACKUPS of this file. If a single bit sells out to the dark 
+forces of entropy, your entire maru ciphertext extent will follow suit! 
+ 
+.fi 
+.SS "psycho" 
+.PP 
+\fBpsycho\fP 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Visit the psychiatrist 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample psycho\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose -d 9 -P 9 psycho\fP  
+hose: psychoanalysis: checking that all command options have help... 
+hose: psychoanalysis: checking that all options have commands that use them... 
+hose: psychoanalysis: sizeof (m_u64) == 8... passed 
+hose: psychoanalysis: sizeof (m_u32) == 4... passed 
+hose: psychoanalysis: sizeof (m_u16) == 2... passed 
+hose: psychoanalysis: sizeof (m_u8) == 1... passed 
+hose: psychoanalysis: sizeof (int) >= 4... passed 
+hose: psychoanalysis: hton8(0x12) == 0x12... passed 
+hose: psychoanalysis: hton16(0x1234) == 0x3412... passed 
+hose: psychoanalysis: hton32(0x12345678) == 0x78563412... passed 
+hose: psychoanalysis: hton64(0x1122334455667788) == 0x8877665544332211... passed 
+hose: psychoanalysis: MAX_PASSPHRASE >= MIN_PASSPHRASE... passed 
+hose: psychoanalysis: MAX_IV == MAX_CIPHER_BLOCK... passed 
+hose: psychoanalysis: MAX_CIPHER_BLOCK == 8... passed 
+hose: psychoanalysis: sizeof (maruPass) == MAX_PASSPHRASE... passed 
+hose: psychoanalysis: sizeof (maruKey) == MAX_KEY... passed 
+hose: psychoanalysis: sizeof (maruIV) == MAX_IV... passed 
+hose: psychoanalysis: sizeof (maruBlock) == MAX_CIPHER_BLOCK... passed 
+hose: psychoanalysis: blockAligned(maruCycle)... passed 
+hose: psychoanalysis: blockAligned(maruAspectInfo)... passed 
+hose: psychoanalysis: examining "/home/proff"... passed 
+hose: psychoanalysis: examining "/etc/mtab"... passed 
+hose: psychoanalysis: xor auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: xor auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: bcopy auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: bcopy auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: idea-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: idea-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: cast-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: cast-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-blowfish-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-blowfish-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-rc2-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-rc2-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-rc4 auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-rc4 auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-rc5-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-rc5-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-idea-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-idea-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-des-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-des-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-des-ede-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-des-ede-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-desx-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-desx-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: ssl-cast-cbc auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: ssl-cast-cbc auto test vector in != out, ply = 1... passed 
+hose: psychoanalysis: rc16 auto test vector in == out, ply = 1... passed 
+hose: psychoanalysis: rc16 auto test vector in != out, ply = 1... passed 
+Passed the maru DSM, level 9 
+ 
+.fi 
+.SS "remapinfo" 
+.PP 
+\fBremapinfo\fP [\fIkeymap\fP]  
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Dump remap information 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample remapinfo\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose remapinfo maru.keymap\fP  
+Agitating master key with cast-cbc key generator over 123562 iterations... 
+Aspect 1 passphrase ("." to end):  
+Aspect 2 passphrase ("." to end):  
+Aspect 3 passphrase ("." to end):  
+Aspect 4 passphrase ("." to end):  
+Aspect 5 passphrase ("." to end):  
+Remap type: bmap        Dynamically distribute blocks to aspects 
+Block -> Aspect ownership map (* = collision): 
+0       ...................................................................... 
+46      .......................................................... 
+ 
+.fi 
+.SS "speeds" 
+.PP 
+\fBspeeds\fP [\fB-eS\fP]  [\fB-a \fIaspect\fP\fP]  [\fIkeymap \fP [\fIextent\fP] ]  
+.IP "\fB-e\fP" 10 
+Use entire maru encryption path for speed calculations 
+.IP "\fB-S\fP" 10 
+SGML output 
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Test cipher speeds 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample speeds\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose speeds \fP  
+Cipher           | setkey/s |  512k/s | 1024k/s | 2048k/s | 4096k/s | 8192k/s 
+=================+==========+=========+=========+=========+=========+======== 
+xor              | 28395307 |  688120 |  735121 |  756022 |  769100 |  766624  
+-----------------+----------+---------+---------+---------+---------+-------- 
+bcopy            | 28817071 |  453326 |  587886 |  685740 |  746232 |  779120  
+-----------------+----------+---------+---------+---------+---------+-------- 
+idea-cbc         |  1801295 |    4339 |    4193 |    4166 |    4196 |    4224  
+-----------------+----------+---------+---------+---------+---------+-------- 
+idea-cbc-D       |    31245 |    4272 |    4150 |    4136 |    4188 |    4168  
+-----------------+----------+---------+---------+---------+---------+-------- 
+cast-cbc         |   462943 |   12883 |   13008 |   12980 |   13120 |   12888  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-blowfish-cbc |     4048 |   14312 |   14369 |   14462 |   14444 |   14240  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-rc2-cbc      |   124204 |    4211 |    4200 |    4226 |    4248 |    4248  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-rc4          |   117164 |   23569 |   29444 |   32970 |   35716 |   36976  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-rc5-cbc      |   294663 |   10822 |   10803 |   10914 |   10812 |   10800  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-rc5-cbc-D    |   294667 |   18364 |   18599 |   18600 |   18472 |   18592  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-idea-cbc     |  1332064 |    5902 |    6203 |    6282 |    6324 |    6408  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-idea-cbc-D   |    31311 |    5863 |    6317 |    6390 |    6280 |    6216  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-des-cbc      |   455926 |    5507 |    5512 |    5536 |    5524 |    5504  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-des-ede-cbc  |   222911 |    1962 |    1954 |    1964 |    1956 |    1968  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-des-ede3-cbc |   163273 |    1959 |    1948 |    1958 |    1928 |    1960  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-desx-cbc     |   456771 |    5508 |    5384 |    5420 |    5424 |    5400  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ssl-cast-cbc     |   340860 |    9570 |    9515 |    9530 |    9624 |    9536  
+-----------------+----------+---------+---------+---------+---------+-------- 
+rc16             |      424 |   30795 |   30680 |   30936 |   30864 |   30912  
+-----------------+----------+---------+---------+---------+---------+-------- 
+ 
+.fi 
+.SS "sync" 
+.PP 
+\fBsync\fP [\fB-R \fIpath\fP\fP]  
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Sync hose daemon pending writes to disk 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample sync\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose sync -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "terminate" 
+.PP 
+\fBterminate\fP [\fB-R \fIpath\fP\fP]  
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Terminate hose daemon 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample terminate\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose terminate -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "unbindaspect" 
+.PP 
+\fBunbindaspect\fP [\fB-a \fIaspect\fP\fP]  [\fB-R \fIpath\fP\fP]  
+.IP "\fB-a \fIaspect\fP\fP" 10 
+Use aspect number 'aspect' 
+.IP "\fB-R \fIpath\fP\fP" 10 
+Rendezvous with hosed AF_UNIX socket at 'path' 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Unbind aspect from device 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample unbindaspect\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose unbindaspect -a 0 -R /tmp/rendezvous\fP  
+ 
+.fi 
+.SS "wipe" 
+.PP 
+\fBwipe\fP [\fB-1 \fIcipher\fP\fP]  [\fB-b \fIbytes\fP\fP]  [\fIextent\fP]  
+.IP "\fB-1 \fIcipher\fP\fP" 10 
+Cipher for encryption/decryption of keys 
+.IP "\fB-b \fIbytes\fP\fP" 10 
+Block size in bytes 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+Wipe file or extent 
+.fi 
+.SS "EXAMPLE" 
+.PP 
+\fBExample wipe\fR 
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+$   \fBhose wipe -1 rc16 maru.extent\fP  
+Generating 32 cryptographically random bytes for rc16 erasure key 
+........................................ 
+ 
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 192512/1048576 
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 522240/1048576 
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 843776/1048576 
+Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 1048576/1048576 
+ 
+.fi 
+.SH "ENVIROMENTAL VARIABLES" 
+.IP "MARU_PASSPHRASE" 10 
+Use the contents of this variable instead of ever prompting for a passphrase. 
+.IP "MARU_PASSPHRASE_n" 10 
+Use the contents of this variable instead of prompting for a passphrase for aspect_n. 
+This variable is dominant over MARU_PASSPHRASE 	 
+.SH "AUTHORS" 
+.PP 
+Julian Assange Director Australian National Cognitive Facility  
+.PP 
+.nf 
+.ta 8n 16n 24n 32n 40n 48n 56n 64n 72n 
+PO BOX 20313122Hawthorn, VictoriaAustraliaproff@iq.org 
+.fi 
+ 
+.SH "COPYRIGHT" 
+.IP "Copyright (c) 1997-2000" 10 
+Julian Assange  
+.IP "Copyright (c) 1999-2000" 10 
+Australian National Cognitive Facility 
+.IP "Copyright (c) 1999-2000" 10 
+Ralf (P.) Weinmann  
+...\" created by instant / docbook-to-man, Fri 18 Aug 2000, 03:44 

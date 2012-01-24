@@ -1,0 +1,28 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../libmcommon -I../libproff -g -O2 -Wall -pipe mcast.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  void CASTinit(maruCipherDesc *cipher, void *opaque, int flags);
+extern  void CASTsetkey(void *opaque, u_char *key, int len, int flags);
+extern  void CASTencryptCBCTo(void *opaque, u_char *iv, u_char *data, u_char *to, int len);
+extern  void CASTcryptCBC(void *opaque, u_char *iv, u_char *data, u_char *to, int len, int flags);
+#ifdef __cplusplus
+}
+#endif

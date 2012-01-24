@@ -1,0 +1,5 @@
+# $Id: conf.cf,v 1.2 1999/09/09 07:43:23 proff Exp $
+
+# location of configuration directory, the config files below 
+# are relative to this path. kinda important
+string configDir "@$configDir@$"

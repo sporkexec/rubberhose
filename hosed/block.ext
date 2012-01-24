@@ -1,0 +1,26 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../libmclient -I../libproff -g -O2 -Wall -pipe block.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  int maru_set_blocksize(int fd, int blocksize);
+extern  int maru_handle_chunk(char *data, m_u64 offset, m_u32 length, maruReqOp operation, maruAspect *aspect);
+#ifdef __cplusplus
+}
+#endif

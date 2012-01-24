@@ -1,0 +1,356 @@
+<HTML
+><HEAD
+><TITLE
+>Specific Security Features</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.49"><LINK
+REL="HOME"
+TITLE="The Idiot Savants' Guide to Rubberhose"
+HREF="t1.html"><LINK
+REL="PREVIOUS"
+TITLE="How does Rubberhose work?"
+HREF="x32.html"><LINK
+REL="NEXT"
+TITLE="Licensing"
+HREF="licensing.html"></HEAD
+><BODY
+CLASS="SECTION"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>The Idiot Savants' Guide to Rubberhose</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x32.html"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="licensing.html"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECTION"
+><H1
+CLASS="SECTION"
+><A
+NAME="AEN73"
+>Specific Security Features</A
+></H1
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="AEN75"
+>Time-Based Passphrases</A
+></H2
+><P
+>Rubberhose allows you to set time-based passphrases. For example, you can set up
+Rubberhose to demand re-entry of a passphrase after one hour of use, or any other
+time length you prefer. This is a simple but crucial safety feature.  If
+your as yet unpaid lawyer burst through your front door and ties you up 50
+minutes into the hour, he will only have 10 minutes to extract all your
+Cayman Island account numbers from your drive before Rubberhose demands the
+passphrase -- and then cuts him off. </P
+><P
+>Rubberhose can also be configured to lock out users after a certain amount 
+of idle time. This security feature means that if you stroll away from 
+your machine to nibble on some rhubarb tart, and one slice happens to turn 
+into an extended feeding fest (as always happens with rhubarb tart), 
+your valuable data will not be exposed to attack for very long.</P
+></DIV
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="AEN79"
+>Anti-Passphrase-Cracking Features</A
+></H2
+><P
+>Rubberhose is highly resistant to dictionary attacks. Every time you create a new
+aspect, the program generates an internal master password. You never see
+this password, which is just as well, since you probably couldn't remember
+it anyway. The aspect's internal master password is very long and randomly
+generated (and therefore extremely difficult to guess). Typically, it
+includes the kind of obscure characters less experienced computer users only
+stumble across by accident (ever mistyped and wondered what that yen symbol
+was doing on your screen?) Rubberhose then encrypts this internal master
+passphrase with the passphrase you give the program for that particular
+aspect.</P
+><P
+>The internal master password stays the same for the life of the aspect, but
+you can change your passphrase for that aspect as many times as you like.</P
+><P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Technical Guff: </B
+>By default, when you create a new Rubberhose passphrase, the
+program loops for a period of time re-encrypting the first output into the
+second, and the second into the third, etc. Each subsequent encryption
+output is fed back into the next round of encryption. This makes an attack
+based on guessing the passphrase extremely difficult, as an attacker must test
+each guess through the entire loop.</P
+></BLOCKQUOTE
+></DIV
+> </P
+><P
+>You can set the looping time to your own preference in Rubberhose each time you
+first open the program. Longer times mean it will take slightly longer to
+decrypt an aspect every time you open it, but the data will be more secure.
+For example, a two second loop time setting run on an
+<SPAN
+CLASS="TRADEMARK"
+>Intel Celeron</SPAN
+>&trade; 366 means Rubberhose will do 175,000 
+rounds of encryption (for the CAST cipher). The only way for an attacker
+to return to the original master password is to reverse the process,
+feeding the output of the decryption into the input of the next
+decryption -- through about 175,000 rounds, depending on the speed of
+the symmetric cipher algorithm selected.</P
+><P
+>The salted internal master aspect key unlocks everything in that aspect,
+including the map of where the bits of data are located across the drive and
+the ability to actually decrypt that data. Because this key could be a point
+of vulnerability, we have designed large walls around the master key. In
+fact, it could be said that the master key doesn't touch anything else in
+the program directly; there is always an obscuring barrier protecting it.</P
+></DIV
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="DISKSURFATTACKS"
+>Thwarting Disk Surface Analysis</A
+></H2
+><P
+>There are several well-known attacks on encrypted data via surface analysis
+of the disk itself. Rubberhose is designed to protect against these attacks,
+including attacks based on scanning tunnelling microscopy advances.</P
+><P
+>The program also ensures that if an attacker manages to decrypt one of the
+many tiny blocks of data in an aspect, it will not help him or her to 
+decrypt the remaining blocks and therefore piece together all the data from 
+an entire aspect. Our team reads academic papers on cryptanalytic attacks 
+for fun on the weekends. The Rubberhose team has tried to make this program 
+reasonably immune from the latest attacks of this type.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Technical Guff: </B
+>Using strong pseudo-random number generators, Rubberhose creates a
+lattice generator for each aspect. This lattice, which can only be decrypted
+by using the internal master key for that aspect, is used for calculating unique
+encryption and decryption keys for each block of data assigned to a single
+aspect. Specifically, the lattice uses a mathematical algorithm to transmute
+a block number (let's say, Block Number 42, as it holds the answer to a
+particularly interesting question) into a key for that block. Rubberhose puts
+these blocks inside its own larger blocks. </P
+></BLOCKQUOTE
+></DIV
+><P
+>There are two types of blocks in a Rubberhose-encrypted drive: an operating
+system block (typically 512-8192 bytes) and a Rubberhose 
+<SPAN
+CLASS="QUOTE"
+>"surface-block"</SPAN
+> (which is usually congruent with an 
+OS block size but not always), which are scattered all over the drive in a 
+truly random fashion. You can configure the size of the surface blocks
+to suit your needs when you initialize Rubberhose on your hard drive. Setting
+Rubberhose to create many smaller surface blocks is potentially a
+little more secure than choosing larger block sizes, but the blocks
+also take longer to generate.</P
+><P
+>The program is implemented in such a way that breaking one block of data
+will not aid an attacker in breaking the next one. More importantly, it is
+very difficult to discover statistical inter-relationships between large
+numbers of blocks, even if the block cipher algorithm is weak and the
+whitener (described later) is broken.</P
+><P
+>Each aspect is in fact a <SPAN
+CLASS="QUOTE"
+>"view"</SPAN
+>, or map, of these blocks 
+-- but when you examine Aspect 1, the Aspect appears to view 
+<I
+CLASS="EMPHASIS"
+>all</I
+> of the disk as belonging to it. Similarly, Aspect 2
+views all of the block as its own. An attacker examining Aspect 1 would
+simply see some used blocks and some unused blocks within the single aspect.
+In fact, some of those <SPAN
+CLASS="QUOTE"
+>"unused"</SPAN
+> blocks might secretly belong 
+to Aspect 2, but Aspect 1 can not tell this, so neither does the attacker 
+who has accessed Aspect 1.</P
+><P
+>Rubberhose conducts frequent block-swapping to thwart disk surface
+analysis based on the intensity of block use and contiguous block
+prediction. In theory an attacker can examine the magnetic properties
+of the ferrite coating on a disk surface in order to determine how
+frequently a program has read or written to a particular section of
+the drive. This permits the attacker to guess if a geographic area on
+the disk is blank (full of random noise) or contains hidden data. If
+the attacker can decrypt, for example, Aspect 1 (but not any other
+Aspect) he can overlay a map of frequently used drive sections on a
+map of Aspect 1's data map showing unused and used sections. If he
+sees an unused section has been accessed for reading or writing very
+frequently, he can guess that there is more likely hood than not that
+there is hidden material stored there from another aspect.</P
+><P
+>To prevent this sort of analysis, Rubberhose automatically shuffles
+surface blocks of data around to new locations on the drive with a
+frequency you can set. It does this regularly but invisibly, so the
+swapping doesn't interfere with your work in progress. The background
+shuffling occurs whenever Rubberhose is open (with write capability),
+even when your machine is idle. The result is that no one region of
+the disk looks more used than any other section in a statistically
+significant fashion.</P
+><P
+>Further, this block shuffling reduces the risk of contiguous block
+analysis. If an attacker decrypts Aspect 1 and finds all the data written in
+a contiguous block on the drive, he could reasonably guess the block
+immediately next to it contains hidden data written from Aspect 2. By moving
+its blocks around, Rubberhose avoids the predictability of tidy, contiguous
+block assignment. Take that, Ahab.</P
+></DIV
+><DIV
+CLASS="SECTION"
+><H2
+CLASS="SECTION"
+><A
+NAME="AEN107"
+>Cryptanalytic Attacks (Known Plaintext Attacks etc.)</A
+></H2
+><P
+>Rubberhose also contains <SPAN
+CLASS="QUOTE"
+>"whitening code"</SPAN
+>, another
+security feature designed to thwart cryptanalysis attacks,
+particularly <SPAN
+CLASS="QUOTE"
+>"Known Plaintext attacks"</SPAN
+>.  The whitener is
+made out of random bits. Whitener also perturbs the encryption process in a
+non-predictable manner.</P
+><P
+>Rubberhose merges this whitener and decrypted data from the data blocks in order
+to change the data in the data blocks slightly. Specifically, the whitener
+<SPAN
+CLASS="QUOTE"
+>"flips"</SPAN
+> a corresponding bit in the data block. Any bit in the 
+whitener which is a 1 flips a corresponding bit in the decrypted data block. 
+Any 0 means <SPAN
+CLASS="QUOTE"
+>"hold"</SPAN
+>, or <SPAN
+CLASS="QUOTE"
+>"don't flip"</SPAN
+>. The result 
+is that some bits in the decrypted data block are flipped and some are not. 
+This prevents known plaintext attacks because you don't have any plaintext 
+to work with which is directly translatable into the encrypted material.</P
+><P
+>Whitener is vulnerable in the sense that if you break it for one block
+you will probably break it for all the blocks. However, there are still
+other lines of defense, such as separate keys for every block which limit
+the success of such an attack.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x32.html"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="t1.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="licensing.html"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How does Rubberhose work?</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Licensing</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

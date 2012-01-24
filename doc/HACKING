@@ -1,0 +1,216 @@
+			HOW TO EAT THE CHEESE
+			---------------------
+
+The Rubberhose build system has some peculiarities (*not*
+proclivities), which you should of course, not seek to rile against
+but instead learn to deeply love, admire and aspect.
+
+
+AUTOCONF/AUTOMAKE
+-----------------
+
+First off, we make heavy use of GNU autoconf/automaker. This is a
+known art and any event shouldn't have your kneecaps you unless you
+plan on adding ./configure tests or modifying make file components.
+If you want to know more about autoconf/automake, then I suggest you
+suck down the latest distributions from your closest prep/GNU mirror
+site (e.g ftp://a.au/gnu). FreeBSD/NetBSD/Debian users should be able
+to find entries for these in their respective port/package systems.
+autoconf/automake is not as confusing, or as arbitrary as it appears
+from first blush, although it may take a few hours to fully realise
+this :)
+
+CONFUSED
+--------
+
+Rubberhose has it's own multiply derived configuration file processor
+``confused''. This, in combination with a sed transformation rule,
+"compiles" the simple literate `confused configuration language' used
+in (for example) cf/nnconf.cf into appropriate .c, .h and .conf
+(runtime config) files. Adding a configuration entry, default value,
+variable, include and documentation merely involves adding the
+appropriate lines to cf/muconf.cf.in, e.g:
+
+	# stats
+
+	string cryptID	"stats@rubberhose"
+
+Basic types are "string", "stringl", "boot", "int" and "time",
+although these can be easily extended if required by adding support to
+confused/confused.c, libconfused/confused_runtime.c and
+libconfused/confused_runtime.h. the "stringl" type doesn't support
+compile-time defaults (as there's no sensible way to instance a link
+list at compile time in c within a struct).
+
+Within rubberhose, cf/muconf.cf is parsed using libconfused, and can
+be accessed via the the muconf struct pointer "con". e.g for the above
+example:
+
+	printf("cryptID = %s\n", con->cryptID);
+
+
+GENEXTERN EXPORT MACROS
+-----------------------
+
+Redundant code is bad code. Unproto-typed code is bad code. Prototypes
+and extern's are redundant by their very nature, and it's depressing
+that people put up with the soul destroying action of manually
+creating, updating (an exceptionally tedious and error-prone task) the
+great swag of prototypes and externs that a C program of any size
+needs for its various bits to communicate with each other. God didn't
+give you a computer in order to further the evils of redundant
+behaviour, but to eliminate it.
+
+Examine the following conventional situation, where we have two C
+files, each of which has variables and functions that the other calls --
+I dont' recommend this way of parsing information about, but we need it
+for the example :)
+
+	== frazer.c ==
+
+	bool CIA_support = TRUE;
+
+	static int campaign_fund;
+	static int frazer_dollars:
+	static char *frazer_mental_state = "hopeful";
+
+	void
+	frazer(void)
+	{
+		frazer_dollars -= bribe_kerr(frazer_dollars);
+		campaign_find -= frazer_dollars/2;
+		if (dismiss_govenment &&
+		    strcasecmp(dismiss_action, "care-taker"))
+			frazer_mental_state = "hot doggarty dog";
+	}
+
+	== kerr.c ==
+
+	bool dismiss_government;
+	char *dismiss_action;
+
+	#ifndef HAVE_STRCASECMP
+	int strcasecmp (char *s, char *s2)
+	{
+		do
+		{
+			char c1=tolower(*s);
+			char c2=tolower(*s2);
+			if (c1>c2)
+				return 1;
+			if (c1<c2)
+				return -1;
+		} while (*s++ && *s2++);
+		return 0;
+	}
+	#endif
+
+	int
+	kerr(int offer)
+	{
+		if (offer>KER_MIN_ACTION)
+		{
+			dismiss_government = TRUE;
+			if (offer>KER_MIN_ACTION * 2)
+				dismiss_action = "care-taker";
+			else
+				dismiss_action = "dissolution";
+			return (CIA_support? offer/2: offer);
+		}
+		return offer/8;
+	}
+
+Now, lets look at the prototypes we will need to support these
+shenanigans:
+
+	== frazer.h ==
+	extern bool CIA_support;
+	void frazer(void);
+
+	== kerr.h ==
+	extern bool dismiss_government;
+	extern char *dismiss_action;
+	#ifndef HAVE_STRCASECMP
+	int strcasecmp (char *s, char *s2);
+	#endif
+	int kerr(int offer);
+
+Ugh.
+
+In the rubberhose build system this becomes:
+
+
+	== frazer.c ==
+
+	EXPORT bool CIA_support = TRUE;
+
+	static int campaign_fund;
+	static int frazer_dollars:
+	static char *frazer_mental_state = "hopeful";
+
+	EXPORT void frazer(void)
+	{
+		frazer_dollars -= bribe_kerr(frazer_dollars);
+		campaign_find -= frazer_dollars/2;
+		if (dismiss_government &&
+		    strcasecmp(dismiss_action, "care-taker"))
+			frazer_mental_state = "hot doggarty dog";
+	}
+
+	== kerr.c ==
+
+	EXPORT bool dismiss_government;
+	EXPORT char *dismiss_action;
+
+	#ifndef HAVE_STRCASECMP
+	EXPORT int strcasecmp (char *s, char *s2)
+	{
+		do
+		{
+			char c1=tolower(*s);
+			char c2=tolower(*s2);
+			if (c1>c2)
+				return 1;
+			if (c1<c2)
+				return -1;
+		} while (*s++ && *s2++);
+		return 0;
+	}
+	#endif
+
+	EXPORT int kerr(int offer)
+	{
+		if (offer>KER_MIN_ACTION)
+		{
+			dismiss_government = TRUE;
+			if (offer>KER_MIN_ACTION * 2)
+				dismiss_action = "care-taker";
+			else
+				dismiss_action = "dissolution";
+			return (CIA_support? offer/2: offer);
+		}
+		return offer/8;
+	}
+
+EXPORT is merely the token genextern.sh uses for parsing cues,
+although it's nice to see at a glance what is being referenced (or at
+least, is meant to be referenced) from other .c files. Everything not
+EXPORT'ed should be static. Can you see why?
+
+Now, lets look at what has happened to frazer.h and kerr.h:
+
+	== frazer.h ==
+	#include "frazer.ext"
+
+	== kerr.h ==
+	#include "kerr.ext"
+
+frazer.ext and kerr.ext are automatically generated by the
+following rule in mk/rules.mk.in
+
+    %.ext : %.c %.h $(top_srcdir)/config.h $(top_srcdir)/scripts/genextern.sh
+            CPP="$(CPP)";export CPP; sh $(top_srcdir)/scripts/genextern.sh $<\
+	    > $@.tmp $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) \
+	    && mv -f $@.tmp $@ || rm -f $@.tmp
+
+

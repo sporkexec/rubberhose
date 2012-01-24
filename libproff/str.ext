@@ -1,0 +1,41 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../libmclient -g -O2 -Wall -pipe str.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  char *xstrdup (char *s);
+extern  int strExchange (char *s, char c1, char c2);
+extern  int strLower (char *s);
+extern  int strUpper (char *s);
+extern  int strSnip (char *s, int len, char *start, char *end, char *buf, int blen);
+extern  char *strncasestr (char *s, char *find, int slen);
+extern  int strStripLeftRight (char *s);
+extern  int strStripEOL (char *s);
+extern  int strnStripEOL (char *s, int n);
+extern  int strMakeEOLn (char *s);
+extern  int strMakeEOLrn (char *s);
+extern  unsigned long strHash (unsigned long h, char *s);
+extern  int strToi (char *s);
+extern  int strKToi(char *s, int *i);
+extern  char *conv (double n);
+extern  int strToVec(char *p, char **cp, int cpnum);
+extern  int hexToBin(char *in, char *out, int len);
+#ifdef __cplusplus
+}
+#endif

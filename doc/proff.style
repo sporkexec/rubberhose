@@ -1,0 +1,664 @@
+/* $Id: proff.style,v 1.6 2000/08/16 09:42:47 proff Exp $ */
+
+Tabs:
+
+	Set to 8 or 4 for portability and readability. If you are running out
+	of room then take it as a warning, because you are nesting too
+	deeply.
+
+Comments:
+
+	/*
+	 * VERY important single-line comments look like this.
+	 */
+
+	/* Most single-line comments look like this. */
+
+	/*
+	 * Multi-line comments look like this.  Make them real sentences.  Fill
+	 * them so they look like real paragraphs.
+	 */
+
+	/*
+	 * Attempt to wrap lines longer than 80 characters appropriately.
+	 * Refer to the examples below for more information.
+	 */                                                                                 
+
+
+Header file protection:
+
+	/*
+	 * EXAMPLE HEADER FILE:
+	 *
+	 * A header file should protect itself against multiple inclusion.
+	 * E.g, "socket.h" would contain something like:
+	 */
+	#ifndef SOCKET_H
+	#define SOCKET_H
+	/*
+	 * Contents of #include file go between the #ifndef and the #endif at the end.
+         * DO NOT use _SOCKET_H (note leading underscore) unless writing system includes.
+	 */
+	#endif /* !SOCKET_H */
+	/*
+	 * END OF EXAMPLE HEADER FILE.
+	 */
+
+Includes:
+
+	/*
+	 * Kernel include files come first.
+	 */
+	#include <sys/types.h>		/* Non-local includes in brackets. */
+
+	/*
+	 * If it's a network program, put the network include files next.
+	 * Group the includes files by subdirectory.
+	 */
+	#include <net/if.h>
+	#include <net/if_dl.h>
+	#include <net/route.h>
+	#include <netinet/in.h>
+	#include <protocols/rwhod.h>
+
+	/*
+	 * Then there's a blank line, followed by the /usr include files.
+	 * The /usr include files should be sorted!
+	 */
+	#include <stdio.h>
+
+	/*
+	 * Global pathnames are defined in /usr/include/paths.h.  Pathnames local
+	 * to the program go in pathnames.h in the local directory.
+	 */
+	#include <paths.h>
+
+	/* Then, there's a blank line, and the user include files. */
+	#include "pathnames.h"		/* Local includes in double quotes. */
+
+Macros:
+	 Macros are capitalized, parenthesized, and should avoid side-effects.
+	 If they are an inline expansion of a function, the function is defined
+	 all in lowercase, the macro has the same name all in uppercase.
+	 If the macro is an expression, wrap the expression in parenthesis.
+	 If the macro is more than a single statement, use ``do { ... } while (0)'',
+	 so that a trailing semicolon works.  Right-justify the backslashes; it
+	 makes it easier to read. The CONSTCOND comment is to satisfy lint(1).
+	 Macros should be avoided where they can be replaced with __inline__
+	 functions. All macros should be argument insensitive where possible, and
+	 where not, explicity documented. That is MAC(x) should always equal FUN(x).
+	 i.e MAC(x) should be handle the case of an x that has side-effects, e.g
+	 "x++".
+	
+	#define	MACRO(v, w, x, y)						\
+	do {									\
+		v = (x) + (y);							\
+		w = (y) + 2;							\
+	} while (/* CONSTCOND */ 0)
+
+	#define DOUBLE(x) ((x) * 2)
+
+Spaces:
+
+	Spaces after all C reserved words:
+
+	if (foo)
+		return bar;
+
+	including ? :
+
+	a? TRUE: FALSE;
+
+	No spaces after function names:
+
+	if (fbaz(foo))
+		return bar;
+
+	Spaces before, but not after prefix operators:
+
+	return (~a + -b);
+
+Grouping:
+
+	Group for clarity. Always group assignments and bit operations:
+	
+	if ((a=(1 % 2) & 3))
+		return TRUE;
+
+Brackets:
+
+	Don't use K&R, KNF. All brackets should vertically align
+	with the corresponding closing bracket. This makes nesting visually
+	intuitive. Symmetry is your friend.
+
+	The exception is short structures, union's, enums and functions,
+	which should be all on the same line, thus having left-right
+	symmetry.
+
+	enum myheadhurts {lsd, mda, mdma, thc, peyote, women};
+
+Relative indentation level of brackets:
+
+	Provided vertical and horizontal symmetry are preserved, many styles
+	are acceptable. The one that is used should be dictated by what surrounding
+	code already uses. 
+
+	acceptable bracket usage:
+
+     example:
+	
+	if (foo) /* verticale symmetry but with the compactness of K&R */
+	       {stmt1;
+		smtp2;
+	       }
+
+     example:
+
+	if (foo)
+		{
+		stmt1;
+		stmt2;
+		}
+
+     example:
+
+	if (foo)
+	{
+		stmt1;
+		stmt2;
+	}
+
+     exammple:
+
+	if (foo)
+	    {
+		stmp1;
+		stmp2;
+	    }
+
+if & else:
+
+	The if and else body should be indented and on the line following:
+
+		if (foo)
+			foo++;
+
+	else if chains should be merged to align:
+
+		if (foo1)
+			foo1++;
+		else if (foo2)
+			foo2++;
+		else if (foo3)
+			foo3++;
+
+	rational:
+		Such chains are more-or-less a switch() that works with run-time
+	conditionals.
+
+	else following bracket:
+		if (foo)
+		    {	
+			foo++;
+			exit();
+		    }
+		 else
+			foo2++;
+
+	if within if:
+
+		if (foo)
+		    {
+			if (bar)
+				baz();
+		    }
+
+Long clauses:
+
+	if (foo1 &&
+	    boo1 &&
+	    (sex1 && sex2))
+
+	This gives is visual intuition as to what parts of which nest are at the same
+	depth level. Sex1 and sex2 are on the same line in this example because they
+	are conceptually similar, where as foo1 and boo1 are not.
+
+Returns:
+
+	no brackets. place argument on the same line:
+
+		return foo;
+
+	exception:
+
+		when returning truth values e.g
+
+			return (a==b);
+
+Switches and labels:
+
+	Place case statements and labels at one indent left compared to the code they
+	reference:
+
+	switch(life)
+	    {
+	    case no:
+		goto startover;
+	    }
+	if (!foo)
+	    {
+	  startover:
+		main(0, NULL);
+	    }  
+
+	rational: visual intuition.
+
+Function Declarations:
+
+	Use ANSI style constructs:
+
+	rational: redundant code is bad code.
+
+Pragmas/header files:
+
+	Where possible generate extern header files from cues in the
+	source. (examine my EXPORT macros). Don't explicitly
+	define forward declarations, simply write dependent code
+	sequentially after the functions it is dependent on.  The
+	conventional practice of explicit forward declaration is
+	duplicitous and causes no end of problems in code
+	synchronisation.
+
+	rational: redundant code is bad code.
+
+Variable typing:
+
+	Where possible use typedefs or enums. abstract from the
+	architecture as much as possible. in particular
+	boolean values should not be defined as int's, but rather
+	as "bool" (which can be anything from an unsigned
+	char to a long long int, to a two state enum). Avoid
+	CPP defines if possible in favour of enums (aside from
+	optimisation and stronger type checking, enums can also
+	be used intelligently in debuggers). enums in gcc are not
+	resolved intelligently and so pollute the global name-space.
+	i.e choose forward-unique enums like st_style. Avoid overusing
+	typedefs for structures. They should only be used in this instance
+	if there is a reasonable chance the structure may change to a union
+	or atomic variable in the future or the structure is meant to
+	be opaque. typedefs don't permit forward declaration, and are
+	harder to pass syntactically resulting in more obscure compiler
+	errors and impoverished syntax highlighting.
+
+	Enum types are capitalized.  No comma on the last element:
+
+	enum enumtype {ONE, TWO} et;
+
+	Make the structure name match the typedef:
+
+	typedef struct BAR
+	{
+		int level;
+	} BAR;
+
+Variable/function naming:
+
+	globals variables:
+
+		Global variables should be avoided if possible. Where
+		not possible, they should be descriptive. All global
+	 	variables should contain at least two words, and
+		capitals should be use to seperate words.
+
+		Rational: The capitalisation defines the scope of the
+			  variable and ensures that locals do not shadow it
+			  (we use a different scheme for locals).
+
+			  Choosing to capitalise the lead letter of the
+			  second word rather than using '_' as a separator
+			  is more personal preference. I recommend capitalisation
+			  merely because it is faster to type and increases the
+			  visual dissimilarities to local/static variables.
+
+		Exceptions:
+
+			booleans should be prefixed with 'f_' (flag). e.g
+
+				bool f_fastFoo = TRUE;
+
+			or named appropriately, and consistently, e.g:
+
+				fastFooOn
+
+			arguments extracted from argv should be prefixed
+			with 'a_' (argument). e.g
+
+				char *a_output = NULL;
+
+			argument variables should be initialised to default
+			values. where possible an argument value should
+			be able to dictate what the argument was and that
+			the flag was specified at all. purely boolean arguments
+			should use the boolean 'f_' schema above.
+
+	global functions:
+
+		don't capitalise the lead character (it's ugly and
+                redundant). The exception is when a large group of
+                functions perform
+		actions on a particular object type. In that case it may
+		be appropriate to have Xopen(), Xclose(), FWfrob() etc, to
+		delineate the invariant part of the name-space from the
+		variable part.
+
+		the head letter of any third word should still be capitalised,
+		and where possible global function names should have two
+		words.
+
+	local variables:
+
+		locals should be lower case and as short as possible. bools
+		should be prefixed with 'f_' (flag) or otherwise be obviously
+		boolean in nature. two word locals should
+		be avoided, but if necessary should be separated by '_'
+		rather than case changes. Some standard local namings
+		appear below:
+
+			p	pointer
+			c	character
+			n	incrementing or decrementing integer
+			i	integer
+			t	temporary integer
+			s	string pointer
+			buf	buffer
+			fn	filename
+			fh,fp	file handle
+			fout	output file handle
+			fin	input file handle
+			fd	file descriptor
+			in	sockaddr_in
+			addr	in_addr
+
+	static top-level (same file) variables & functions:
+		these are conceptually half way between
+ 		local and global. they should normally
+		consist of two descriptive words, both in lower
+		case. If the variable is only used in one function,
+		it should be defined immediately before that function.
+		if it is referenced by multiple functions it should
+		be defined at the top of the file.
+
+
+Variable ordering:
+
+	variables should be ordered in conceptual clusters. where there is
+	no conceptual relationship, variables should be ordered alphabetically
+
+NULL usage:
+
+	use NULL rather than (pointer_t *)0. The latter is
+	ugly and will trip you up because of the forced
+	nature of casts. Never use a naked 0 with pointers.
+
+  exception:
+
+	when instantiating array's and structures where NULL would be
+	overly heavy. e.g char *foo[] = {0,0,0}
+	
+Void pointers:
+
+	Use a void pointer whenever the code doesn't know what
+	the pointer points to. e.g a malloc wrapper:
+
+	void *xmalloc(int n){void *p=malloc(n);...return p;}
+
+	DO NOT perform any arithmetic with void pointers.
+	They are treated as char* by GCC, but you should
+	not depend on this. A void pointer should be
+	considered a pointer to an object of "unknown size".
+	cast it to (char *) if you want to treat it as
+	a pointer to char for such arithmetic purposes.
+
+! usage:
+
+	Only use the not operator where something is
+	semantically/logically negated or "invalid". For example the
+	following is acceptable, despite the fact it
+	is not strictly boolean:
+
+	a = malloc(bigmem);
+	if (!a)
+		exit(1);
+
+	Why? Because a was NOT a pointer to any object, implying
+	that malloc did NOT succeed (*failed*). By and large you can safely use !
+	with pointers and still infer meaning, even though pointers
+	are not boolean. The following are all WRONG:
+
+	if (!getuid())
+		euberadminstuff();
+
+	if (!strcmp(s, "harry"))
+		harrystuff();
+
+	if (!chdir("/home/lolita")
+		lolitastuff();
+
+	In each one of the above examples, the zero return value
+	implied success (truth) or a scaler, not a falsehood. 
+	re-written correctly as follows:
+
+	if (getuid() == 0)
+		euberadminstuff();
+
+	if (strcmp(s, "harry") == 0)
+		harrystuff();
+
+	if (chdir("/home/lolita" == 0)
+		lolitastuff();
+
+	The strcmp case is so common you are well advised to
+	use the following macros:
+
+	/* we don't use the *x==*y trick, as it doesn't take kindly to functions */
+	#define strEq(x,y) (strcmp((x), (y)) == 0)
+	#define strnEq(x,y,z) (strncmp((x), (y), (z)) == 0)
+	#ifdef HAVE_STRCASECMP
+	#  define strCaseEq(x,y) (strcasecmp((x), (y)) == 0)
+	#  define strnCaseEq(x,y,z) (strncasecmp((x), (y), (z)) == 0)
+	#endif
+
+	The above macros are safe in the sense that they only reference each
+	parameter once.
+
+Checking return values:
+
+	Many system calls return zero for success and -1 for
+	failure.
+
+	 handled success:
+
+		if (close(fd) == 0)
+			goodstuff();
+		else
+			exit(1);
+
+	  rational: success is good, everything ELSE is bad.
+
+	  handled failure only:
+
+		if (seteuid(0) != 0)
+			failed();
+
+	  rational: semantics
+
+	popular wrong examples:
+
+		if (setgid(gr)<0)
+			failed();
+
+	the above is WRONG because the return value isn't a scaler,
+	it is a truth value, even if it isn't a C compatible truth.
+	We want to know if the syscall was NOT successful, not that
+	it returned a value smaller than zero. Further by limiting
+	the range of the comparison to != 0, the optimizer can generate
+	faster code.
+
+	The below is a little better, but still wrong:
+
+		if (setgid(gr) == -1)
+			failed();
+
+	and should be implemented as:
+
+		if (setgid(gr) != 0)
+			failed();
+
+	rational: anything that isn't success is failure => semantics,
+	          optimizeability.
+
+Logical return values:
+
+	For functions that return bistate values, which can
+	logically inferred to be TRUE or FALSE, have them
+	return just that. DO NOT do this for functions
+	that are merely returning "option 1" or "option 2";
+	those are scalers and have no relation to logic.
+
+	example:
+		bool funky(int snum)
+		{
+			if (states_linked[snum] !=0)
+				return TRUE;
+			else
+				return FALSE;
+		}
+
+	this lets you perform proper logic with the function return:
+
+		if (!funky(n))
+			retire_thread(n);
+
+	Because we are using C logic states, we can optimize
+	our functions further:
+
+		bool funky(int snum)
+		{
+			 return (states_linked[snum] != 0);
+		}
+
+	Notice how we use this logical construction despite the
+	fact that returning the scaler directly would satisfy.
+
+	rational: scalers are not bistate. 0 and 1 is potentially quite
+	          different between 0 and 4 billion other numbers
+		  that are not zero as far as the optimizer is
+		  is concerned. semantics
+
+Casting structs into basics:
+
+	You shouldn't normally need to do this, for example struct
+	in_addr contains only a u_long, but it can be addressed
+	none-the-less via in_addr.s_addr. If you must get at struct
+	in this way, do NOT use memcpy/bcopy et al, use the following
+	construct:
+
+		struct	in_addr in_addr;
+		...
+		u_long	ip=*(u_long *)&in_addr;
+
+	the reverse also applies:
+
+		u_long	ip;
+		...
+		struct	in_addr=*(struct in_addr *)&ip;
+
+	the latter case will not work with register variables,
+	and under some compilers may not work on local function
+	arguments (pass-by-register + no avoidance code).
+
+   exception:
+	
+	If there is a possibility that the source or destination
+	is not appropriately aligned.
+
+Ordering of variables in a structure:
+
+	the first variable:
+
+		For structures that are referenced by pointers (i.e
+		the vast majority) the first variable declared can
+		potentially be accessed faster than subsequent variables
+		(depending the platform concerned).  the first
+		variable declared is the only variable that does
+		not require an additive offset.
+
+		place the most frequently used variable first.
+		in linked lists, this will normally be ->next
+
+	other variables:
+
+		there are two goals here:
+
+		(a) obliviating auto-alignments/padding
+
+		example:
+
+		struct hurricane
+		{
+			int years;
+			char sex;
+			int parole;
+		}
+
+		will be turned by many compilers into:
+
+		struct hurricane
+		{
+			int years;
+			char sex;
+			char pad[3];
+			int parole;
+		}
+
+		re-write as:
+
+		struct hurricane
+		{
+			int years;
+			int parole;
+			char sex;
+		}
+
+		the basic rule here is to formulate the variable
+		order so that:
+
+			o ints are aligned on 4 byte boundaries
+			o shorts are aligned on 2 byte boundaries
+			o chars are aligned on 1 byte boundaries
+			o pointers are aligned on 8 or 4 byte boundaries
+
+		64 bit systems will have 64 bit pointers. The best way
+		to deal with this is make sure the first pointer is
+		aligned on a 64 bit boundary. Any pointers immediately
+		following will be 64 bit aligned on 64 bit systems.
+
+		(b) cache line association
+
+		variables that are used shortly after each other
+		should be placed near each other to increase the chance
+		of falling into the same cache-line. This is
+		true of function bodies too, although some compilers
+		(i.e SUNSpro) will do this semi-automatically.
+
+	binary compatibility:
+
+		If writing kernel code on a system that supports syscall or
+		library versioning, version the syscall / library routine,
+		otherwise add new variables to the end of structures opaquely
+		allocated (but externely referenced).
+
+	general exception:
+
+		Variables should be organised in semantic clusters where
+		performance or binary compatability is a non-issue.

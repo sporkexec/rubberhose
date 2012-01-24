@@ -1,0 +1,30 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -D__KERNEL__ -DMODULE -DMARU_MOD -DDEBUG -I/usr/src/linux/include -I../libmclient -O6 -Wall kue_linux.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  int kue_push (struct kue_kapi *kapi, void *p, int len);
+extern  int kue_release (struct inode *i, struct file *f);
+extern  int kue_ioctl(struct inode *i, struct file *f, unsigned int cmd, unsigned long arg);
+extern  unsigned int kue_poll (struct file *f, struct poll_table_struct *pt);
+extern  struct kue_kapi *kue_get_kapi (int minor, int reuse);
+extern  void kue_release_kapi(struct kue_kapi *kapi) ;
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rmmod maru
+rmmod kue
+
+

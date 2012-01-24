@@ -1,0 +1,33 @@
+/*
+ * (c) 1997-1999 Julian Assange <proff@iq.org> SEE THE FILE "COPYING" FOR COPYRIGHT
+ *
+ * DO NOT EDIT! This file was created automatically by the following command:
+ *
+ *     genextern.sh gcc -DHAVE_CONFIG_H -I. -I. -I.. -I../libmcommon -I../libproff -g -O2 -Wall -pipe remap_bmap.c
+ *
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#
+#ifndef EXPORT
+#  define EXPORT
+#endif
+#ifdef AUTOGEN
+#  define EXP_(x) x
+#else
+#  define EXP_(x)
+#endif
+extern  m_u32 maruRemapBmapSize(m_u32 blocks);
+extern  maruKeymapAspectRemap* maruRemapBmapCreate(maruInstance *i, m_u32 blocks, int *lenp, maruRemapFlags remap_flags);
+extern  void* maruRemapBmapNew(maruInstance *i, maruRemapFlags remap_flags);
+extern  void* maruRemapBmapAddAspect(maruAspect *a, maruKeymapAspectRemap *hr);
+extern  void maruRemapBmapReleaseAspect(maruAspect *a);
+extern  void maruRemapBmapFree(maruInstance *i);
+extern  int  maruRemapBmapMapIO(maruReq *req);
+extern  void maruRemapBmapInfo(maruInstance *i, int as, maruRemapInfoFlag flag);
+extern  int  maruRemapBmapSync(maruInstance *i);
+#ifdef __cplusplus
+}
+#endif

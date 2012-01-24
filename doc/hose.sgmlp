@@ -1,0 +1,59 @@
+<!DOCTYPE Refentry PUBLIC "-//OASIS//DTD DocBook V3.1//EN">
+
+<RefEntry id="manpage.hose">
+  <DocInfo><Date>__DATE__</Date></DocInfo>
+  <RefMeta>
+    <RefEntryTitle>hose</RefEntryTitle>
+    <ManVolNum>1</ManVolNum>
+    <RefMiscInfo>SP</RefMiscInfo>
+  </RefMeta>
+  <RefNameDiv>
+    <RefName>hose</RefName>
+    <RefPurpose>Control all manner of rubberhoses</RefPurpose>
+    <RefClass>A command within the Marutukku encryption system</RefClass>
+  </RefNameDiv>
+  <RefSynopsisDiv>
+    <CmdSynopsis>
+      <Command>hose</Command>
+      <Arg><Replaceable>global-options</Replaceable></Arg>
+      <Arg choice=req><Replaceable>command</Replaceable></Arg>
+      <Arg><Replaceable>local-options</Replaceable></Arg>
+      <Arg Rep=repeat><Replaceable>args</Replaceable></Arg>
+    </CmdSynopsis>
+  </RefSynopsisDiv>
+  <RefSect1>
+      <title>GLOBAL OPTIONS</title>
+#     include "options.sgmlhh"
+  </RefSect1>
+  <RefSect1>
+      <title>COMMANDS</title>
+    <VariableList>
+#     include "commands.sgmlhh"
+    </VariableList>
+  </RefSect1>
+  <RefSect1>
+    <Title>COMMAND DESCRIPTIONS</Title>
+#     include "inc.sgmlh"
+  </RefSect1>
+  <refsect1>
+    <title>ENVIROMENTAL VARIABLES</title>
+    <variablelist>
+      <varlistentry>
+	<term><envar>MARU_PASSPHRASE</envar></term>
+	<listitem><para>Use the contents of this variable instead of ever prompting for a passphrase.</para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term><envar>MARU_PASSPHRASE_n</envar></term>
+	<listitem>
+	  <para>
+	    Use the contents of this variable instead of prompting for a passphrase for aspect_n.
+	    This variable is dominant over <envar>MARU_PASSPHRASE</envar>
+	</para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </RefSect1>
+# include "authors.sgml"
+# include "copyright.sgml"
+</RefEntry>

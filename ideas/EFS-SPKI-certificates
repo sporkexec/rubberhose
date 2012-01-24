@@ -1,0 +1,94 @@
+From: Samuli Mattila <zam@niksula.hut.fi>
+Subject: Re: Marutukku - cryptographic filing system (fwd)
+To: proff@iq.org
+cc: zam@hut.fi
+Date: Fri, 31 Oct 1997 17:22:09 +0200 (EET)
+X-From-Line: zam@niksula.hut.fi Fri Oct 31 15:23:17 1997
+Return-Path: <zam@niksula.hut.fi>
+Delivered-To: proff@iq.org
+Received: (qmail 14539 invoked from network); 31 Oct 1997 15:23:14 -0000
+Received: from nukkekoti.cs.hut.fi (130.233.40.128)
+  by profane.iq.org with SMTP; 31 Oct 1997 15:23:14 -0000
+Received: from pallo.cs.hut.fi (zam@pallo.cs.hut.fi [130.233.40.133])
+	by nukkekoti.cs.hut.fi (8.8.8/8.8.8/1.18) with SMTP id RAA03923;
+	Fri, 31 Oct 1997 17:22:15 +0200 (EET)
+X-Sender: zam@pallo.cs.hut.fi
+In-Reply-To: <Pine.NEB.3.95q.971028210848.27194A-100000@pilari.ssh.fi>
+Message-ID: <Pine.SGI.3.96.971031163719.28457A-100000@pallo.cs.hut.fi>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+Lines: 72
+Xref: profane.iq.org marutukku:10 personal:1944
+
+
+
+> ---------- Forwarded message from Tatu Ylonen ----------
+> Date: 28 Oct 1997 17:45:53 -0000
+> From: proff@iq.org
+> To: cryptography@c2.net
+> Subject: Marutukku - cryptographic filing system
+> 
+> 
+> Marutukku (my cryptographic file system/block device) is due for first
+> beta sometime next week. Before release, I'd like some (strong!)
+> criticism of the sub key generation / chaining techniques I'm
+> using...
+>
+> Comments?
+
+
+I recentrly took some personal interest in encrypting a file 
+system (EFS) and this 'paper' seems somewhat promising.
+
+Because in Unix and NT systems all devices are treated as
+files, a encrypting file would solve many security issues
+on basic level. (example socket file in EFS vs. some secure
+transport layer.)
+
+I became interested in this when  I started with playing with 
+the idea of how to maintain confidentiality  even if filesystem is
+compromized. 
+
+In all security models/policies the system administrator with it's
+prividges and low tranquility remain the main flaw.  There is nothing 
+much a person can do, that a root cannot also.
+
+So what I have in mind is a _certificate_ based encrypting filesystem.
+Usage of certificates means that file-access requires strong
+authentication. File-certificates also provide strong integrity.
+
+Using public key cryptography and per user certificate signing unit 
+(CSU) we may define new a "comprehend" atribute. This would
+mean that only defined groups and users have ablity to comprehend
+the data (read,write,execute). This would limit the abilities of 
+sysadm signicantly; sysadm could merely "corrupt" a file.
+
+Using SPKI-certificates and defining certificate and passwd lists 
+as i-node extension this could be achieved quite elegantly.
+
+The consept above would satisfy the need for a secure file system
+that corresponds to real security policy.
+
+There is much more attached to this: 
+ - anonymous file access
+ - ACL/user groups and their shared private keys
+ - file visibility (high integrity data inviseble to low lewel subject)
+ - etc.
+
+
+So far I have been swamped with work, but in the future I am
+looking for people who might be interested in this sort of 
+research or just want to exchange ideas.
+
+What comes to your FS-project, I think that you are trying to
+make too "complex" out of it. A simple kernel mode 448 bit 
+ECB-blowfish encryption would be sufficient, at this phase.
+Support to variois ciphers and stuff can easily be added 
+lateron if the consept catches wind.
+
+
+
+
+-- Samuli <zam@hut.fi>
+
+

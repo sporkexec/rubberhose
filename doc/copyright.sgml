@@ -1,0 +1,35 @@
+/* <!DOCTYPE RefSect1 PUBLIC "-//OASIS//DTD DocBook V3.1//EN"> */
+<refsect1>
+  <title>COPYRIGHT</title>
+  <VariableList>
+    <VarListEntry>
+      <Term>Copyright (c) 1997-2000</Term>
+      <ListItem>
+	<Para>
+<Author>
+	    <firstname>Julian</firstname>
+	    <surname>Assange</surname>
+	  </Author>
+</Para>
+      </ListItem>
+    </VarListEntry> 
+    <VarListEntry>
+      <Term>Copyright (c) 1999-2000</Term>
+      <ListItem>
+	<Para>Australian National Cognitive Facility</Para>
+      </ListItem>
+    </VarListEntry> 
+    <VarListEntry>
+      <Term>Copyright (c) 1999-2000</Term>
+      <ListItem>
+	<Para>
+<Author>
+	    <firstname>Ralf</firstname>
+	    <OtherName>P.</OtherName>
+	    <surname>Weinmann</surname>
+	  </Author>
+</Para>
+      </ListItem>
+    </VarListEntry> 
+  </VariableList>
+</refsect1>

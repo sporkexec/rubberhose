@@ -1,0 +1,194 @@
+# $Id: ALGORITHM,v 1.2 1999/09/09 07:43:15 proff Exp $
+# $Smallcopyright:$
+
+nb. this document suffers from serious bit-rot. and was written before
+the development of deniable aspects. Historical interest only folks :)
+
+Marutukku (my cryptographic file system/block device) is due for first
+beta sometime next week. Before release, I'd like some (strong!)
+criticism of the sub key generation / chaining techniques I'm
+using. But first, for those who haven't a frigging clue what Marutukku
+is, here is a hastily drawn non-cryptographic (more about that later)
+features list:
+
+	o OS independent (excepting two files pertaining only to the
+          kernel drivers)
+
+	o Currently implemented as a 4.4bsd (Free/Net/OpenBSD)
+	  loadable kernel module, and client (I have someone working
+          on the Linux port, but no promises).
+
+	o The BSD implementation turns a file (even an NFS mounted
+	  file) into a device, on which any number of file systems
+          types can be created in the regular manner (or even a swap
+          partition ;)
+
+	o Endian independent - Marutukku extents (the ciphertext
+	  regions) can be mailed around like .tar files
+
+	o various backup/recovery/whole extent encryption/decrypt
+	  functions built into the client
+
+Marutukku supports a variety of ciphers, and the cipher used for the
+lattice (which is used to generate sub-keys for each file-system
+block) generation is independent from the cipher used for block
+functions. At the moment it only makes sense to talk of the lattice
+generator in terms of a stream cipher or a block cipher/hash algorithm
+in OFB. My design principles along the way have attempted as far as
+possible to cover as yet unknown vulnerabilities in the under-laying
+ciphers used with good management of IV's, salts, sub-keys, chaining
+etc.  Some of these steps may pose no additional security in relation
+to certain attacks (i.e secret vs public IV's) on particular ciphers
+but most come at little cost compared to the encryption itself.
+
+Primary key/salt generation walk though:
+
+	A pass-phrase of size (l) is requested from the
+	user. max_keysize (256) public random key saltation bytes are
+	generated and [saved]. (l) of these bytes then salt the key
+	(XOR) (we don't use more than (l) to avoid any potential
+	issues with key-correlation attacks as the salt is public).
+
+	max_keysize cryptographically random bytes are produced to
+	form the "master key".
+
+	The salted pass-phrase is used to encrypt the master key,
+	which is [saved].
+
+	The (unencrypted) master key is used to key a stream cipher
+	(in this case that's rc4 or rc16) which is used for further
+	key generation.
+
+	Bytes [0] and [1] of the key stream output are saved for later
+	use in creating a pass-phrase checksum (more about that later).
+
+	Bytes [2] and [3] of the key stream are saved for later use in
+	encrypting the number of stream-cipher key-generator
+	iterations.
+
+	The stream cipher is then set to stir its internal state for
+	(t) seconds (a user supplied value). The number of iterations
+	(i) is counted, the two LSBytes's from which are encrypted
+	with [2] and [3] and [saved]. The reason we don't encrypt the
+	MSB's is that they are are likely to be known-plain-text (all
+	0 bits to the left) which can be used for key-scanning checks.
+	This has the annoying effect of reducing the uncertainty in
+	the iteration count to 2^16, but I can't fathom a way around
+	it without exposing bits of the stream output.
+
+	Stream bytes [3+i] and [3+i+1] are XOR-ed with bytes [0] and
+	[1] to provide a 16 bit key checksum and [saved]. The distance
+	here serves to obfuscate any predictability in the key-stream
+	generator and force the attacker though all (i) iterations to
+	test each key (or if they are attacking directly on the
+	internal state of the stream cipher at (i) to generate guesses
+	at [0] as well).
+	
+	Public random key-salt for the two primary lattice keys is
+	generated and [saved].
+
+	n * 2 (n=32 for a 4G file-system-block maru extent) public
+	random sub-key lattice IV's are generated and [saved].
+
+	The public master block IV array salt is randomly generated
+	and [saved].
+
+Instance/Lattice generation:
+
+	The saved maru saltation/IV header (above) is loaded, and the the
+	pass-phrase is salted as before. The master key is decrypted
+	and the key stream cipher is initialised, half the checksum is
+	generated, the number of iterations decrypted, the generator
+	stired, the other half of the checksum is generated and the
+	checksum verified.
+
+	The two primary lattice salts are encrypted with the key
+	stream stream and form the primary lattice keys for the
+	lattice fs-block sub-key generating block cipher.
+
+	The n*2 lattice sub-key IV's are encrypted with the stream and
+	form the lattice sub key array.
+
+	The master block IV salt array is encrypted with the stream
+	and forms the master block IV array.
+
+	This ends the primary initialisation stage.
+
+Block key generation:
+
+	The problem here is to turn a block number into a unique
+	"sub-key" for each fs-block in such a way that frustrates
+	possible key (or other) correlation attacks. i.e discovering
+	the key for one block should not help the cryptanalyst in
+	discovering the key for any other block. It is simple to
+	generate a sub-key key-stream with a stream cipher or a block
+	cipher operating in OFB, but storing such a construct is
+	untenable and it is not efficient to generate on the fly (for
+	instance, the first fs-block accessed might be the last in the
+	maru extent, which would correlate to the last sub-key
+	generated by the key-stream).  The solution designed and
+	employed is a binary tree based key generation approach, that
+	can generate a cryptographically-unique block key in
+	log2(max_blocks) steps. The author has thought of various
+	variations on this scheme (e.g with two different
+	cryptographic hashes, one moving left, one moving right), but
+	see below for the variant used in Marutukku.
+	
+	It is simpler to visualise the sub-key generator tree "turned
+	inside out" as a 2d lattice, two columns across and n rows
+	down (this is also how it is implemented in Marutukku). i.e
+
+		______________________
+		|LEFT	   |     RIGHT|
+		|----------+----------|
+		|L-SUBKEY 0|L-SUBKEY 1|
+		|----------+----------|
+		|L-SUBKEY 1|L-SUBKEY 2|
+		|----------+----------|
+		|   ....   |   ....   |
+		|----------+----------|
+		|L-SUBKEY n|L-SUBKEY n|
+		|__________|__________|
+
+
+	The journey from fs-block number to fs-block-key starts with
+	the msb of the block number and the top of the lattice (we use
+	the msb rather than the lsb for caching reasons. Using the lsb
+	naively seems more secure but uncacheable, yet on closer
+	examination, neither of theses claims are true (however the
+	Marutukku lattice sub-key cache *performance* using lsb is
+	poor due to the inverted clustering)). As each bit slides off
+	the left of the block number, key material is picked up from
+	the left or right of the lattice according to whether the bit
+	is on or off. Each lattice sub-key chosen is encrypted with
+	the next (CBC wise, but lattice sub-key size, rather than
+	cipher block size) at the top of the lattice and twines it's
+	way down to the end, collecting key-material as it goes. The
+	result is a unique compressed (i.e its the CBC chaining
+	performing the compression) "necklace" of key material which
+	forms the appropriate fs-block key.
+
+FS block encryption:
+
+	Each plain text block in the fs-block is XOR-ed with the
+	corresponding entry in the master block IV array and then CBC
+	encrypted. In effect, each cipher block has two IV's. The
+	first block, which lacks any cipher text from previous blocks
+	to chain with, uses the block number XOR-ed with its master
+	block IV entry.
+
+	The rational behind this is that we have the benefits of CBC's
+	error-recovering abilities without it's major drawback (and it
+	is certainly not alone here among major block cipher
+	modes) - that is, find the key for (cipher) block 0 and the
+	attacker can successfully decrypt every other block that (CBC
+	wise) follows it.
+
+Comments?
+
+--
+Prof. Julian Assange  |If you want to build a ship, don't drum up people
+                      |together to collect wood and don't assign them tasks
+proff@iq.org          |and work, but rather teach them to long for the endless
+proff@gnu.ai.mit.edu  |immensity of the sea. -- Antoine de Saint Exupery
+

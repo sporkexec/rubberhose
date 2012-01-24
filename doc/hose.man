@@ -1,0 +1,990 @@
+
+
+
+hose(1)                                                   hose(1)
+
+
+NNAAMMEE
+       hose -- Control all manner of rubberhoses
+
+       A command within the Marutukku encryption system
+
+SSYYNNOOPPSSIISS
+       hhoossee [_g_l_o_b_a_l_-_o_p_t_i_o_n_s] _c_o_m_m_a_n_d  [_l_o_c_a_l_-_o_p_t_i_o_n_s]  [_a_r_g_s ...]
+
+GGLLOOBBAALL OOPPTTIIOONNSS
+       --EE        Disable  wait  for  entropy  (useful  for  batch
+                 tests)
+
+       --ff        Force through errors where possible
+
+       --LL        Disable memory locking
+
+       --qq        Quiet
+
+       --QQ        Quick  and  quiet,  enable  --dd00,  --EELLQQTTWW and --PP00
+                 options
+
+       --TT        Disable reseting file time stamps to epoch
+
+       --WW        Disable memory wiping (useful for batch tests)
+
+       --dd _l_e_v_e_l  Set debug level to 'level'
+
+       --PP _l_e_v_e_l  Set self-psychoanalysis rigour to 'level'
+
+CCOOMMMMAANNDDSS
+       aassppeeccttiinnffoo
+                 Dump informative info about aspect
+
+       aattttaacchheexxtteenntt
+                 Attach extent
+
+       bbiinnddaassppeecctt
+                 Binds aspect to device
+
+       cchhaannggeeppaassss
+                 Change keying for aspect
+
+       ddeeccrryyppttaassppeecctt
+                 Decrypt from Aspect to output
+
+       ddeeccrryyppttffiillee
+                 Conventional file decryption
+
+       ddeekkeeyyaassppeecctt
+                 Dekey aspect
+
+       ddeettaacchheexxtteenntt
+                 Detach previously attached extent
+
+
+
+
+                                                                1
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       eennccrryyppttaassppeecctt
+                 Encrypt from input to Aspect
+
+       eennccrryyppttffiillee
+                 Conventional file encryption
+
+       eexxaammppllee   Show example usage for command
+
+       hheellpp      General help or help on a particular command
+
+       iinnffoo      Display configuration
+
+       kkeeyyaassppeecctt Key aspect (needs an attached extent)
+
+       lliisstt      List available ciphers, commands or remaps
+
+       nneewwaassppeecctt Create new aspect for keymap
+
+       nneewweexxtteenntt Create new extent
+
+       nneewwkkeeyymmaapp Create new keymap file
+
+       ppssyycchhoo    Visit the psychiatrist
+
+       rreemmaappiinnffoo Dump remap information
+
+       ssppeeeeddss    Test cipher speeds
+
+       ssyynncc      Sync hose daemon pending writes to disk
+
+       tteerrmmiinnaattee Terminate hose daemon
+
+       uunnbbiinnddaassppeecctt
+                 Unbind aspect from device
+
+       wwiippee      Wipe file or extent
+
+CCOOMMMMAANNDD DDEESSCCRRIIPPTTIIOONNSS
+   aassppeeccttiinnffoo
+       aassppeeccttiinnffoo [--aa _a_s_p_e_c_t_]  _[_k_e_y_m_a_p_]
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       Dump informative info about aspect
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee aassppeeccttiinnffoo
+
+       $   hhoossee aassppeeccttiinnffoo --aa 00 mmaarruu..kkeeyymmaapp
+       Agitating master key with cast-cbc key generator over 123562 iterations...
+       Aspect 1 passphrase ("." to end):
+       Aspect 2 passphrase ("." to end):
+       Aspect 3 passphrase ("." to end):
+       Aspect 4 passphrase ("." to end):
+
+
+
+                                                                2
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       Aspect 5 passphrase ("." to end):
+       Aspect 0:
+       Lattice Cipher: cast-cbc
+       Block Cipher:   idea-cbc
+       Start:          0
+       Blocks:         64
+
+
+   aattttaacchheexxtteenntt
+       aattttaacchheexxtteenntt  [--BB]   [--aa  _a_s_p_e_c_t_]   _[--RR   _p_a_t_h_]    _[_k_e_y_m_a_p
+       _[_e_x_t_e_n_t  _[_d_e_v_i_c_e_] _] _]
+
+       --BB        Disable pro-active block reallocation (bmap)
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       Attach extent
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee aattttaacchheexxtteenntt
+
+       $   hhoossee aattttaacchheexxtteenntt --aa 00 --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   bbiinnddaassppeecctt
+       bbiinnddaassppeecctt [--RR]  [--aa _a_s_p_e_c_t_]
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       Binds aspect to device
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee bbiinnddaassppeecctt
+
+       $   hhoossee bbiinnddaassppeecctt --aa 00 --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   cchhaannggeeppaassss
+       cchhaannggeeppaassss [--aa _a_s_p_e_c_t_]  _[_k_e_y_m_a_p_]
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       Change keying for aspect
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee cchhaannggeeppaassss
+
+       $   hhoossee cchhaannggeeppaassss --aa 00 mmaarruu..kkeeyymmaapp
+
+
+
+
+
+                                                                3
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+   ddeeccrryyppttaassppeecctt
+       ddeeccrryyppttaassppeecctt [--aa _a_s_p_e_c_t_]  _[--oo _f_i_l_e_]  _[--ss _b_l_o_c_k_s_]  _[_k_e_y_m_a_p
+       _[_e_x_t_e_n_t  _[_o_u_t_p_u_t_] _] _]
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       --oo _f_i_l_e   Output operation to 'file'
+
+       --ss _b_l_o_c_k_s Size in 'blocks'
+
+       Decrypt from Aspect to output
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ddeeccrryyppttaassppeecctt
+
+       $   hhoossee ddeeccrryyppttaassppeecctt --aa 00 --oo mmaarruu..oouutt
+       Agitating master key with cast-cbc key generator over 123562 iterations...
+       Aspect 1 passphrase ("." to end):
+       Aspect 2 passphrase ("." to end):
+       Aspect 3 passphrase ("." to end):
+       Aspect 4 passphrase ("." to end):
+       Aspect 5 passphrase ("." to end):
+       decrypted 64 blocks from maru.extent to maru.out
+
+
+   ddeeccrryyppttffiillee
+       ddeeccrryyppttffiillee [--33 _c_i_p_h_e_r_]  _[--ii _f_i_l_e_]   _[--oo  _f_i_l_e_]   _[--VV  _i_v_]
+       _[_i_n_p_u_t  _[_o_u_t_p_u_t_] _]
+
+       --33 _c_i_p_h_e_r Cipher for block encryption/decryption
+
+       --ii _f_i_l_e   Take input from 'file'
+
+       --oo _f_i_l_e   Output operation to 'file'
+
+       --VV _i_v     Use 'iv' (in hex) as the initialisation vector
+
+       Conventional file decryption
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ddeeccrryyppttffiillee
+
+       $   hhoossee ddeeccrryyppttffiillee --33 iiddeeaa--ccbbcc --ii mmaarruu..cciipphheerrtteexxtt --VV 00xxaaddeeaaddffeeddbbaabbeeccaaffee --oo mmaarruu..oouutt
+       Passphrase:
+
+
+   ddeekkeeyyaassppeecctt
+       ddeekkeeyyaassppeecctt [--aa _a_s_p_e_c_t_]  _[--RR _p_a_t_h_]
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       Dekey aspect
+
+
+
+                                                                4
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ddeekkeeyyaassppeecctt
+
+       $   hhoossee ddeekkeeyyaassppeecctt --aa 00 --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   ddeettaacchheexxtteenntt
+       ddeettaacchheexxtteenntt [--RR _p_a_t_h_]
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       Detach previously attached extent
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ddeettaacchheexxtteenntt
+
+       $   hhoossee ddeettaacchheexxtteenntt --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   eennccrryyppttaassppeecctt
+       eennccrryyppttaassppeecctt  [--BB]   [--aa  _a_s_p_e_c_t_]  _[--ii _f_i_l_e_]  _[--ss _b_l_o_c_k_s_]
+       _[_k_e_y_m_a_p  _[_e_x_t_e_n_t  _[_i_n_p_u_t_] _] _]
+
+       --BB        Disable pro-active block reallocation (bmap)
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       --ii _f_i_l_e   Take input from 'file'
+
+       --ss _b_l_o_c_k_s Size in 'blocks'
+
+       Encrypt from input to Aspect
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee eennccrryyppttaassppeecctt
+
+       $   hhoossee eennccrryyppttaassppeecctt --aa 00 --ii mmaarruu..ppllaaiinntteexxtt mmaarruu..kkeeyymmaapp
+       Agitating master key with cast-cbc key generator over 123562 iterations...
+       Aspect 1 passphrase ("." to end):
+       Aspect 2 passphrase ("." to end):
+       Aspect 3 passphrase ("." to end):
+       Aspect 4 passphrase ("." to end):
+       Aspect 5 passphrase ("." to end):
+       encrypted 32 blocks from maru.plaintext to maru.extent
+
+
+   eennccrryyppttffiillee
+       eennccrryyppttffiillee [--33 _c_i_p_h_e_r_]  _[--ii _f_i_l_e_]   _[--oo  _f_i_l_e_]   _[--VV  _i_v_]
+       _[_i_n_p_u_t  _[_o_u_t_p_u_t_] _]
+
+       --33 _c_i_p_h_e_r Cipher for block encryption/decryption
+
+       --ii _f_i_l_e   Take input from 'file'
+
+
+
+
+                                                                5
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       --oo _f_i_l_e   Output operation to 'file'
+
+       --VV _i_v     Use 'iv' (in hex) as the initialisation vector
+
+       Conventional file encryption
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee eennccrryyppttffiillee
+
+       $   hhoossee eennccrryyppttffiillee --33 iiddeeaa--ccbbcc --ii mmaarruu..ppllaaiinntteexxtt --oo mmaarruu..cciipphheerrtteexxtt
+       Passphrase:
+
+
+   eexxaammppllee
+       eexxaammppllee [--mm]  [command]
+
+       --mm        Minimal output
+
+       Show example usage for command
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee eexxaammppllee
+
+       $   hhoossee eexxaammppllee nneewwaassppeecctt
+       Example:
+
+
+   hheellpp
+       hheellpp [--SS]  [commands  | options  | _c_o_m_m_a_n_d ]
+
+       --SS        SGML output
+
+       General help or help on a particular command
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee hheellpp
+
+       $   hhoossee hheellpp nneewwkkeeyymmaapp
+       Usage: ../hose/hose [-EfLqQTW] [-d level] [-P level] newkeymap [-1 cipher] [-A aspects] [-b bytes] [-c blocks] [-D depth] [-r remap] [-s blocks] [keymap]
+       Description:
+       Create new keymap file
+       Local options:
+       -1 cipher           Cipher for encryption/decryption of keys
+       -A aspects          Max number of usable aspects
+       -b bytes            Block size in bytes
+       -c blocks           Largest aspect size in blocks
+       -D depth            Depth of block key lattice
+       -r remap            Use remap type 'remap'
+       -s blocks           Size in 'blocks'
+       Global options:
+       -E                  Disable wait for entropy (useful for batch tests)
+       -f                  Force through errors where possible
+       -L                  Disable memory locking
+       -q                  Quiet
+
+
+
+                                                                6
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       -Q                  Quick and quiet, enable -d0, -ELQTW and -P0 options
+       -T                  Disable reseting file time stamps to epoch
+       -W                  Disable memory wiping (useful for batch tests)
+       -d level            Set debug level to 'level'
+       -P level            Set self-psychoanalysis rigour to 'level'
+       Example:
+
+
+   iinnffoo
+       iinnffoo  [--ll  _s_e_c_o_n_d_s_]   _[--II  _s_e_c_o_n_d_s_]   _[--xx  _m_s_e_c_]   _[_k_e_y_m_a_p
+       _[_e_x_t_e_n_t  _[_d_e_v_i_c_e_] _] _]
+
+       --II _s_e_c_o_n_d_s
+                 Autodetach after 'seconds' of idleness
+
+       --ll _s_e_c_o_n_d_s
+                 Autodetach after 'seconds' since attach
+
+       --xx _m_s_e_c   Use 'msec' miliseconds between cipher state xors
+
+       Display configuration
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee iinnffoo
+
+       $   hhoossee iinnffoo mmaarruu..kkeeyymmaapp
+       Major Version:  2
+       Minor Version:  1
+       Key Cipher:
+       name cast-cbc
+       cipher_num    1
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    132 bytes
+       Key Iterations: 123562
+       Blocks:         128
+       Block Size:     8192
+       Lattice Depth:  32 (4194304k addressable bytes)
+       Aspects:        6
+       Remap Type:     bmap
+       Checksum:       0xabf0bfb5
+       Maru device:    /dev/maru0
+       Maru extents:   maru.extent
+       Maru IV/SALT:   maru.keymap
+       Life time:      28800 (seconds)
+       Idle time:      1800 (seconds)
+       XOR cycle:      500 (mili seconds)
+
+
+   kkeeyyaassppeecctt
+       kkeeyyaassppeecctt [--RR]  [--aa _a_s_p_e_c_t_]
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+
+
+
+                                                                7
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       Key aspect (needs an attached extent)
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee kkeeyyaassppeecctt
+
+       $   hhoossee kkeeyyaassppeecctt --aa 00 --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   lliisstt
+       lliisstt [--mm]  [ciphers  | commands  | remaps ]
+
+       --mm        Minimal output
+
+       List available ciphers, commands or remaps
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee lliisstt
+
+       $   hhoossee lliisstt cciipphheerrss
+       name xor
+       cipher_num    16
+       key_size      256 bits
+       block_size    0 bits (stream cipher)
+       state/ksch    4 bytes
+       name bcopy
+       cipher_num    17
+       key_size      256 bits
+       block_size    0 bits (stream cipher)
+       state/ksch    4 bytes
+       name idea-cbc
+       cipher_num    2
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    432 bytes
+       name cast-cbc
+       cipher_num    1
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    132 bytes
+       name ssl-blowfish-cbc
+       cipher_num    6
+       key_size      448 bits
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-rc2-cbc
+       cipher_num    12
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-rc4
+       cipher_num    13
+       key_size      256 bits
+
+
+
+                                                                8
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       block_size    0 bits (stream cipher)
+       state/ksch    8196 bytes
+       name ssl-rc5-cbc
+       cipher_num    15
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-idea-cbc
+       cipher_num    11
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-des-cbc
+       cipher_num    7
+       key_size      64 bits (56 bits real)
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-des-ede-cbc
+       cipher_num    8
+       key_size      128 bits (112 bits real)
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-des-ede3-cbc
+       cipher_num    9
+       key_size      192 bits (168 bits real)
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-desx-cbc
+       cipher_num    10
+       key_size      192 bits (168 bits real)
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name ssl-cast-cbc
+       cipher_num    14
+       key_size      128 bits
+       block_size    64 bits
+       state/ksch    8196 bytes
+       name rc16
+       cipher_num    4
+       key_size      256 bits
+       block_size    0 bits (stream cipher)
+       state/ksch    131080 bytes
+
+
+   nneewwaassppeecctt
+       nneewwaassppeecctt  [--22  _c_i_p_h_e_r_]   _[--33  _c_i_p_h_e_r_]   _[--aa  _a_s_p_e_c_t_]  _[--OO
+       _b_l_o_c_k_]  _[--ss _b_l_o_c_k_s_]  _[--tt _t_i_m_e_]  _[_k_e_y_m_a_p_]
+
+       --22 _c_i_p_h_e_r Cipher for generation of block keys
+
+       --33 _c_i_p_h_e_r Cipher for block encryption/decryption
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+
+
+
+                                                                9
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       --OO _b_l_o_c_k  Start block range at offset 'block'
+
+       --ss _b_l_o_c_k_s Size in 'blocks'
+
+       --tt _t_i_m_e   Use 'time' seconds of key cycle agitation
+
+       Create new aspect for keymap
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee nneewwaassppeecctt
+
+       $   hhoossee nneewwaassppeecctt --22 ccaasstt--ccbbcc --33 iiddeeaa--ccbbcc --aa 00 --ss 6644 --tt 11 mmaarruu..kkeeyymmaapp
+       Generating 11128 pseudo-cryptographically random bytes for aspect 0 erasure
+       Generating 32 pseudo-cryptographically random bytes for aspect 0 key salt
+       Generating 104 pseudo-cryptographically random bytes for aspect 0 cycle
+       Generating 32 cryptographically random bytes for aspect 0 master key
+       Generating 32 cryptographically random bytes for aspect 0 info key
+       Generating 32 cryptographically random bytes for aspect 0 remap master key
+       Generating 104 pseudo-cryptographically random bytes for cycle salt
+
+       Agitating cast-cbc key generator state for 1 second...
+       123562 cast-cbc agitations (123562 per second)
+       Generating 4 pseudo-cryptographically random bytes for aspect information salt
+       Generating 64 pseudo-cryptographically random bytes for primary lattice key salts
+       Generating 2048 pseudo-cryptographically random bytes for subkey lattice IVs
+       Generating 8192 pseudo-cryptographically random bytes for block whitener
+
+       Clearing key artifacts
+
+
+   nneewweexxtteenntt
+       nneewweexxtteenntt [--11  _c_i_p_h_e_r_]   _[--ww  _r_o_u_n_d_s_]   _[--ss  _b_l_o_c_k_s_]   _[--bb
+       _b_y_t_e_s_]  _[_k_e_y_m_a_p_]  _[_e_x_t_e_n_t_]
+
+       --11 _c_i_p_h_e_r Cipher for encryption/decryption of keys
+
+       --bb _b_y_t_e_s  Block size in bytes
+
+       --ss _b_l_o_c_k_s Size in 'blocks'
+
+       --ww _r_o_u_n_d_s Apply 'rounds' worth of wiping
+
+       Create new extent
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee nneewweexxtteenntt
+
+       $   hhoossee nneewweexxtteenntt --11 ccaasstt--ccbbcc --ww 00 --ss 112288 --bb 88119922
+       hose: Warning: creating extent using Unix file holes. Such extents are *not* crypto-deniable.
+       Extent creation complete (1048576 bytes)
+
+
+   nneewwkkeeyymmaapp
+       nneewwkkeeyymmaapp  [--11  _c_i_p_h_e_r_]   _[--AA  _a_s_p_e_c_t_s_]   _[--bb  _b_y_t_e_s_]  _[--cc
+
+
+
+                                                               10
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       _b_l_o_c_k_s_]  _[--DD _d_e_p_t_h_]  _[--rr _r_e_m_a_p_]  _[--ss _b_l_o_c_k_s_]  _[_k_e_y_m_a_p_]
+
+       --11 _c_i_p_h_e_r Cipher for encryption/decryption of keys
+
+       --AA _a_s_p_e_c_t_s
+                 Max number of usable aspects
+
+       --bb _b_y_t_e_s  Block size in bytes
+
+       --cc _b_l_o_c_k_s Largest aspect size in blocks
+
+       --DD _d_e_p_t_h  Depth of block key lattice
+
+       --rr _r_e_m_a_p  Use remap type 'remap'
+
+       --ss _b_l_o_c_k_s Size in 'blocks'
+
+       Create new keymap file
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee nneewwkkeeyymmaapp
+
+       $   hhoossee nneewwkkeeyymmaapp --11 ccaasstt--ccbbcc --AA 66 --bb 88119922 --cc 3322 --rr bbmmaapp --ss 112288 mmaarruu..kkeeyymmaapp
+       Generating 64496 pseudo-cryptographically random bytes for keymap erasure
+       Maru keymap generation complete.
+       Saving Maru Keymap as "maru.keymap"
+       * MAKE AT LEAST TWO BACKUPS of this file. If a single bit sells out to the dark
+       forces of entropy, your entire maru ciphertext extent will follow suit!
+
+
+   ppssyycchhoo
+       ppssyycchhoo
+
+       Visit the psychiatrist
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ppssyycchhoo
+
+       $   hhoossee --dd 99 --PP 99 ppssyycchhoo
+       hose: psychoanalysis: checking that all command options have help...
+       hose: psychoanalysis: checking that all options have commands that use them...
+       hose: psychoanalysis: sizeof (m_u64) == 8... passed
+       hose: psychoanalysis: sizeof (m_u32) == 4... passed
+       hose: psychoanalysis: sizeof (m_u16) == 2... passed
+       hose: psychoanalysis: sizeof (m_u8) == 1... passed
+       hose: psychoanalysis: sizeof (int) >= 4... passed
+       hose: psychoanalysis: hton8(0x12) == 0x12... passed
+       hose: psychoanalysis: hton16(0x1234) == 0x3412... passed
+       hose: psychoanalysis: hton32(0x12345678) == 0x78563412... passed
+       hose: psychoanalysis: hton64(0x1122334455667788) == 0x8877665544332211... passed
+       hose: psychoanalysis: MAX_PASSPHRASE >= MIN_PASSPHRASE... passed
+       hose: psychoanalysis: MAX_IV == MAX_CIPHER_BLOCK... passed
+       hose: psychoanalysis: MAX_CIPHER_BLOCK == 8... passed
+       hose: psychoanalysis: sizeof (maruPass) == MAX_PASSPHRASE... passed
+
+
+
+                                                               11
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       hose: psychoanalysis: sizeof (maruKey) == MAX_KEY... passed
+       hose: psychoanalysis: sizeof (maruIV) == MAX_IV... passed
+       hose: psychoanalysis: sizeof (maruBlock) == MAX_CIPHER_BLOCK... passed
+       hose: psychoanalysis: blockAligned(maruCycle)... passed
+       hose: psychoanalysis: blockAligned(maruAspectInfo)... passed
+       hose: psychoanalysis: examining "/home/proff"... passed
+       hose: psychoanalysis: examining "/etc/mtab"... passed
+       hose: psychoanalysis: xor auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: xor auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: bcopy auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: bcopy auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: idea-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: idea-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: cast-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: cast-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-blowfish-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-blowfish-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-rc2-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-rc2-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-rc4 auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-rc4 auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-rc5-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-rc5-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-idea-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-idea-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-des-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-des-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-des-ede-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-des-ede-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-des-ede3-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-desx-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-desx-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: ssl-cast-cbc auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: ssl-cast-cbc auto test vector in != out, ply = 1... passed
+       hose: psychoanalysis: rc16 auto test vector in == out, ply = 1... passed
+       hose: psychoanalysis: rc16 auto test vector in != out, ply = 1... passed
+       Passed the maru DSM, level 9
+
+
+   rreemmaappiinnffoo
+       rreemmaappiinnffoo [_k_e_y_m_a_p]
+
+       Dump remap information
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee rreemmaappiinnffoo
+
+       $   hhoossee rreemmaappiinnffoo mmaarruu..kkeeyymmaapp
+       Agitating master key with cast-cbc key generator over 123562 iterations...
+       Aspect 1 passphrase ("." to end):
+       Aspect 2 passphrase ("." to end):
+       Aspect 3 passphrase ("." to end):
+       Aspect 4 passphrase ("." to end):
+
+
+
+                                                               12
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       Aspect 5 passphrase ("." to end):
+       Remap type: bmap        Dynamically distribute blocks to aspects
+       Block -> Aspect ownership map (* = collision):
+       0       ......................................................................
+       46      ..........................................................
+
+
+   ssppeeeeddss
+       ssppeeeeddss [--eeSS]  [--aa _a_s_p_e_c_t_]  _[_k_e_y_m_a_p  _[_e_x_t_e_n_t_] _]
+
+       --ee        Use entire maru encryption path for speed calcu-
+                 lations
+
+       --SS        SGML output
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       Test cipher speeds
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ssppeeeeddss
+
+       $   hhoossee ssppeeeeddss
+       Cipher           | setkey/s |  512k/s | 1024k/s | 2048k/s | 4096k/s | 8192k/s
+       =================+==========+=========+=========+=========+=========+========
+       xor              | 28395307 |  688120 |  735121 |  756022 |  769100 |  766624
+       -----------------+----------+---------+---------+---------+---------+--------
+       bcopy            | 28817071 |  453326 |  587886 |  685740 |  746232 |  779120
+       -----------------+----------+---------+---------+---------+---------+--------
+       idea-cbc         |  1801295 |    4339 |    4193 |    4166 |    4196 |    4224
+       -----------------+----------+---------+---------+---------+---------+--------
+       idea-cbc-D       |    31245 |    4272 |    4150 |    4136 |    4188 |    4168
+       -----------------+----------+---------+---------+---------+---------+--------
+       cast-cbc         |   462943 |   12883 |   13008 |   12980 |   13120 |   12888
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-blowfish-cbc |     4048 |   14312 |   14369 |   14462 |   14444 |   14240
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-rc2-cbc      |   124204 |    4211 |    4200 |    4226 |    4248 |    4248
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-rc4          |   117164 |   23569 |   29444 |   32970 |   35716 |   36976
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-rc5-cbc      |   294663 |   10822 |   10803 |   10914 |   10812 |   10800
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-rc5-cbc-D    |   294667 |   18364 |   18599 |   18600 |   18472 |   18592
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-idea-cbc     |  1332064 |    5902 |    6203 |    6282 |    6324 |    6408
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-idea-cbc-D   |    31311 |    5863 |    6317 |    6390 |    6280 |    6216
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-des-cbc      |   455926 |    5507 |    5512 |    5536 |    5524 |    5504
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-des-ede-cbc  |   222911 |    1962 |    1954 |    1964 |    1956 |    1968
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-des-ede3-cbc |   163273 |    1959 |    1948 |    1958 |    1928 |    1960
+
+
+
+                                                               13
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-desx-cbc     |   456771 |    5508 |    5384 |    5420 |    5424 |    5400
+       -----------------+----------+---------+---------+---------+---------+--------
+       ssl-cast-cbc     |   340860 |    9570 |    9515 |    9530 |    9624 |    9536
+       -----------------+----------+---------+---------+---------+---------+--------
+       rc16             |      424 |   30795 |   30680 |   30936 |   30864 |   30912
+       -----------------+----------+---------+---------+---------+---------+--------
+
+
+   ssyynncc
+       ssyynncc [--RR _p_a_t_h_]
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       Sync hose daemon pending writes to disk
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee ssyynncc
+
+       $   hhoossee ssyynncc --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   tteerrmmiinnaattee
+       tteerrmmiinnaattee [--RR _p_a_t_h_]
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       Terminate hose daemon
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee tteerrmmiinnaattee
+
+       $   hhoossee tteerrmmiinnaattee --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   uunnbbiinnddaassppeecctt
+       uunnbbiinnddaassppeecctt [--aa _a_s_p_e_c_t_]  _[--RR _p_a_t_h_]
+
+       --aa _a_s_p_e_c_t Use aspect number 'aspect'
+
+       --RR _p_a_t_h   Rendezvous with hosed AF_UNIX socket at 'path'
+
+       Unbind aspect from device
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee uunnbbiinnddaassppeecctt
+
+       $   hhoossee uunnbbiinnddaassppeecctt --aa 00 --RR //ttmmpp//rreennddeezzvvoouuss
+
+
+   wwiippee
+       wwiippee [--11 _c_i_p_h_e_r_]  _[--bb _b_y_t_e_s_]  _[_e_x_t_e_n_t_]
+
+       --11 _c_i_p_h_e_r Cipher for encryption/decryption of keys
+
+
+
+                                                               14
+
+
+
+
+
+hose(1)                                                   hose(1)
+
+
+       --bb _b_y_t_e_s  Block size in bytes
+
+       Wipe file or extent
+
+   EEXXAAMMPPLLEE
+       EExxaammppllee wwiippee
+
+       $   hhoossee wwiippee --11 rrcc1166 mmaarruu..eexxtteenntt
+       Generating 32 cryptographically random bytes for rc16 erasure key
+
+       Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 192512/1048576
+       Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 522240/1048576
+       Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 843776/1048576
+       Erasing maru.extent (and mirrors) with rc16(/dev/random): pass 1 1048576/1048576
+
+
+EENNVVIIRROOMMEENNTTAALL VVAARRIIAABBLLEESS
+       MARU_PASSPHRASE
+                 Use  the  contents  of  this variable instead of
+                 ever prompting for a passphrase.
+
+       MARU_PASSPHRASE_n
+                 Use the contents of  this  variable  instead  of
+                 prompting  for  a passphrase for aspect_n.  This
+                 variable  is   dominant   over   MARU_PASSPHRASE
+
+
+AAUUTTHHOORRSS
+       Julian  Assange  Director  Australian  National  Cognitive
+       Facility
+
+       PO BOX 20313122Hawthorn, VictoriaAustraliaproff@iq.org
+
+
+CCOOPPYYRRIIGGHHTT
+       Copyright (c) 1997-2000
+                 Julian Assange
+
+       Copyright (c) 1999-2000
+                 Australian National Cognitive Facility
+
+       Copyright (c) 1999-2000
+                 Ralf (P.) Weinmann
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                               15
+
+

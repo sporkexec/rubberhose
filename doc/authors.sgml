@@ -1,0 +1,22 @@
+/* <!DOCTYPE RefSect1 PUBLIC "-//OASIS//DTD DocBook V3.1//EN"> */
+<refsect1>
+      <title>AUTHORS</title>
+      <Para>
+<Author>
+	  <firstname>Julian</firstname>
+	  <surname>Assange</surname>
+	  <Affiliation>
+	    <JobTitle>Director</JobTitle>
+	    <OrgName>Australian National Cognitive Facility</OrgName>
+	    <Address>
+<POB>PO BOX 2031</POB>
+<Postcode>3122</PostCode>
+<City>Hawthorn</City>
+<State>Victoria</State>
+<Country>Australia</Country>
+<Email>proff@iq.org</Email>
+</Address>
+	  </Affiliation>
+	</Author>
+</Para>
+</refsect1>
